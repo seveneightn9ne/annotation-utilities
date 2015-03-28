@@ -1,4 +1,4 @@
-# Annotation Utilities for Universal Dependency tagging
+# Utilities for Universal Dependency Annotation
 ## anno_checker.py
 Validates an annotation file where the lines are:
 ```
