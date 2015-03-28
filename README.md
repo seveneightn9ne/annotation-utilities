@@ -4,6 +4,12 @@ Validates an annotation file where the lines are:
 ```
 index    word    universal-pos    ptb-pos    head-index    relation
 ```
+### Usage
+```
+$ python anno_checker.py my_file.anno
+```
+It will output each error on a line. If there are parsing errors, you will need to run it again to get the semantic errors. No output means everything is good.
+
 ### Currently checks:
 * Correct format of lines (tab separated, 6 items on each line)
 * `universal-pos` is in [this list](http://universaldependencies.github.io/docs/en/pos/all.html) of UPOS tags
@@ -15,4 +21,5 @@ index    word    universal-pos    ptb-pos    head-index    relation
   
 ### Future Work:
 * Make sure each `head-index` is in the sentence
+* Make sure each `index` is sequential starting from 1 (probably unnecessary)
 * Point out likely mistakes (for example tagging something as `NOUN` and `VB`)
