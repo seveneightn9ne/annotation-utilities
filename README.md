@@ -25,7 +25,7 @@ It will output each error on a line. If there are parsing errors, you will need 
 * Point out likely mistakes (for example tagging something as `NOUN` and `VB`)
 
 ## training_data_searcher.py
-Searches `English.train.connlu` for sentences with a matching phrase
+Searches `English.train.conllu` for sentences with a matching phrase
 ### Usage
 ```
 $ python training_data_searcher.py "search phrase" | less
