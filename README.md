@@ -23,3 +23,18 @@ It will output each error on a line. If there are parsing errors, you will need 
 * Make sure each `head-index` is in the sentence
 * Make sure each `index` is sequential starting from 1 (probably unnecessary)
 * Point out likely mistakes (for example tagging something as `NOUN` and `VB`)
+
+## training_data_searcher.py
+Searches `English.train.connlu` for sentences with a matching phrase
+### Usage
+```
+$ python training_data_searcher.py "search phrase" | less
+```
+The search phrase can be a combination of regexes that match words, and UPOS tags.
+
+Examples:
+* `"go \w+ing"` matches "go fishing", "go shopping", etc.
+* `"go VERB"` matches the above, plus "go pull", etc.
+* `"DET NOUN NOUN"` "an investment firm", etc.
+
+It outputs each full sentence, so it's recommended to pipe through `less`.
