@@ -11,6 +11,19 @@ class Sentence(object):
     def validate(self):
         map(lambda line: line.validate(), self.lines)
         self.validate_projectivity()
+        self.validate_hind_in_bounds()
+
+    def validate_hind_in_bounds(self):
+        found_root = False
+        for line in self.lines + filter(lambda l: l != None, [l.correction for l in self.lines]):
+            if line.hind > len(self.lines)+1 or line.hind < 0:
+                print "Out of bounds HIND on line %d" % line.lnum
+            if line.hind == 0 and line in self.lines: # excludes correction lines from being root
+                if found_root:
+                    print "Multiple root node on line %d" % line.lnum
+                found_root = True
+        if not found_root:
+            print "No root found in sentence on line %d" % self.lines[0].lnum
 
     def validate_projectivity(self):
         for line in self.lines:
@@ -60,7 +73,7 @@ class Line(object):
             "vocative","discourse","expl","aux","auxpass","cop","mark","punct","conj","cc","root",
             "cc:preconj","dep"])
 
-    def __init__(self, linenum, ind, word, upos, pos, hind, rel):
+    def __init__(self, linenum, ind, word, upos, pos, hind, rel, correction=None):
         self.lnum = linenum
         self.ind = ind
         self.word = word
@@ -68,6 +81,7 @@ class Line(object):
         self.pos = pos
         self.hind = hind
         self.rel = rel
+        self.correction = correction
 
     @staticmethod
     def parse_numbered_line(nline):
@@ -77,7 +91,9 @@ class Line(object):
         if len(items) < 6:
             print LineParseError(num, "Too few entries", sline)
             return
-        elif len(items) > 6:
+        elif len(items) > 6 and len(items) < 10:
+            print LineParseError(num, "Wrong number of entries", sline)
+        elif len(items) > 10:
             print LineParseError(num, "Too many entries", sline)
             return
         try:
@@ -90,12 +106,24 @@ class Line(object):
         except ValueError:
             print LineParseError(num, "Non-numerical head index '%s'" % items[4], sline)
             return
-        return Line(num, ind, items[1], items[2], items[3], hind, items[5])
+        if len(items) == 10: # line contains correction layer
+            try:
+                c_hind = int(items[8])
+            except ValueError:
+                print LineParseError(num,
+                        "Non-numerical correction head index '%s'" % items[8], sline)
+                return
+            correction = Line(num, ind, items[6], items[7], c_hind, items[9])
+        else:
+            correction = None
+        return Line(num, ind, items[1], items[2], items[3], hind, items[5], correction)
 
     def validate(self):
         self.val_pos_exists()
         self.val_upos_exists()
         self.val_rel_exists()
+        if self.correction != None:
+            self.correction.validate()
 
     def val_pos_exists(self):
         if not self.pos in self.all_pos:
