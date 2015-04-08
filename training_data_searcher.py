@@ -30,10 +30,18 @@ class Word(object):
     all_upos = set(["ADJ","ADV","INTJ","NOUN","PROPN","VERB","ADP","AUX","CONJ","DET","NUM","PART",
             "PRON","SCONJ","PUNCT","SYM","X"])
 
+    all_rel = set(["nsubj","nsubjpass","dobj","iobj","csubj","csubjpass","ccomp","xcomp","nummod",
+            "appos","nmod","nmod:npmod","nmod:tmod","nmod:poss","acl","acl:relcl","amod","det",
+            "det:predet","neg","case","advcl","advmod","compound","compound:prt","name",
+            "mwe","foreign","goeswith","list","dislocated","parataxis","remnant","reparandum",
+            "vocative","discourse","expl","aux","auxpass","cop","mark","punct","conj","cc","root",
+            "cc:preconj","dep"])
+
     def __init__(self, line):
         items = line.split("\t")
         self.word = items[1]
         self.pos = items[3]
+        self.rel = items[7]
 
     def __str__(self):
         return self.word
@@ -41,6 +49,8 @@ class Word(object):
     def matches(self, string):
         if string.isupper() and string != "I":
             return string == self.pos
+        if string == self.rel:
+            return True
         restring = "^" + string + "$"
         return re.match(restring, self.word, re.I)
 
