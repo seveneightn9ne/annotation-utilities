@@ -113,7 +113,7 @@ class Line(object):
                 print LineParseError(num,
                         "Non-numerical correction head index '%s'" % items[8], sline)
                 return
-            correction = Line(num, ind, items[6], items[7], c_hind, items[9])
+            correction = Line(num, ind, items[1], items[6], items[7], c_hind, items[9])
         else:
             correction = None
         return Line(num, ind, items[1], items[2], items[3], hind, items[5], correction)
@@ -169,7 +169,15 @@ if __name__ == "__main__":
     else:
         fn = sys.argv[1]
     f = open(fn, "r")
+    upto = False
+    if len(sys.argv) > 2 and sys.argv[2].startswith("--upto="):
+        try:
+            upto = int(sys.argv[2].split("=")[1])
+        except ValueError:
+            print "Warning: non-numeric `upto` argument ignored"
     numbered_lines = enumerate(f.read().split("\n"))
+    if upto:
+        numbered_lines = list(numbered_lines)[:upto]
     sentences = numbered_lines_to_sentences(numbered_lines)
     map(Sentence.validate, sentences)
 
