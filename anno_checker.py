@@ -16,7 +16,7 @@ class Sentence(object):
     def validate_hind_in_bounds(self):
         found_root = False
         for line in self.lines + filter(lambda l: l != None, [l.correction for l in self.lines]):
-            if line.hind > len(self.lines)+1 or line.hind < 0:
+            if line.hind > len(self.lines)+1 or line.hind < -1:
                 print "Out of bounds HIND on line %d" % line.lnum
             if line.hind == 0 and line in self.lines: # excludes correction lines from being root
                 if found_root:
