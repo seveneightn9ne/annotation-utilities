@@ -97,9 +97,9 @@ if __name__ == "__main__" and len(sys.argv) > 1:
     if matches:
         print len(matches), "matching sentences.\n"
         print "Part of Speech:"
-        print analyze_frequency(map(lambda m: m.match_attr("pos"), matches))
+        analyze_frequency(map(lambda m: m.match_attr("pos"), matches))
         print "\nRelation:"
-        print analyze_frequency(map(lambda m: m.match_attr("rel"), matches))
+        analyze_frequency(map(lambda m: m.match_attr("rel"), matches))
         print
         for s in matches:
             print s
