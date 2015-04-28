@@ -5,6 +5,7 @@ class Sentence(object):
     def __init__(self, lines):
         self.fulltext = "\n".join(lines)
         self.words = map(Word, lines)
+        self.match = None
 
     def __str__(self):
         return " ".join(map(str, self.words))
@@ -12,14 +13,22 @@ class Sentence(object):
     def matches(self, string):
         words = string.split(" ")
         for si in range(len(self.words)-len(words)):
-            match = True
+            self.match = []
             for (i, word) in enumerate(words):
-                if not self.words[si+i].matches(word):
-                    match = False
+                word_obj = self.words[si+i]
+                if word_obj.matches(word):
+                    self.match.append(word_obj)
+                else:
+                    self.match = None
                     break
-            if match:
+            if self.match != None:
                 return True
         return False
+
+    def match_attr(self, attr):
+        if self.match == None:
+            raise RuntimeError("Querying %s of a nonexistent match" % attr)
+        return " ".join(map(lambda w: getattr(w, attr), self.match))
 
 
 class Word(object):
@@ -69,6 +78,12 @@ def lines_to_sentences(lines):
     return sentences
 
 
+def analyze_frequency(items, upto=10):
+    freqs = {item: items.count(item) for item in set(items)}
+    for item in sorted(freqs.keys(), lambda x,y: cmp(freqs[x], freqs[y]), reverse=True)[:upto]:
+        print "%s\t%d" % (item, 100*float(freqs[item])/float(len(items))) + "%"
+
+
 if __name__ == "__main__" and len(sys.argv) > 1:
     phrase = sys.argv[1].strip("\"")
     if len(sys.argv) > 2 and sys.argv[2].startswith("--corpus="):
@@ -80,7 +95,12 @@ if __name__ == "__main__" and len(sys.argv) > 1:
     sentences = lines_to_sentences(lines)
     matches = filter(lambda s: s.matches(phrase), sentences)
     if matches:
-        print len(matches), "matching sentences:\n"
+        print len(matches), "matching sentences.\n"
+        print "Part of Speech:"
+        print analyze_frequency(map(lambda m: m.match_attr("pos"), matches))
+        print "\nRelation:"
+        print analyze_frequency(map(lambda m: m.match_attr("rel"), matches))
+        print
         for s in matches:
             print s
             print s.fulltext + "\n"
