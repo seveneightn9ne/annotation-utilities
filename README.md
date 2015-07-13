@@ -12,7 +12,7 @@ It will output each error on a line. If there are parsing errors, you will need 
 
 If there is a mismatch between the tokenized sentence in `#SENT` and the entries in the actual sentence, the script will prompt the user as follows:
 ```
-$ TokenError on line \[line number\]: Mismatched token: \[entry in sentence\] \[entry in #SENT\]
+$ TokenError on line <line number>: Mismatched token: <entry in sentence> <entry in #SENT>
 Would you like to replace the token? y/n : 
 ```
 Entering `y` or `yes` will replace the entry in the sentence with the corresponding entry in #SENT.
