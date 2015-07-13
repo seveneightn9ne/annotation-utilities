@@ -3,20 +3,21 @@ import sys
 
 class Sentence(object):
     def __init__(self, numbered_lines):
-        self.lines = filter(lambda l: l != None, map(Line.parse_numbered_line, numbered_lines))
+        self.lines = filter(lambda l: l != None, map(Line.parse_numbered_line,numbered_lines))
 
     def __str__(self):
         return " ".join(map(lambda line: line.word, self.nlines))
 
     def validate(self):
-        map(lambda line: line.validate(), self.lines)
-        self.validate_projectivity()
-        self.validate_hind_in_bounds()
+        if self.lines != []:
+            map(lambda line: line.validate(), self.lines)
+            self.validate_projectivity()
+            self.validate_hind_in_bounds()
 
     def validate_hind_in_bounds(self):
         found_root = False
         for line in self.lines + filter(lambda l: l != None, [l.correction for l in self.lines]):
-            if line.hind > len(self.lines)+1 or line.hind < -1:
+            if line.hind > len(self.lines)+1:
                 print "Out of bounds HIND on line %d" % line.lnum
             if line.hind == 0 and line in self.lines: # excludes correction lines from being root
                 if found_root:
@@ -91,9 +92,7 @@ class Line(object):
         if len(items) < 6:
             print LineParseError(num, "Too few entries", sline)
             return
-        elif len(items) > 6 and len(items) < 10:
-            print LineParseError(num, "Wrong number of entries", sline)
-        elif len(items) > 10:
+        elif len(items) > 6:
             print LineParseError(num, "Too many entries", sline)
             return
         try:
@@ -148,18 +147,51 @@ class LineParseError(Exception):
         return "LineParseError on line %d: %s" % (self.lnum, self.msg)
 
 
-def numbered_lines_to_sentences(numbered_lines):
+def numbered_lines_to_sentences(numbered_lines,fn):
+    f_new = open(fn+'.gen','w')
     sentences = []
     current_sentence = []
     for num, line in map(lambda nline: (nline[0], nline[1].strip()), numbered_lines):
+        if line[0:6] == "#SENT=":
+            sent_token = line[6:].split(' ')
+            token_line = num+1
         if not line:
             if len(current_sentence) > 0:
+                #basic checks to make life easier
+                current = 1
+                token_error = 0
+                if len(current_sentence) != len(sent_token):
+                    token_error = 1
+                    print "TokenError on line %d: number of tokens sent does not match number of entries in sentence!" % (token_line)
+                for i in range(len(current_sentence)):
+                    listed = current_sentence[i][1].split('\t')
+                    if int(listed[0]) != current:   #checks that index is incrementally increasing
+                        print LineParseError(current_sentence[i][0]+1, "Missing index", current_sentence[i][1])
+                        current += 1
+                    current += 1
+                    if len(listed) == 6:
+                        listed[2] = listed[2].upper()   #fixes casing in UPOS, POS, REL labels
+                        listed[3] = listed[3].upper()
+                        listed[5] = listed[5].lower()
+                    #checks that #SENT matches entries in sentence
+                    if sent_token[i].lower() != current_sentence[i][1].split('\t')[1].lower() and not token_error:
+                        print "TokenError on line %d: Mismatched token: %s %s" % (current_sentence[i][0]+1, listed[1], sent_token[i])
+                        change = raw_input("Would you like to replace the token? y/n : ")
+                        if 'y' in change.lower():
+                            listed[1] = sent_token[i]
+                    current_sentence[i][1] = '\t'.join(listed)
+                    f_new.write(current_sentence[i][1]+'\n')    #writes relevant part of line to new file
+                f_new.write('\n')
                 sentences.append(Sentence(current_sentence))
                 current_sentence = []
             continue
         if line[0] == '#':
+            f_new.write('\t'.join((line.split('\t')))+'\n') #gets rid of extra tabs and writes to new file
             continue
-        current_sentence.append((num, line))
+        if line[0] == '"':
+            f_new.write('\t'.join((line.split('\t')))[1:-1]+'\n')   #gets rid of unwanted quotation marks
+            continue
+        current_sentence.append([num, line])
     return sentences
 
 
@@ -178,7 +210,6 @@ if __name__ == "__main__":
     numbered_lines = enumerate(f.read().split("\n"))
     if upto:
         numbered_lines = list(numbered_lines)[:upto]
-    sentences = numbered_lines_to_sentences(numbered_lines)
+    sentences = numbered_lines_to_sentences(numbered_lines,fn)
     map(Sentence.validate, sentences)
-
 
