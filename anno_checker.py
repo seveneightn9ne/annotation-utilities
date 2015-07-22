@@ -56,13 +56,16 @@ class Sentence(object):
                             self.lines))
 
     def print_projectivity_violation(self, l1, l2):
-        print "Projectivity violation between lines %d and %d" % (l1.lnum, l2.lnum)
+        if l1.upos == "PUNCT" or l2.upos == "PUNCT":
+            print "Punctuation-related projectivity violation between lines %d and %d" % (l1.lnum, l2.lnum)
+        else:
+            print "Projectivity violation between lines %d and %d" % (l1.lnum, l2.lnum)
 
 
 class Line(object):
     all_pos = set(["CC","CD","DT","EX","FW","IN","JJ","JJR","JJS","LS","MD","NN","NNS","NNP","NNPS",
             "PDT","POS","PRP","PRP$","RB","RBR","RBS","RP","SYM","TO","UH","VB","VBD","VBG","VBN",
-            "VBP","VBZ","WDT","WP","WP$","WRB","PUNCT"])
+            "VBP","VBZ","WDT","WP","WP$","WRB","PUNCT","GW","AFX","ADD","XX"])
 
     all_upos = set(["ADJ","ADV","INTJ","NOUN","PROPN","VERB","ADP","AUX","CONJ","DET","NUM","PART",
             "PRON","SCONJ","PUNCT","SYM","X"])
@@ -92,9 +95,9 @@ class Line(object):
         if len(items) < 6:
             print LineParseError(num, "Too few entries", sline)
             return
-        elif len(items) > 6:
-            print LineParseError(num, "Too many entries", sline)
-            return
+        #elif len(items) > 6:
+            #print LineParseError(num, "Too many entries", sline)
+            #return
         try:
             ind = int(items[0])
         except ValueError:
