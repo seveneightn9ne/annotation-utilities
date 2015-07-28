@@ -240,6 +240,6 @@ if __name__ == "__main__":
     sentences = numbered_lines_to_sentences(numbered_lines,fn)
     map(Sentence.validate, sentences)
     print "\nFinal error count:\n" 
-    print "strange_hinds: %d \nstrange_labels: %d" % (heads,labels)
+    print "strange hinds: %d \nlabel typos: %d" % (heads,labels)
     print "projectivity: %d \npunctuation: %d\n" % (projectivity,punctuation)
 
