@@ -15,20 +15,26 @@ class Sentence(object):
             self.validate_hind_in_bounds()
 
     def validate_hind_in_bounds(self):
+        global heads
         found_root = False
         for line in self.lines + filter(lambda l: l != None, [l.correction for l in self.lines]):
             if line.hind > len(self.lines)+1:
+                heads += 1
                 print "Out of bounds HIND on line %d" % line.lnum
             if line.hind == 0 and line in self.lines: # excludes correction lines from being root
                 if found_root:
+                    heads += 1
                     print "Multiple root node on line %d" % line.lnum
                 found_root = True
         if not found_root:
+            heads += 1
             print "No root found in sentence on line %d" % self.lines[0].lnum
 
     def validate_projectivity(self):
         for line in self.lines:
+            global heads
             if line.ind == line.hind:
+                heads += 1
                 print "Error on line %d: word can not be its own head" % line.lnum
             elif line.ind < line.hind:
                 # word comes before its head
@@ -56,9 +62,13 @@ class Sentence(object):
                             self.lines))
 
     def print_projectivity_violation(self, l1, l2):
+        global projectivity
+        global punctuation
         if l1.upos == "PUNCT" or l2.upos == "PUNCT":
+            punctuation += 1
             print "Punctuation-related projectivity violation between lines %d and %d" % (l1.lnum, l2.lnum)
         else:
+            projectivity += 1
             print "Projectivity violation between lines %d and %d" % (l1.lnum, l2.lnum)
 
 
@@ -128,15 +138,21 @@ class Line(object):
             self.correction.validate()
 
     def val_pos_exists(self):
+        global labels
         if not self.pos in self.all_pos:
+            labels += 1
             print "Error on line %d: Unrecognized POS tag '%s'" % (self.lnum, self.pos)
 
     def val_upos_exists(self):
+        global labels
         if not self.upos in self.all_upos:
+            labels += 1
             print "Error on line %d: Unrecognized UPOS tag '%s'" % (self.lnum, self.upos)
 
     def val_rel_exists(self):
+        global labels
         if not self.rel in self.all_rel:
+            labels += 1
             print "Error on line %d: Unrecognized relation '%s'" % (self.lnum, self.rel)
 
 
@@ -199,6 +215,14 @@ def numbered_lines_to_sentences(numbered_lines,fn):
 
 
 if __name__ == "__main__":
+    global heads
+    global labels
+    global projectivity
+    global punctuation
+    heads = 0
+    labels = 0
+    projectivity = 0
+    punctuation = 0
     if len(sys.argv) < 2:
         fn = raw_input("Enter file name: ")
     else:
@@ -215,4 +239,7 @@ if __name__ == "__main__":
         numbered_lines = list(numbered_lines)[:upto]
     sentences = numbered_lines_to_sentences(numbered_lines,fn)
     map(Sentence.validate, sentences)
+    print "\nFinal error count:\n" 
+    print "strange_hinds: %d \nstrange_labels: %d" % (heads,labels)
+    print "projectivity: %d \npunctuation: %d\n" % (projectivity,punctuation)
 
