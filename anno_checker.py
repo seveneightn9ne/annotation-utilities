@@ -103,6 +103,8 @@ class Line(object):
         num += 1
         items = sline.split("\t")
         if len(items) < 6:
+            global incomplete
+            incomplete += 1
             print LineParseError(num, "Too few entries", sline)
             return
         #elif len(items) > 6:
@@ -175,6 +177,7 @@ def numbered_lines_to_sentences(numbered_lines,fn):
             sent_token = line[6:].split(' ')
             token_line = num+1
         if not line:
+            print current_sentence
             if len(current_sentence) > 0:
                 #basic checks to make life easier
                 current = 1
@@ -219,10 +222,12 @@ if __name__ == "__main__":
     global labels
     global projectivity
     global punctuation
+    global incomplete
     heads = 0
     labels = 0
     projectivity = 0
     punctuation = 0
+    incomplete = 0
     if len(sys.argv) < 2:
         fn = raw_input("Enter file name: ")
     else:
@@ -239,7 +244,8 @@ if __name__ == "__main__":
         numbered_lines = list(numbered_lines)[:upto]
     sentences = numbered_lines_to_sentences(numbered_lines,fn)
     map(Sentence.validate, sentences)
-    print "\nFinal error count:\n" 
+    print "\nFinal error count:\n"
+    print"incomplete: %d" % incomplete
     print "strange hinds: %d \nlabel typos: %d" % (heads,labels)
-    print "projectivity: %d \npunctuation: %d\n" % (projectivity,punctuation)
+    print "projectivity: %d \npunctuation: %d" % (projectivity,punctuation)
 
