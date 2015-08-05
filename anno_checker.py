@@ -177,7 +177,6 @@ def numbered_lines_to_sentences(numbered_lines,fn):
             sent_token = line[6:].split(' ')
             token_line = num+1
         if not line:
-            print current_sentence
             if len(current_sentence) > 0:
                 #basic checks to make life easier
                 current = 1
