@@ -33,6 +33,40 @@ Entering `y` or `yes` will replace the entry in the sentence with the correspond
 * Make sure each `head-index` is in the sentence
 * Point out likely mistakes (for example tagging something as `NOUN` and `VB`)
 
+## meta_checker.py
+Checks metadata consistency and format correctness for an annotation file where the lines are:
+```
+index    word    universal-pos    ptb-pos    head-index    relation
+```
+### Usage
+```
+$ python meta_checker.py my_file.anno
+```
+It will output each error on a line. If there are parsing errors, you will need to run it again to get any errors in the actual annotations. No output means everything is good.
+
+### Currently checks:
+* Proper formatting for `#Segment`, `#UNSURE`, `#TYPO`, and `#CONVENTIONS` metadata
+* Appropriate tagging for `EXPLETIVE`, i.e `PRON PRP HIND expl`
+
+### Future Work:
+* More specific and detailed errors
+
+## review_checker.py
+Checks that any reviews, marked by `#` in a column to the right of the original annotation, are properly formatted.
+### Usage
+```
+$ python review_checker.py my_file.anno
+```
+It will output each error on a line. Parsing errors indicate that the general format of a review is wrong. Tagging errors indicate that a specific tag could not be understood.
+
+### Currently checks:
+* Proper formatting of `#UPOS CAT POS CAT HIND CAT REL CAT` for any reviews
+* `UPOS`, `POS`, and `REL` are all valid tags
+
+### Future Work:
+* Check that `CAT` is between 1-3, as per guidelines
+* Add more specific, helpful error prompts
+
 ## training_data_searcher.py
 Searches `English.train.conllu` for sentences with a matching phrase
 ### Usage
