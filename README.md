@@ -58,15 +58,15 @@ Checks that any reviews, marked by `#` in a column to the right of the original 
 $ python review_checker.py my_file.review [upto=...]
 ```
 Prints out issues with review formatting and content.
-FormatError indicate problems with the format of the review.
+FormatError indicates problems with the format of the review.
 TagError indicates problems with specific tags / error categories.
 
 ### Currently checks:
 * Proper formatting of `#UPOS CAT POS CAT HIND CAT REL CAT`
 * `UPOS`, `POS`, and `REL` are all valid tags
-* HIND is a number, within sentence bounds, and not selfe referencing
+* `HIND` is a number, within sentence bounds, and not selfe referencing
 * All proposed tags differ from the annotation tags
-* CAT is a number between 1-3
+* `CAT` is a number between 1-3
 
 ### Future Work:
 * Warnings when you forget to add corrections that you made in the original file to the corrected file.
