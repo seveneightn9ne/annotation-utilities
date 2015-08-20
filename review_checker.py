@@ -15,17 +15,6 @@ legal_tokens = {'POS': ["CC","CD","DT","EX","FW","IN","JJ","JJR","JJS","LS","MD"
                         "discourse","expl","aux","auxpass","cop","mark","punct",
                         "conj","cc","root","cc:preconj","dep"]}
 
-def check_missing_reviews():
-    with open(path_original) as f:
-        sents_original = f.read().strip().split('\n\n')
-    with open(path_original.replace('original', 'corrected')) as f:
-        sents_corrected = f.read().strip().split('\n\n')
-    with open(path_original.replace('original', 'corrected')+'.filled') as f:
-        sents_filled = f.read().strip().split('\n\n')
-    lnum_original, lnum_corrected = 0, 0
-    for sent_original, sent_corrected in zip(sents_original, sents_corrected, sents_filled):
-        pass
-
 def check_review_content(review_str, line_num, sent_len, anno_tokens):
     '''prints out messages for tagging issues'''
     review_fields = review_str.replace('*', 'CORRECT NONE').split()
@@ -83,7 +72,7 @@ def check_reviews(path, upto):
             #approved line
             if len(line_fields) == 6:
                 continue
-            #reviewd line
+            #reviewed line
             elif len(line_fields) == 7:
                 review_str = line.split('\t')[6]
                 formatting_issues = check_review_format(review_str, line_num)
