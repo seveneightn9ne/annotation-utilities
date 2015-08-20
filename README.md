@@ -55,17 +55,21 @@ It will output each error on a line. If there are parsing errors, you will need 
 Checks that any reviews, marked by `#` in a column to the right of the original annotation, are properly formatted.
 ### Usage
 ```
-$ python review_checker.py my_file.anno
+$ python review_checker.py my_file.review [upto=...]
 ```
-It will output each error on a line. Parsing errors indicate that the general format of a review is wrong. Tagging errors indicate that a specific tag could not be understood.
+Prints out issues with review formatting and content.
+FormatError indicate problems with the format of the review.
+TagError indicates problems with specific tags / error categories.
 
 ### Currently checks:
-* Proper formatting of `#UPOS CAT POS CAT HIND CAT REL CAT` for any reviews
+* Proper formatting of `#UPOS CAT POS CAT HIND CAT REL CAT`
 * `UPOS`, `POS`, and `REL` are all valid tags
+* HIND is a number, within sentence bounds, and not selfe referencing
+* All proposed tags differ from the annotation tags
+* CAT is a number between 1-3
 
 ### Future Work:
-* Check that `CAT` is between 1-3, as per guidelines
-* Add more specific, helpful error prompts
+* Warnings when you forget to add corrections that you made in the original file to the corrected file.
 
 ## training_data_searcher.py
 Searches `English.train.conllu` for sentences with a matching phrase
