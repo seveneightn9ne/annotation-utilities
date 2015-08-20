@@ -31,13 +31,13 @@ def check_review_content(review_str, line_num, sent_len, anno_tokens):
             correction_ind = int(review_fields[inds['HIND']])
             if correction_ind < 1 or correction_ind > sent_len:
                 print "TagError on line", line_num, ": HIND out of sentence bounds"
-            elif correction_ind == line_num:
+            elif correction_ind == int(anno_tokens[0]):
                 print "TagError on line", line_num, ": HIND self referencing"
         except ValueError:
             print "TagError on line", line_num, ": HIND needs to be a number"
     #check review differs from annotation
     for cat in inds:
-        if review_fields[inds[cat]] == anno_tokens[inds[cat]/2]:
+        if review_fields[inds[cat]] == anno_tokens[2:][inds[cat]/2]:
             print "TagError on line", line_num, ":", cat, "has the same value in the annotation"
     #check error categries
     for cat in inds:
@@ -79,7 +79,7 @@ def check_reviews(path, upto):
                 if formatting_issues:
                     print formatting_issues
                 else:
-                    check_review_content(review_str[1:], line_num, sent_len, line_fields[2:6])
+                    check_review_content(review_str[1:], line_num, sent_len, line_fields[:6])
             #something is wrong with the line
             else:
                 print "LineError on line "+str(line_num)+": check line"
