@@ -17,7 +17,7 @@ def sanity_checks(numbered_lines):
                     "discourse","expl","aux","auxpass","cop","mark","punct",
                     "conj","cc","root","cc:preconj","dep"])
     for num, line in map(lambda x: (x[0]+1,x[1].strip()), numbered_lines):
-        if '#Segment=' in line:
+        if line.startswith('#Segment='):
             segments = filter(None,line.split('=')[1].split(','))
             if len(segments) > 0:
                 for i in segments:
@@ -35,7 +35,7 @@ def sanity_checks(numbered_lines):
                         print ("ParseError on line %d: "
                                 "incorrect #Segment format" % num)
             continue
-        elif '#UNSURE=' in line:
+        elif line.startswith('#UNSURE='):
             unsures = filter(None,line.split('=')[1].split(','))
             if len(unsures) > 0:
                 try:
@@ -46,7 +46,7 @@ def sanity_checks(numbered_lines):
                     print ("ParseError on line %d: "
                             "incorrect #UNSURE format" % num)
             continue
-        elif '#TYPO=' in line:
+        elif line.startswith('#TYPO='):
             typos = filter(None,line.split('=')[1].split(','))
             if len(typos) > 0:
                 a = [x.split(' ') for x in typos]
@@ -64,7 +64,7 @@ def sanity_checks(numbered_lines):
                         print ("ParseError on line %d: "
                                 "incorrect #TYPO format" % num)
             continue
-        elif '#CONVENTIONS=' in line:
+        elif line.startswith('#CONVENTIONS='):
             expletives = []
             if 'EXPLETIVE=' in line:
                 expletives = line.split('=',1)[1].split('=')[1].split(',')
@@ -85,7 +85,7 @@ def sanity_checks(numbered_lines):
                                 "incorrectly-annotated expletive" % lnum)
             current_sentence = {}
             continue
-        if '#' in line:
+        if line.startswith('#'):
             continue
         split_line = line.split('\t')
         current_sentence[split_line[0]] = [num,split_line[1:]]
