@@ -31,6 +31,8 @@ def sanity_checks(numbered_lines):
                                 "incorrect #Segment format" % num)
                         continue
                     if int(i.split(' ')[0]) > int(i.split(' ')[1]) or len(i.split(' '))>2:
+                        print int(i.split(' ')[0]) > int(i.split(' ')[1])
+                        print len(i.split(' ')) > 2
                         segments = []
                         print ("ParseError on line %d: "
                                 "incorrect #Segment format" % num)
@@ -50,9 +52,10 @@ def sanity_checks(numbered_lines):
             typos = filter(None,line.split('=')[1].split(','))
             if len(typos) > 0:
                 a = [x.split(' ') for x in typos]
-                print a
                 try:
-                    map(lambda x: (int(x[0]),int(x[3])), a)
+                    ind = x[0]
+                    hind = x[3]
+                    map(lambda x: (int(ind),int(hind)), a)
                 except ValueError or IndexError:
                     typos = []
                     print ("ParseError on line %d: "
@@ -67,6 +70,9 @@ def sanity_checks(numbered_lines):
             continue
         elif line.startswith('#CONVENTIONS='):
             expletives = []
+            if 'PPDET=' in line:
+                print ("ParseError on line %d: "
+                        "PPDET is outdated. Please remove." % num)
             if 'EXPLETIVE=' in line:
                 expletives = line.split('=',1)[1].split('=')[1].split(',')
                 if len(expletives) > 0:
