@@ -30,7 +30,7 @@ def sanity_checks(numbered_lines):
                         print ("ParseError on line %d: "
                                 "incorrect #Segment format" % num)
                         continue
-                    if i.split(' ')[0] > i.split(' ')[1] or len(i.split(' '))>2:
+                    if int(i.split(' ')[0]) > int(i.split(' ')[1]) or len(i.split(' '))>2:
                         segments = []
                         print ("ParseError on line %d: "
                                 "incorrect #Segment format" % num)
@@ -50,6 +50,7 @@ def sanity_checks(numbered_lines):
             typos = filter(None,line.split('=')[1].split(','))
             if len(typos) > 0:
                 a = [x.split(' ') for x in typos]
+                print a
                 try:
                     map(lambda x: (int(x[0]),int(x[3])), a)
                 except ValueError or IndexError:
