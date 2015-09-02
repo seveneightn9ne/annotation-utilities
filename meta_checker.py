@@ -22,7 +22,7 @@ def sanity_checks(numbered_lines):
             if len(segments) > 0:
                 for i in segments:
                     try:
-                        a = i.split(' ')
+                        a = i.strip().split(' ')
                         ind = int(a[0])
                         rootind = int(a[1])
                     except ValueError or IndexError:
@@ -30,9 +30,8 @@ def sanity_checks(numbered_lines):
                         print ("ParseError on line %d: "
                                 "incorrect #Segment format" % num)
                         continue
-                    if int(i.split(' ')[0]) > int(i.split(' ')[1]) or len(i.split(' '))>2:
-                        print int(i.split(' ')[0]) > int(i.split(' ')[1])
-                        print len(i.split(' ')) > 2
+                    entry = i.strip().split(' ')
+                    if int(entry[0]) > int(entry[1]) or len(entry)>2:
                         segments = []
                         print ("ParseError on line %d: "
                                 "incorrect #Segment format" % num)
