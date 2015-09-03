@@ -23,13 +23,15 @@ def check_review_content(review_str, line_num, sent_len, anno_tokens):
     for cat in ['UPOS', 'POS', 'REL']:
         correction = review_fields[inds[cat]]
         if correction != 'CORRECT' and correction not in legal_tokens[cat]:
-            print "TagError on line", line_num, ": unknown", cat, correction 
+            print "TagError on line", line_num, ": unknown", cat, correction
+    if (review_fields[inds['UPOS']] == anno_tokens[3]) and (review_fields[inds['POS']] == anno_tokens[2]):
+        print "TagWarning on line", line_num,":when switching POS and UPOS, change the word annotation directly"
     #check HIND
     hind_correction = review_fields[inds['HIND']]
     if hind_correction != 'CORRECT':
         try:
             correction_ind = int(review_fields[inds['HIND']])
-            if correction_ind < 1 or correction_ind > sent_len:
+            if correction_ind < 0 or correction_ind > sent_len:
                 print "TagError on line", line_num, ": HIND out of sentence bounds"
             elif correction_ind == int(anno_tokens[0]):
                 print "TagError on line", line_num, ": HIND self referencing"
