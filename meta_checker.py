@@ -18,7 +18,7 @@ def sanity_checks(numbered_lines):
                     "conj","cc","root","cc:preconj","dep"])
     for num, line in map(lambda x: (x[0]+1,x[1].strip()), numbered_lines):
         if line.startswith('#Segment='):
-            seg_roots = []
+            segs = []
             segments = filter(None,line.split('=')[1].split(','))
             if len(segments) > 0:
                 for i in segments:
@@ -37,7 +37,7 @@ def sanity_checks(numbered_lines):
                         print ("ParseError on line %d: "
                                 "incorrect #Segment format" % num)
                         continue
-                    seg_roots.append(entry[1])
+                    segs.append(entry)
             continue
         elif line.startswith('#UNSURE='):
             unsures = filter(None,line.split('=')[1].split(','))
@@ -92,11 +92,17 @@ def sanity_checks(numbered_lines):
                     if (l[1] != 'PRON' or l[2] != 'PRP' or l[4] != 'expl'):
                         print ("ParseError on line %d: "
                                 "incorrectly-annotated expletive" % lnum)
-                for ind in seg_roots:
-                    lnum,l = current_sentence[ind]
+                for ind in segs:
+                    lnum,l = current_sentence[ind[1]]
+                    nrange = range(int(ind[0]),int(ind[1]))
                     if l[4] != 'parataxis':
                         print ("ParseError on line %d: "
                                 "incorrectly-annotated segment root" % lnum)
+                    for num in nrange:
+                        jnum,j = current_sentence[str(num)]
+                        if j[1] == 'PUNCT' and int(j[3]) not in nrange:
+                            print ("ParseError on line %d: incorrect "
+                                    "punctuation hind for segment" % jnum)
             current_sentence = {}
             continue
         if line.startswith('#'):
