@@ -94,13 +94,13 @@ def sanity_checks(numbered_lines):
                                 "incorrectly-annotated expletive" % lnum)
                 for ind in segs:
                     lnum,l = current_sentence[ind[1]]
-                    nrange = range(int(ind[0]),int(ind[1]))
+                    nrange = range(int(ind[0]),len(current_sentence)+1)
                     if l[4] != 'parataxis':
                         print ("ParseError on line %d: "
                                 "incorrectly-annotated segment root" % lnum)
                     for num in nrange:
                         jnum,j = current_sentence[str(num)]
-                        if j[1] == 'PUNCT' and int(j[3]) not in nrange:
+                        if j[1] == 'PUNCT'and int(j[3]) not in nrange:
                             print ("ParseError on line %d: incorrect "
                                     "punctuation hind for segment" % jnum)
             current_sentence = {}
