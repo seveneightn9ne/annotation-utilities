@@ -46,7 +46,8 @@ It will output each error on a line. If there are parsing errors, you will need 
 
 ### Currently checks:
 * Proper formatting for `#Segment`, `#UNSURE`, `#TYPO`, and `#CONVENTIONS` metadata
-* Appropriate tagging for `EXPLETIVE`, i.e `PRON PRP HIND expl`
+* For `#Segment`: head is parataxis, proper punctuation hind
+* For `#CONVENTIONS`: appropriate tagging for `EXPLETIVE`, reminds user to remove outdated `PPDET` tag
 
 ### Future Work:
 * More specific and detailed errors
