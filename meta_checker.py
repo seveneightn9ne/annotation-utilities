@@ -53,22 +53,23 @@ def sanity_checks(numbered_lines):
         elif line.startswith('#TYPO='):
             typos = filter(None,line.split('=')[1].split(','))
             if len(typos) > 0:
-                a = [x.split(' ') for x in typos]
-                try:
-                    ind = x[0]
-                    hind = x[3]
-                    map(lambda x: (int(ind),int(hind)), a)
-                except ValueError or IndexError:
-                    typos = []
-                    print ("ParseError on line %d: "
-                            "incorrect #TYPO format" % num)
-                    continue
-                for i in a:
-                    if (i[1] not in all_upos or i[2] not in all_pos or
-                            i[4] not in all_rel):
+                a = [x.strip().split(' ') for x in typos]
+                for x in a:
+                    try:
+                        ind = x[0]
+                        hind = x[3]
+                        map(lambda x: (int(ind),int(hind)), a)
+                    except ValueError or IndexError:
                         typos = []
                         print ("ParseError on line %d: "
                                 "incorrect #TYPO format" % num)
+                        break
+                    if (x[1] not in all_upos or x[2] not in all_pos or
+                            x[4] not in all_rel):
+                        typos = []
+                        print ("ParseError on line %d: "
+                                "incorrect #TYPO format" % num)
+                        break
             continue
         elif line.startswith('#CONVENTIONS='):
             expletives = []
