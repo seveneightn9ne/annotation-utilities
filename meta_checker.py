@@ -26,7 +26,7 @@ def sanity_checks(numbered_lines):
                         a = i.strip().split(' ')
                         ind = int(a[0])
                         rootind = int(a[1])
-                    except ValueError or IndexError:
+                    except (ValueError, IndexError):
                         segments = []
                         print ("ParseError on line %d: "
                                 "incorrect #Segment format" % num)
@@ -59,7 +59,7 @@ def sanity_checks(numbered_lines):
                         ind = x[0]
                         hind = x[3]
                         map(lambda x: (int(ind),int(hind)), a)
-                    except ValueError or IndexError:
+                    except (ValueError, IndexError):
                         typos = []
                         print ("ParseError on line %d: "
                                 "incorrect #TYPO format" % num)
