@@ -11,7 +11,7 @@ class Sentence(object):
     def validate(self):
         if self.lines != []:
             map(lambda line: line.validate(), self.lines)
-            self.validate_projectivity()
+            #self.validate_projectivity()
             self.validate_hind_in_bounds()
 
     def validate_hind_in_bounds(self):
@@ -115,11 +115,20 @@ class Line(object):
         except ValueError:
             print LineParseError(num, "Non-numerical line index '%s'" % items[0], sline)
             return
-        try:
-            hind = int(items[4])
-        except ValueError:
-            print LineParseError(num, "Non-numerical head index '%s'" % items[4], sline)
+
+        def val_hind(field):
+            try:
+                hind = int(field)
+                return True
+            except ValueError:
+                print LineParseError(num, "Non-numerical head index '%s'" % field, sline)
+                return False
+        hind = Line.val_field("HIND", items[4], val_hind, num, sline)
+        if hind != None:
+            hind = int(hind)
+        else:
             return
+
         if len(items) == 10: # line contains correction layer
             try:
                 c_hind = int(items[8])
@@ -141,21 +150,76 @@ class Line(object):
 
     def val_pos_exists(self):
         global labels
-        if not self.pos in self.all_pos:
-            labels += 1
-            print "Error on line %d: Unrecognized POS tag '%s'" % (self.lnum, self.pos)
+        def val_pos(field):
+            if not field in self.all_pos:
+                labels += 1
+                print "Error on line %d: Unrecognized POS tag '%s'" % (self.lnum, field)
+                return False
+            return True
+        Line.val_field("POS", self.pos, val_pos, self.lnum, "")
 
     def val_upos_exists(self):
         global labels
-        if not self.upos in self.all_upos:
-            labels += 1
-            print "Error on line %d: Unrecognized UPOS tag '%s'" % (self.lnum, self.upos)
+        def val_upos(field):
+            if not field in self.all_upos:
+                labels += 1
+                print "Error on line %d: Unrecognized UPOS tag '%s'" % (self.lnum, field)
+                return False
+            return True
+        Line.val_field("UPOS", self.upos, val_upos, self.lnum, "")
 
     def val_rel_exists(self):
         global labels
-        if not self.rel in self.all_rel:
-            labels += 1
-            print "Error on line %d: Unrecognized relation '%s'" % (self.lnum, self.rel)
+        def val_rel(field):
+            if not field in self.all_rel:
+                labels += 1
+                print "Error on line %d: Unrecognized relation '%s'" % (self.lnum, field)
+                return False
+            return True
+        Line.val_field("REL", self.rel, val_rel, self.lnum, "")
+
+    @staticmethod
+    def val_field(fname, field, validation, num, sline):
+        global ranking
+        valid_field = True
+        if "|" in field: #ranking
+            parts = field.split("|")
+            if not len(parts) == 2:
+                print LineParseError(num, "Too many |s in ranking field for " + fname, sline)
+                ranking += 1
+                valid_field = False
+            else:
+                choices, ranks = parts
+                if ranks == "":
+                    print LineParseError(num, "Missing ranking for "+ fname, sline)
+                    ranking += 1
+                    valid_field = False
+                else:
+                    choices = choices.split("-")
+                    ranks = ranks.split("-")
+                    if not len(choices) == len(ranks):
+                        print LineParseError(num, "Number of choices and ranks differ for "+fname, sline)
+                        ranking += 1
+                        valid_field = False
+                    else:
+                        try:
+                            ranks = map(int, ranks)
+                            for i in range(len(ranks)):
+                                if not i+1 in ranks:
+                                    print LineParseError(num, "Unexpected ranking number for " + fname, sline)
+                                    ranking += 1
+                                    valid_field = False
+                        except ValueError as e:
+                            print LineParseError(num, "Non numerical rank for " + fname, sline)
+                            ranking += 1
+                            valid_field = False
+                        if valid_field and all(map(validation, choices)):
+                            return choices[ranks.index(1)]
+        else:
+            if validation(field):
+                return field
+        return None
+
 
 
 class LineParseError(Exception):
@@ -222,11 +286,13 @@ if __name__ == "__main__":
     global projectivity
     global punctuation
     global incomplete
+    global ranking
     heads = 0
     labels = 0
     projectivity = 0
     punctuation = 0
     incomplete = 0
+    ranking = 0
     if len(sys.argv) < 2:
         fn = raw_input("Enter file name: ")
     else:
@@ -243,8 +309,17 @@ if __name__ == "__main__":
         numbered_lines = list(numbered_lines)[:upto]
     sentences = numbered_lines_to_sentences(numbered_lines,fn)
     map(Sentence.validate, sentences)
-    print "\nFinal error count:\n"
-    print"incomplete: %d" % incomplete
-    print "strange hinds: %d \nlabel typos: %d" % (heads,labels)
-    print "projectivity: %d \npunctuation: %d" % (projectivity,punctuation)
+    print "\nFinal error count: %d\n" % (heads+labels+projectivity+punctuation+incomplete+ranking)
+    if incomplete:
+        print"incomplete: %d" % incomplete
+    if heads:
+        print "strange hinds: %d" % heads
+    if labels:
+        print "label typos: %d" % labels
+    if projectivity:
+        print "projectivity: %d" % projectivity
+    if punctuation:
+        print "punctuation: %d" % punctuation
+    if ranking:
+        print "ranking: %d" % ranking
 
