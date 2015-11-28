@@ -149,8 +149,8 @@ class Line(object):
             self.correction.validate()
 
     def val_pos_exists(self):
-        global labels
         def val_pos(field):
+            global labels
             if not field in self.all_pos:
                 labels += 1
                 print "Error on line %d: Unrecognized POS tag '%s'" % (self.lnum, field)
@@ -159,8 +159,8 @@ class Line(object):
         Line.val_field("POS", self.pos, val_pos, self.lnum, "")
 
     def val_upos_exists(self):
-        global labels
         def val_upos(field):
+            global labels
             if not field in self.all_upos:
                 labels += 1
                 print "Error on line %d: Unrecognized UPOS tag '%s'" % (self.lnum, field)
@@ -169,8 +169,8 @@ class Line(object):
         Line.val_field("UPOS", self.upos, val_upos, self.lnum, "")
 
     def val_rel_exists(self):
-        global labels
         def val_rel(field):
+            global labels
             if not field in self.all_rel:
                 labels += 1
                 print "Error on line %d: Unrecognized relation '%s'" % (self.lnum, field)
