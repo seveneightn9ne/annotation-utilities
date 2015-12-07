@@ -236,6 +236,7 @@ def numbered_lines_to_sentences(numbered_lines,fn):
     f_new = open(fn+'.gen','w')
     sentences = []
     current_sentence = []
+    equiv = {'``':'"', "''":'"', '(':'-lrb-', ')':'-rrb-'}
     for num, line in map(lambda nline: (nline[0], nline[1].strip()), numbered_lines):
         if line[0:6] == "#SENT=":
             sent_token = line[6:].split(' ')
@@ -259,7 +260,9 @@ def numbered_lines_to_sentences(numbered_lines,fn):
                         listed[3] = listed[3].upper()
                         listed[5] = listed[5].lower()
                     #checks that #SENT matches entries in sentence
-                    if sent_token[i].lower() != current_sentence[i][1].split('\t')[1].lower() and not token_error:
+                    word_in_sentence = sent_token[i].lower()
+                    word_in_split = current_sentence[i][1].split('\t')[1].lower()
+                    if word_in_sentence != word_in_split and not token_error and equiv.get(word_in_sentence,None) != word_in_split and word_in_sentence != equiv.get(word_in_split,None):
                         print "TokenError on line %d: Mismatched token: %s %s" % (current_sentence[i][0]+1, listed[1], sent_token[i])
                         change = raw_input("Would you like to replace the token? y/n : ")
                         if 'y' in change.lower():
