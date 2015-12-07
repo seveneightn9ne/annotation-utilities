@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import sys
 
 legal_tokens = {'POS': ["CC","CD","DT","EX","FW","IN","JJ","JJR","JJS","LS","MD",
@@ -18,7 +19,7 @@ legal_tokens = {'POS': ["CC","CD","DT","EX","FW","IN","JJ","JJR","JJS","LS","MD"
 def check_review_content(review_str, line_num, sent_len, anno_tokens):
     '''prints out messages for tagging issues'''
     review_fields = review_str.replace('*', 'CORRECT NONE').split()
-    inds = {'UPOS':0, 'POS':2, 'HIND':4, 'REL':6} 
+    inds = {'UPOS':0, 'POS':2, 'HIND':4, 'REL':6}
     #check UPOS, POS and REL are legal
     for cat in ['UPOS', 'POS', 'REL']:
         correction = review_fields[inds[cat]]
@@ -44,7 +45,7 @@ def check_review_content(review_str, line_num, sent_len, anno_tokens):
     #check error categries
     for cat in inds:
         if review_fields[inds[cat]] != 'CORRECT' and review_fields[inds[cat]+1] not in ['1', '2', '3']:
-            print "TagError on line", line_num, ":", cat, "category should be 1 (error), 2 (convention) or 3 (disagreement)" 
+            print "TagError on line", line_num, ":", cat, "category should be 1 (error), 2 (convention) or 3 (disagreement)"
 
 def check_review_format(review_str, line_num):
     '''returns a message if there is at least one problem, None otherwise'''
@@ -55,9 +56,9 @@ def check_review_format(review_str, line_num):
     if review_str[1:] == '* * * *':
         return "FormatError on line "+str(line_num)+" : These must be at least one change in the review"
     review_fields = review_str[1:].replace('*', 'CORRECT NONE').split()
-    if len(review_fields) != 8:   
+    if len(review_fields) != 8:
         return "FormatError on line "+str(line_num)+" : too many or too few fields"
-    
+
 def check_reviews(path, upto):
     line_num = 0
     for sent in open(path).read().split('\n\n'):
@@ -69,9 +70,9 @@ def check_reviews(path, upto):
             line = line.strip()
             #metadata line or empty line
             if (line.startswith('#')) or (not line):
-                continue    
+                continue
             line_fields = line.split('\t')
-            #approved line
+            #approved line (no review)
             if len(line_fields) == 6:
                 continue
             #reviewed line
@@ -86,7 +87,7 @@ def check_reviews(path, upto):
             else:
                 print "LineError on line "+str(line_num)+": check line"
         line_num += 1
-                        
+
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         fn = raw_input('Enter file name: ')
