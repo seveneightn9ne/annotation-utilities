@@ -54,6 +54,8 @@ It will output each error on a line. If there are parsing errors, you will need 
 
 ## review_checker.py
 Checks that any reviews, marked by `#` in a column to the right of the original annotation, are properly formatted.
+Checks that resolutions, if they exist, are properly formatted and refer correctly to the review.
+
 ### Usage
 ```
 $ python review_checker.py my_file.review [upto=...]
@@ -71,6 +73,23 @@ TagError indicates problems with specific tags / error categories.
 
 ### Future Work:
 * Warnings when you forget to add corrections that you made in the original file to the corrected file.
+
+## resolver.py
+Applies resolutions to lines containing an annotation, review, and resolution.
+
+### Usage
+```
+# Run with --help to see options and usage example.
+$ ./resolver.py --help
+# Run the resolver on a file with reviews and resolutions.
+$ ./resolver.py jess.original
+# Some errors reported, but output file written.
+> line 1336: ResolveException('Review wrong length',)
+> line 2729: ResolveException('conj:preconvalid value for column REL
+> Output written to jess.original.resolve.resolved
+# Use a diff tool (like meld) to manually verify some of the output.
+$ meld jess.original.resolve jess.original.resolve.resolved
+```
 
 ## training_data_searcher.py
 Searches `English.train.conllu` for sentences with a matching phrase
