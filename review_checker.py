@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import sys
 
-COLUMNS = ["IND", "WORD", "POS", "UPOS", "HIND", "REL"]
+COLUMNS = ["IND", "WORD", "UPOS", "POS", "HIND", "REL"]
 
 LEGAL_TOKENS = {'POS': ["CC","CD","DT","EX","FW","IN","JJ","JJR","JJS","LS","MD",
                         "NN","NNS","NNP","NNPS","PDT","POS","PRP","PRP$","RB","RBR",
