@@ -65,7 +65,9 @@ def check_review_content(review_str, line_num, sent_len, anno_tokens):
 def check_review_format(review_str, line_num):
     '''returns a message if there is at least one problem, None otherwise'''
     if not (review_str.startswith('#') or review_str.startswith('@')):
-        return "FormatError on line "+str(line_num)+" : Review should start with #"
+        return "FormatError on line "+str(line_num)+" : Review should start with #/@"
+    if review_str.startswith('# ') or review_str.startswith('@ '):
+        return "FormatError on line "+str(line_num)+" : Review must not have space after #/@"
     if not(review_str[1:].strip()):
         return "FormatError on line "+str(line_num)+" : No review"
     if review_str[1:] == '* * * *':
