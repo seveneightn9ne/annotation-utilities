@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 import sys
 
-legal_tokens = {'POS': ["CC","CD","DT","EX","FW","IN","JJ","JJR","JJS","LS","MD",
+COLUMNS = ["IND", "WORD", "POS", "UPOS", "HIND", "REL"]
+
+LEGAL_TOKENS = {'POS': ["CC","CD","DT","EX","FW","IN","JJ","JJR","JJS","LS","MD",
                         "NN","NNS","NNP","NNPS","PDT","POS","PRP","PRP$","RB","RBR",
                         "RBS","RP","SYM","TO","UH","VB","VBD","VBG","VBN","VBP",
                         "VBZ","WDT","WP","WP$","WRB","PUNCT","GW","AFX","ADD","XX"],
@@ -23,7 +25,7 @@ def check_review_content(review_str, line_num, sent_len, anno_tokens):
     #check UPOS, POS and REL are legal
     for cat in ['UPOS', 'POS', 'REL']:
         correction = review_fields[inds[cat]]
-        if correction != 'CORRECT' and correction not in legal_tokens[cat]:
+        if correction != 'CORRECT' and correction not in LEGAL_TOKENS[cat]:
             print "TagError on line", line_num, ": unknown", cat, correction
     if (review_fields[inds['UPOS']] == anno_tokens[3]) and (review_fields[inds['POS']] == anno_tokens[2]):
         print "TagWarning on line", line_num,":when switching POS and UPOS, change the word annotation directly"
@@ -49,7 +51,7 @@ def check_review_content(review_str, line_num, sent_len, anno_tokens):
 
 def check_review_format(review_str, line_num):
     '''returns a message if there is at least one problem, None otherwise'''
-    if not review_str.startswith('#'):
+    if not (review_str.startswith('#') or review_str.startswith('@')):
         return "FormatError on line "+str(line_num)+" : Review should start with #"
     if not(review_str[1:].strip()):
         return "FormatError on line "+str(line_num)+" : No review"
@@ -59,7 +61,7 @@ def check_review_format(review_str, line_num):
     if len(review_fields) != 8:
         return "FormatError on line "+str(line_num)+" : too many or too few fields"
 
-def check_reviews(path, upto):
+def check_file(path, upto):
     line_num = 0
     for sent in open(path).read().split('\n\n'):
         sent_len = sum([1 for l in sent.strip().split('\n') if not(l.startswith('#'))])
@@ -72,17 +74,30 @@ def check_reviews(path, upto):
             if (line.startswith('#')) or (not line):
                 continue
             line_fields = line.split('\t')
-            #approved line (no review)
-            if len(line_fields) == 6:
+            #remove ambiguities from the end
+            if line_fields[-1].startswith('?'):
+                line_fields = line_fields[:-1]
+            #line with no reviews
+            if len(line_fields) == len(COLUMNS):
                 continue
-            #reviewed line
-            elif len(line_fields) == 7:
-                review_str = line.split('\t')[6]
+            #line with one review
+            elif len(line_fields) == len(COLUMNS) + 1:
+                review_str = line.split('\t')[-1]
                 formatting_issues = check_review_format(review_str, line_num)
                 if formatting_issues:
                     print formatting_issues
                 else:
-                    check_review_content(review_str[1:], line_num, sent_len, line_fields[:6])
+                    check_review_content(review_str[1:], line_num, sent_len, line_fields[:len(COLUMNS)])
+            #line with a review and resolution
+            elif len(line_fields) == len(COLUMNS) + 2:
+                review_str = line_fields[-2]
+                formatting_issues = check_review_format(review_str, line_num)
+                if formatting_issues:
+                    print formatting_issues
+                else:
+                    check_review_content(review_str[1:], line_num, sent_len, line_fields[:len(COLUMNS)])
+
+                resolution_str = line_fields[-1]
             #something is wrong with the line
             else:
                 print "LineError on line "+str(line_num)+": check line"
@@ -99,4 +114,4 @@ if __name__ == '__main__':
             upto = int(sys.argv[2].split("=")[1])
         except ValueError:
             print "Warning: non-numeric `upto` argument ignored"
-    check_reviews(fn, upto = upto)
+    check_file(fn, upto = upto)
