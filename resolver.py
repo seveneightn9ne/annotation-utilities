@@ -3,7 +3,16 @@
 Tool to apply reviews and resolutions.
 
 Usage:
-    ./resolver.py <filepath>
+    ./resolver.py <input-path> <output-path>
+
+Example:
+    # Run the resolver on a file with reviews and resolutions.
+    $ ./resolver.py jess.original
+    # Some errors reported, but output file written.
+    > line 1336: ResolveException('Review wrong length',)
+    > line 2729: ResolveException('conj:preconj invalid value for column REL
+    # Use a diff tool to manually verify some of the output.
+    $ meld jess.original.resolve jess.original.resolve.resolved
 """
 from docopt import docopt
 import traceback
@@ -125,7 +134,11 @@ def split_data_line(line):
     for field, column in zip(fields, COLUMNS):
         annotation.append(fields.pop(0))
     if fields:
-        review = fields.pop(0).replace("*", "* NONE").split(" ")
+        review_str = fields.pop(0)
+        # Handle incorrect leading space.
+        if review_str.startswith("# "):
+            review_str = "#" + review_str[2:]
+        review = review_str.replace("*", "* NONE").split(" ")
         ParseException.unless(review[0][0] in ["#", "@"],
                               "Review must start with # or @")
         review[0] = review[0][1:] # Cleave off initial "#".
@@ -145,19 +158,24 @@ def process_line(line, line_num):
         annotation, review, resolution = split_data_line(line)
         if review and resolution:
             resolved_annotation = resolve(annotation, review, resolution)
-            "\t".join(resolved_annotation)
+            return "\t".join(resolved_annotation)
+    return line
 
 
-def process_file(filepath):
-    with open(filepath, "r") as f:
-        for line_num, line in enumerate([""] + f.readlines()):
+def process_file(input_path, output_path):
+    with open(input_path, "r") as in_file, open(output_path, "w") as out_file:
+        for line_num, line in enumerate([""] + in_file.readlines()):
             try:
-                process_line(line, line_num)
+                out_line = process_line(line, line_num)
+                out_file.write(out_line + "\n")
             except (ResolveException, ParseException) as ex:
                 print "line {}: {}".format(line_num, repr(ex))
+                out_file.write(line.strip() + "\n")
 
 
 if __name__ == "__main__":
     arguments = docopt(__doc__)
-    filepath = arguments["<filepath>"]
-    process_file(filepath)
+    input_path = arguments["<input-path>"]
+    output_path = arguments["<output-path>"]
+    process_file(input_path, output_path)
+    print "\nOutput written to {}".format(output_path)
