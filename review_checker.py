@@ -18,6 +18,19 @@ LEGAL_TOKENS = {'POS': ["CC","CD","DT","EX","FW","IN","JJ","JJR","JJS","LS","MD"
                         "discourse","expl","aux","auxpass","cop","mark","punct",
                         "conj","cc","root","cc:preconj","dep"]}
 
+def is_column_value(columnname, value, allow=None):
+    """Check if a value is valid for a column."""
+    if allow and value in allow:
+        return True
+    if columnname in LEGAL_TOKENS:
+        return value in LEGAL_TOKENS[columnname]
+    else:
+        # Make sure it's numeric.
+        try:
+            return 0 <= int(value)
+        except ValueError:
+            return False
+
 def check_review_content(review_str, line_num, sent_len, anno_tokens):
     '''prints out messages for tagging issues'''
     review_fields = review_str.replace('*', 'CORRECT NONE').split()
@@ -61,6 +74,46 @@ def check_review_format(review_str, line_num):
     if len(review_fields) != 8:
         return "FormatError on line "+str(line_num)+" : too many or too few fields"
 
+def check_resolution(annotation_parts, review_str, resolution_str, line_num, sent_len):
+    """Check the format of a resolution and its related review."""
+    # Review parts is every other part after removing the initial '#'.
+    review_parts = review_str[1:].replace("*", "CORRECT NONE").split(" ")[::2]
+    resolution_parts = resolution_str.split(" ")
+    if resolution_str == "+":
+        return
+    if resolution_str == "-":
+        return
+    if len(resolution_parts) == 4:
+        zipped = zip(COLUMNS[2:], annotation_parts[2:], review_parts, resolution_parts)
+        for column, annotation_part, review_part, resolution_part in zipped:
+            # Valid entry for column.
+            passert(is_column_value(column, resolution_part, allow=["*", "-", "+"]),
+                    ("TagError on line "+str(line_num)+
+                     ": Invalid resolution value "+resolution_part+" for "+column))
+            # Star in resolution must derive from star in review.
+            if resolution_part == "*":
+                passert(review_part == "CORRECT",
+                        "TagError on line "+str(line_num)+": Invalid resolution: star for "+column)
+            # Plus or minus in resolution must derive from non-star in review.
+            elif resolution_part in ["+", "-"]:
+                passert(review_part != "CORRECT",
+                        "TagError on line "+str(line_num)+": Invalid resolution: +/- for "+column)
+            else:
+                # Resolution can't be the same as the review.
+                passert(resolution_part != review_part,
+                        "TagError on line "+str(line_num)+": Invalid resolution: same as review for "+column)
+                # Resolution can't be the same as the original
+                passert(resolution_part != annotation_part,
+                        "TagError on line "+str(line_num)+": Invalid resolution: same as original for "+column)
+        return
+
+    print "FormatError on line "+str(line_num)+" : Invalid resolution."
+
+def passert(condition, message):
+    """Print if the assertion condition fails."""
+    if not condition:
+        print message
+
 def check_file(path, upto):
     line_num = 0
     for sent in open(path).read().split('\n\n'):
@@ -90,6 +143,7 @@ def check_file(path, upto):
                     check_review_content(review_str[1:], line_num, sent_len, line_fields[:len(COLUMNS)])
             #line with a review and resolution
             elif len(line_fields) == len(COLUMNS) + 2:
+                annotation_parts = line_fields[:len(COLUMNS)]
                 review_str = line_fields[-2]
                 formatting_issues = check_review_format(review_str, line_num)
                 if formatting_issues:
@@ -98,6 +152,7 @@ def check_file(path, upto):
                     check_review_content(review_str[1:], line_num, sent_len, line_fields[:len(COLUMNS)])
 
                 resolution_str = line_fields[-1]
+                check_resolution(annotation_parts, review_str, resolution_str, line_num, sent_len)
             #something is wrong with the line
             else:
                 print "LineError on line "+str(line_num)+": check line"
