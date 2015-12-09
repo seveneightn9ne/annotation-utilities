@@ -17,7 +17,7 @@ class Sentence(object):
     def validate_hind_in_bounds(self):
         global heads
         found_root = False
-        for line in self.lines + filter(lambda l: l != None, [l.correction for l in self.lines]):
+        for line in self.lines:# + filter(lambda l: l != None, [l.correction for l in self.lines]):
             if line.hind > len(self.lines)+1:
                 heads += 1
                 print "Out of bounds HIND on line %d" % line.lnum
@@ -71,7 +71,19 @@ class Sentence(object):
             projectivity += 1
             print "Projectivity violation between lines %d and %d" % (l1.lnum, l2.lnum)
 
+all_pos = set(["CC","CD","DT","EX","FW","IN","JJ","JJR","JJS","LS","MD","NN","NNS","NNP","NNPS",
+        "PDT","POS","PRP","PRP$","RB","RBR","RBS","RP","SYM","TO","UH","VB","VBD","VBG","VBN",
+        "VBP","VBZ","WDT","WP","WP$","WRB","PUNCT","GW","AFX","ADD","XX"])
 
+all_upos = set(["ADJ","ADV","INTJ","NOUN","PROPN","VERB","ADP","AUX","CONJ","DET","NUM","PART",
+        "PRON","SCONJ","PUNCT","SYM","X"])
+
+all_rel = set(["nsubj","nsubjpass","dobj","iobj","csubj","csubjpass","ccomp","xcomp","nummod",
+        "appos","nmod","nmod:npmod","nmod:tmod","nmod:poss","acl","acl:relcl","amod","det",
+        "det:predet","neg","case","advcl","advmod","compound","compound:prt","name",
+        "mwe","foreign","goeswith","list","dislocated","parataxis","remnant","reparandum",
+        "vocative","discourse","expl","aux","auxpass","cop","mark","punct","conj","cc","root",
+        "cc:preconj","dep"])
 class Line(object):
     all_pos = set(["CC","CD","DT","EX","FW","IN","JJ","JJR","JJS","LS","MD","NN","NNS","NNP","NNPS",
             "PDT","POS","PRP","PRP$","RB","RBR","RBS","RP","SYM","TO","UH","VB","VBD","VBG","VBN",
@@ -87,7 +99,7 @@ class Line(object):
             "vocative","discourse","expl","aux","auxpass","cop","mark","punct","conj","cc","root",
             "cc:preconj","dep"])
 
-    def __init__(self, linenum, ind, word, upos, pos, hind, rel, correction=None):
+    def __init__(self, linenum, ind, word, upos, pos, hind, rel, extra):
         self.lnum = linenum
         self.ind = ind
         self.word = word
@@ -95,7 +107,8 @@ class Line(object):
         self.pos = pos
         self.hind = hind
         self.rel = rel
-        self.correction = correction
+        self.extra = extra
+        #self.correction = correction
 
     @staticmethod
     def parse_numbered_line(nline):
@@ -129,24 +142,37 @@ class Line(object):
         else:
             return
 
-        if len(items) == 10: # line contains correction layer
-            try:
-                c_hind = int(items[8])
-            except ValueError:
-                print LineParseError(num,
-                        "Non-numerical correction head index '%s'" % items[8], sline)
-                return
-            correction = Line(num, ind, items[1], items[6], items[7], c_hind, items[9])
+        #if len(items) == 10: # line contains correction layer
+        #    try:
+        #        c_hind = int(items[8])
+        #    except ValueError:
+        #        print LineParseError(num,
+        #                "Non-numerical correction head index '%s'" % items[8], sline)
+        #        return
+        #    correction = Line(num, ind, items[1], items[6], items[7], c_hind, items[9])
+        #else:
+        #    correction = None
+        if len(items) > 6: #Review/resolution/alternative exists, not checking it here
+            extra = "\t" + "\t".join(items[6:])
         else:
-            correction = None
-        return Line(num, ind, items[1], items[2], items[3], hind, items[5], correction)
+            extra = ""
+        return Line(num, ind, items[1], items[2], items[3], hind, items[5], extra)
+
+    def fix(self):
+        """ Returns itself as a string or a corrected version """
+        if not self.val_pos_exists() and not self.val_upos_exists():
+            self.pos, self.upos = self.upos, self.pos
+            if not self.val_pos_exists() and not self.val_upos_exists():
+                self.pos, self.upos = self.upos, self.pos
+        return "%d\t%s\t%s\t%s\t%d\t%s%s\n" % \
+                (self.ind, self.word, self.upos, self.pos, self.hind, self.rel, self.extra)
 
     def validate(self):
         self.val_pos_exists()
         self.val_upos_exists()
         self.val_rel_exists()
-        if self.correction != None:
-            self.correction.validate()
+        #if self.correction != None:
+        #    self.correction.validate()
 
     def val_pos_exists(self):
         def val_pos(field):
@@ -179,39 +205,46 @@ class Line(object):
         Line.val_field("REL", self.rel, val_rel, self.lnum, "")
 
     @staticmethod
-    def val_field(fname, field, validation, num, sline):
+    def val_field(fname, field, validation, num, sline, quiet=False):
         global ranking
         valid_field = True
         if "|" in field: #ranking
             parts = field.split("|")
             if not len(parts) == 2:
-                print LineParseError(num, "Too many |s in ranking field for " + fname, sline)
-                ranking += 1
+                if not quiet:
+                    print LineParseError(num, "Too many |s in ranking field for " + fname, sline)
+                    ranking += 1
                 valid_field = False
             else:
                 choices, ranks = parts
                 if ranks == "":
-                    print LineParseError(num, "Missing ranking for "+ fname, sline)
-                    ranking += 1
+                    if not quiet:
+                        print LineParseError(num, "Missing ranking for "+ fname, sline)
+                        ranking += 1
                     valid_field = False
                 else:
                     choices = choices.split("-")
                     ranks = ranks.split("-")
                     if not len(choices) == len(ranks):
-                        print LineParseError(num, "Number of choices and ranks differ for "+fname, sline)
-                        ranking += 1
+                        if not quiet:
+                            print LineParseError(num, \
+                                    "Number of choices and ranks differ for "+fname, sline)
+                            ranking += 1
                         valid_field = False
                     else:
                         try:
                             ranks = map(int, ranks)
                             for i in range(len(ranks)):
                                 if not i+1 in ranks:
-                                    print LineParseError(num, "Unexpected ranking number for " + fname, sline)
-                                    ranking += 1
+                                    if not quiet:
+                                        print LineParseError(num, \
+                                                "Unexpected ranking number for " + fname, sline)
+                                        ranking += 1
                                     valid_field = False
                         except ValueError as e:
-                            print LineParseError(num, "Non numerical rank for " + fname, sline)
-                            ranking += 1
+                            if not quiet:
+                                print LineParseError(num, "Non numerical rank for " + fname, sline)
+                                ranking += 1
                             valid_field = False
                         if valid_field and all(map(validation, choices)):
                             return choices[ranks.index(1)]
@@ -236,6 +269,7 @@ def numbered_lines_to_sentences(numbered_lines,fn):
     f_new = open(fn+'.gen','w')
     sentences = []
     current_sentence = []
+    meta = ""
     equiv = {'``':'"', "''":'"', '(':'-lrb-', ')':'-rrb-'}
     for num, line in map(lambda nline: (nline[0], nline[1].strip()), numbered_lines):
         if line[0:6] == "#SENT=":
@@ -255,10 +289,12 @@ def numbered_lines_to_sentences(numbered_lines,fn):
                         print LineParseError(current_sentence[i][0]+1, "Missing index", current_sentence[i][1])
                         current += 1
                     current += 1
-                    if len(listed) == 6:
+                    if len(listed) >= 6:
                         listed[2] = listed[2].upper()   #fixes casing in UPOS, POS, REL labels
                         listed[3] = listed[3].upper()
                         listed[5] = listed[5].lower()
+                        if listed[3] in all_upos and listed[2] in all_pos:
+                            listed[3], listed[2] = listed[2], listed[3]
                     #checks that #SENT matches entries in sentence
                     word_in_sentence = sent_token[i].lower()
                     word_in_split = current_sentence[i][1].split('\t')[1].lower()
@@ -275,10 +311,11 @@ def numbered_lines_to_sentences(numbered_lines,fn):
             continue
         if line[0] == '#':
             f_new.write('\t'.join((line.split('\t')))+'\n') #gets rid of extra tabs and writes to new file
+            meta += line + "\n"
             continue
-        if line[0] == '"':
-            f_new.write('\t'.join((line.split('\t')))[1:-1]+'\n')   #gets rid of unwanted quotation marks
-            continue
+        #if line[0] == '"':
+        #    f_new.write('\t'.join((line.split('\t')))[1:-1]+'\n')   #gets rid of unwanted quotation marks
+        #    continue
         current_sentence.append([num, line])
     return sentences
 
