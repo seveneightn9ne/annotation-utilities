@@ -283,6 +283,8 @@ def numbered_lines_to_sentences(numbered_lines,fn):
                 if len(current_sentence) != len(sent_token):
                     token_error = 1
                     print "TokenError on line %d: number of tokens sent does not match number of entries in sentence!" % (token_line)
+                    #print sent_token
+                    #print map(lambda w: w[1].split("\t")[1], current_sentence)
                 for i in range(len(current_sentence)):
                     listed = current_sentence[i][1].split('\t')
                     if int(listed[0]) != current:   #checks that index is incrementally increasing

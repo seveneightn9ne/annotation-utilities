@@ -1,4 +1,5 @@
 from sys import argv
+import pprint
 
 def sanity_checks(numbered_lines, corrected, final):
     current_sentence = {}
@@ -39,7 +40,7 @@ def sanity_checks(numbered_lines, corrected, final):
                         continue
                     segs.append(entry)
             continue
-        elif line.startswith('#UNSURE='):
+        elif line.startswith('#AMBIGUITY='):
             unsures = filter(None,line.split('=')[1].split(','))
             if len(unsures) > 0:
                 try:
@@ -120,32 +121,41 @@ def sanity_checks(numbered_lines, corrected, final):
                             int(ci)
                         except ValueError:
                             print "ParseError on line %d: Non numerical MHEAD index" % num
-                        if not rel in all_rels:
+                        if not rel in all_rel:
                             print "ParseError on line %d: Bad relation %s" % (num, rel)
             continue
-        if final and not line:
-            if len(current_sentence) > 0:
+        if not line.strip():
+            if final and len(current_sentence) > 0:
                 for thing in expletives:
-                    lnum,l = current_sentence[thing]
+                    lnum,l = current_sentence[int(thing)]
                     if (l[1] != 'PRON' or l[2] != 'PRP' or l[4] != 'expl'):
                         print ("SentenceError on line %d: "
                                 "incorrectly-annotated expletive" % lnum)
                 for ind in segs:
-                    lnum,l = current_sentence[ind[1]]
+                    lnum,l = current_sentence[int(ind[1])]
                     nrange = range(int(ind[0]),len(current_sentence)+1)
                     if l[4] != 'parataxis':
                         print ("SentenceError on line %d: "
                                 "incorrectly-annotated segment root" % lnum)
                     for num in nrange:
-                        jnum,j = current_sentence[str(num)]
+                        jnum,j = current_sentence[num]
                         if j[1] == 'PUNCT'and int(j[3]) not in nrange:
+                            #print j,nrange
                             print ("SentenceError on line %d: incorrect "
                                     "punctuation hind for segment" % jnum)
                 for typo in typos:
-                    ind, upos, pos, hind, rel = typo.split(" ")
-                    lnum, l = current_sentence[int(ind)]
-                    if l[1] == upos or l[2] == pos:
-                        print "SentenceError on line %d: TYPO with same annotation" % lnum
+                    try:
+                        ind, upos, pos, hind, rel = typo.split(" ")
+                    except ValueError:
+                        print "MetaError on line %d: Wrong number of typo fields" % current_sentence[1][0]
+                        ind = typo.strip().split(" ")[0]
+                    try:
+                        lnum, l = current_sentence[int(ind)]
+                        #if l[1] == upos or l[2] == pos:
+                        #    print "SentenceError on line %d: TYPO with same annotation" % lnum
+                    except KeyError:
+                        print "SentenceError on line %d: Current sentence has no line %d" % (current_sentence[0][0], int(ind))
+                        pprint.pprint(current_sentence)
             current_sentence = {}
             continue
         if corrected and line.startswith("#SENT="):
@@ -157,8 +167,10 @@ def sanity_checks(numbered_lines, corrected, final):
             continue
         if line.startswith("#"):
             print "Warning on line %d: Unrecognized meta row: %s" % (num, line)
+        if line.strip() == '':
+            continue
         split_line = line.split('\t')
-        current_sentence[split_line[0]] = [num,split_line[1:]]
+        current_sentence[int(split_line[0])] = [num,split_line[1:]]
 
 if __name__ == "__main__":
     if len(argv) < 2:

@@ -58,18 +58,23 @@ def fix_ends(segs, last):
     return new
 
 if __name__ == "__main__":
-    if len(argv) < 3:
+    if len(argv) < 4:
         ofn = raw_input("Enter original file name: ")
         cfn = raw_input("Enter corrected file name: ")
+        mfn = raw_input("Enter meta-index file name: ")
     else:
         ofn = argv[1]
         cfn = argv[2]
+        mfn = argv[3]
     o = open(ofn, 'r')
     c = open(cfn, 'r')
+    m = open(mfn, 'r')
     o_sentences = filter(lambda s: s.strip() != "", "".join(o.readlines()).split("\n\n"))
     c_sentences = filter(lambda s: s.strip() != "", "".join(c.readlines()).split("\n\n"))
+    meta = {line.split("\t")[0]: line.split("\t")[1:] for line in m.readlines()}
     new_o = ''
     new_c = ''
+    new_m = ''
     assert len(o_sentences) == len(c_sentences), \
             "Number of sentences differ.\n0: %s\n%s\n\nlast:%s%s" % \
             (o_sentences[0], c_sentences[0], o_sentences[-1], c_sentences[-1])
@@ -77,6 +82,7 @@ if __name__ == "__main__":
     for o,c in sentences:
         olines = o.split("\n")
         clines = c.split("\n")
+        sent_id = olines[0].split("=")[1]
         if not olines[0:5] == clines[0:5]:
             print "ParseError on sentence %s: Metadata differs in corrected file" % olines[0]
             #print "\n".join(olines[0:5])
@@ -90,6 +96,7 @@ if __name__ == "__main__":
         if len(oseg) == 1 or len(cseg) == 1:
             new_o += o + "\n\n"
             new_c += c + "\n\n"
+            new_m += sent_id + "\t" + meta[sent_id].strip() + "\n"
             continue
         if len(oseg) != len(cseg):
             #print oseg
@@ -133,14 +140,18 @@ if __name__ == "__main__":
         if len(oseg) == 1 or len(cseg) == 1:
             new_o += o + "\n\n"
             new_c += c + "\n\n"
+            new_m += sent_id + "\t" + meta[sent_id].strip() + "\n"
             continue
         oseg = fix_ends(oseg, get_ind(olines[-1]))
         cseg = fix_ends(cseg, get_ind(clines[-1]))
+        assert len(oseg) == len(cseg)
         for suffix, seg in zip(string.ascii_lowercase, oseg):
             #print seg
             new_o += segment(olines, seg[0], seg[1], seg[2], suffix) + "\n"
+            new_m += sent_id + suffix + "\t" + meta[sent_id] + "\n"
         for suffix, seg in zip(string.ascii_lowercase, cseg):
             new_c += segment(clines, seg[0], seg[1], seg[2], suffix) + "\n"
     open(ofn+".segmented",'w').write(new_o)
     open(cfn+".segmented",'w').write(new_c)
+    open(mfn+".segmented",'w').write(new_m)
 
