@@ -41,7 +41,7 @@ def check_review_content(review_str, line_num, sent_len, anno_tokens):
         if correction != 'CORRECT' and correction not in LEGAL_TOKENS[cat]:
             print "TagError on line", line_num, ": unknown", cat, correction
         errnum = review_fields[inds[cat] + 1]
-        if not errnum in ("1","2","3","NONE"):
+        if not errnum in ("1","2","NONE"):
             print "ErrorError on line", line_num, ": bad error tag", errnum
     if (review_fields[inds['UPOS']] == anno_tokens[3]) and (review_fields[inds['POS']] == anno_tokens[2]):
         print "TagWarning on line", line_num,":when switching POS and UPOS, change the word annotation directly"
@@ -62,8 +62,8 @@ def check_review_content(review_str, line_num, sent_len, anno_tokens):
             print "TagError on line", line_num, ":", cat, "has the same value in the annotation"
     #check error categries
     for cat in inds:
-        if review_fields[inds[cat]] != 'CORRECT' and review_fields[inds[cat]+1] not in ['1', '2', '3']:
-            print "TagError on line", line_num, ":", cat, "category should be 1 (error), 2 (convention) or 3 (disagreement)"
+        if review_fields[inds[cat]] != 'CORRECT' and review_fields[inds[cat]+1] not in ['1', '2']:
+            print "TagError on line", line_num, ":", cat, "category should be 1 (error), 2 (disagreement)"
 
 def check_review_format(review_str, line_num):
     '''returns a message if there is at least one problem, None otherwise'''
@@ -140,7 +140,7 @@ def check_file(path, upto):
                 continue
             #line with one review
             elif len(line_fields) == len(COLUMNS) + 1:
-                print "Missing resolution on line %d" % line_num
+                #print "Missing resolution on line %d" % line_num
                 review_str = line.split('\t')[-1]
                 formatting_issues = check_review_format(review_str, line_num)
                 if formatting_issues:

@@ -1,10 +1,14 @@
 from sys import argv
-import string
+import string, pprint, re
 
 def get_segmentations(sentence):
     title, segment_text = sentence[6].split("=")
     assert title == "#SEGMENT", "Sentence doesn't have expected #SEGMENT line: %s" % sentence
-    root = get_ind(filter(is_root, sentence[12:])[0])
+    try:
+        root = get_ind(filter(is_root, sentence[12:])[0])
+    except IndexError:
+        pprint.pprint(sentence)
+        raise RuntimeError("aah")
     segments = [(1,root)]
     if segment_text:
         for segment in segment_text.split(","):
@@ -27,7 +31,7 @@ def get_ind(line):
 
 def segment(lines, start, root, end, idsuffix):
     sentence = lines[0] + idsuffix + "\n"
-    sentence += "\n".join(lines[1:6])
+    sentence += "\n".join(lines[1:6]) + "\n"
     sentence += "#SEGMENT=\n"
     for metaline in lines[7:11]:
         title, content = metaline.split("=")
@@ -37,18 +41,48 @@ def segment(lines, start, root, end, idsuffix):
             for thing in content.split(","):
                 index = int(thing.strip().split(" ")[0])
                 if index >= start and index <= end:
-                    kept_things.append(thing)
+                    new_thing = str(index-start + 1)
+                    if len(thing.strip().split(" ")) > 1:
+                        new_thing += " " + " ".join(thing.strip().split(" ")[1:])
+                    kept_things.append(new_thing)
             sentence += ",".join(kept_things)
         sentence += "\n"
-    sentence += lines[11]
+    sentence += lines[11] + "\n"
     for line in lines[12:]:
+        new_root = str(root-start + 1)
         if get_ind(line) >= start and get_ind(line) <= end:
+            parts = shift_line_indices(line,start-1,new_root).split("\t")
+            dupe_review = re.compile('[@#]\* \* ' + parts[4] + ' [123] \*')
             if get_ind(line) == root:
-                parts = line.split("\t")
-                sentence += "\t".join(parts[0:4]) + "0\troot" + "\t".join(parts[6:]) + "\n"
+                sentence += "\t".join(parts[0:4]) + "\t0\troot\t" + "\t".join(parts[6:]) + "\n"
+            elif len(parts) > 6 and parts[7] == "+" and dupe_review.match(parts[6]):
+                sentence += "\t".join(parts[:6]) + "\n"
             else:
-                sentence += line + "\n"
+                sentence += "\t".join(parts) + "\n"
     return sentence
+
+def shift_line_indices(line, shift, new_root):
+    bits = line.split("\t")
+    bits[0] = shift_index(bits[0],shift, new_root)
+    bits[4] = shift_index(bits[4],shift, new_root)
+    if len(bits) >= 7: #review
+        review = bits[6].replace("*","* *").split(" ")
+        review[4] = shift_index(review[4],shift, new_root) if review[4] != "*" else "*"
+        bits[6] = " ".join(review).replace("* *","*")
+    if len(bits) >= 8: #resolution
+        if len(bits[7].split(" ")) > 1: #broken out
+            res = bits[7].split(" ")
+            res[2] = shift_index(res[2],shift,new_root) if res[2] not in "+-*" else res[2]
+            bits[7] = " ".join(res)
+    return "\t".join(bits)
+
+def shift_index(index,shift,new_root):
+    if index == "0":
+        return "0"
+    if int(index) - shift <= 0:
+        return new_root
+    return str(int(index) - shift)
+
 
 def fix_ends(segs, last):
     new = []
@@ -71,7 +105,7 @@ if __name__ == "__main__":
     m = open(mfn, 'r')
     o_sentences = filter(lambda s: s.strip() != "", "".join(o.readlines()).split("\n\n"))
     c_sentences = filter(lambda s: s.strip() != "", "".join(c.readlines()).split("\n\n"))
-    meta = {line.split("\t")[0]: line.split("\t")[1:] for line in m.readlines()}
+    meta = {line.split("\t")[0]: "\t".join(line.split("\t")[1:]) for line in m.readlines()}
     new_o = ''
     new_c = ''
     new_m = ''
@@ -82,7 +116,6 @@ if __name__ == "__main__":
     for o,c in sentences:
         olines = o.split("\n")
         clines = c.split("\n")
-        sent_id = olines[0].split("=")[1]
         if not olines[0:5] == clines[0:5]:
             print "ParseError on sentence %s: Metadata differs in corrected file" % olines[0]
             #print "\n".join(olines[0:5])
@@ -91,6 +124,7 @@ if __name__ == "__main__":
     for o,c in sentences:
         olines = o.split("\n")
         clines = c.split("\n")
+        sent_id = olines[0].split("=")[1]
         oseg = get_segmentations(olines)
         cseg = get_segmentations(clines)
         if len(oseg) == 1 or len(cseg) == 1:
@@ -151,7 +185,7 @@ if __name__ == "__main__":
             new_m += sent_id + suffix + "\t" + meta[sent_id] + "\n"
         for suffix, seg in zip(string.ascii_lowercase, cseg):
             new_c += segment(clines, seg[0], seg[1], seg[2], suffix) + "\n"
-    open(ofn+".segmented",'w').write(new_o)
-    open(cfn+".segmented",'w').write(new_c)
-    open(mfn+".segmented",'w').write(new_m)
+    open(ofn+".segmented3",'w').write(new_o)
+    open(cfn+".segmented3",'w').write(new_c)
+    open(mfn+".segmented3",'w').write(new_m)
 

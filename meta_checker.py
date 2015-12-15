@@ -170,7 +170,10 @@ def sanity_checks(numbered_lines, corrected, final):
         if line.strip() == '':
             continue
         split_line = line.split('\t')
-        current_sentence[int(split_line[0])] = [num,split_line[1:]]
+        try:
+            current_sentence[int(split_line[0])] = [num,split_line[1:]]
+        except ValueError:
+            print "ValueError on line %d: Expected integer %s" % (num, split_line[0])
 
 if __name__ == "__main__":
     if len(argv) < 2:
