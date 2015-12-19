@@ -1,6 +1,16 @@
 from sys import argv
 import string, pprint, re
 
+matches = [
+        [(0,0), (1,2), (2,3), (3,4)],
+        [(0,0), (1,2)],
+        [(0,0), (1,1)],
+        [(0,0), (2,1)],
+        [(0,0), (1,1), (2,4), (3,6)],
+        [(0,0), (1,2)],
+        [(0,0), (1,1)]]
+matches_i = 0
+
 def get_segmentations(sentence):
     title, segment_text = sentence[6].split("=")
     assert title == "#SEGMENT", "Sentence doesn't have expected #SEGMENT line: %s" % sentence
@@ -156,18 +166,23 @@ if __name__ == "__main__":
             else:
                 new_oseg = []
                 new_cseg = []
-                print "Sentence %s will have to be segmented manually!" % olines[0]
-                print list(enumerate(oseg)), "\n", list(enumerate(cseg))
-                i = raw_input("Which match (e.g. '0 0')? ")
-                while i != "":
-                    seg_in_o, seg_in_c = i.split(" ")
-                    new_oseg.append(oseg[int(seg_in_o)])
-                    new_cseg.append(cseg[int(seg_in_c)])
-                    i = raw_input("What else (blank to finish)? ")
+                #print "Sentence %s will have to be segmented manually!" % olines[0]
+                #print list(enumerate(oseg)), "\n", list(enumerate(cseg))
+                #i = raw_input("Which match (e.g. '0 0')? ")
+                pairs = matches[matches_i]
+                matches_i += 1
+                for pair in pairs:
+                    new_oseg.append(oseg[pair[0]])
+                    new_cseg.append(cseg[pair[1]])
+                #while i != "":
+                #    seg_in_o, seg_in_c = i.split(" ")
+                #    new_oseg.append(oseg[int(seg_in_o)])
+                #    new_cseg.append(cseg[int(seg_in_c)])
+                #    i = raw_input("What else (blank to finish)? ")
                 oseg = new_oseg
                 cseg = new_cseg
-                print oseg
-                print cseg
+                #print oseg
+                #print cseg
                 #new_o += o + "\n\n"
                 #new_c += c + "\n\n"
                 #continue
@@ -185,7 +200,7 @@ if __name__ == "__main__":
             new_m += sent_id + suffix + "\t" + meta[sent_id] + "\n"
         for suffix, seg in zip(string.ascii_lowercase, cseg):
             new_c += segment(clines, seg[0], seg[1], seg[2], suffix) + "\n"
-    open(ofn+".segmented3",'w').write(new_o)
-    open(cfn+".segmented3",'w').write(new_c)
-    open(mfn+".segmented3",'w').write(new_m)
+    open(ofn+".segmented.auto",'w').write(new_o)
+    open(cfn+".segmented.auto",'w').write(new_c)
+    open(mfn+".segmented.auto",'w').write(new_m)
 
