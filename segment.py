@@ -63,8 +63,17 @@ def segment(lines, start, root, end, idsuffix):
         if get_ind(line) >= start and get_ind(line) <= end:
             parts = shift_line_indices(line,start-1,new_root).split("\t")
             dupe_review = re.compile('[@#]\* \* ' + parts[4] + ' [123] \*')
+            dupe_root_review = re.compile('[@#]((\*)|(.+ [123])) ((\*)|(.+ [123])) ((((\d+ [123])|(\*)) parataxis [123])|(\d+ [123] \*))')
+            no_kept_root_review = re.compile('[@#]\* \*')
             if get_ind(line) == root:
-                sentence += "\t".join(parts[0:4]) + "\t0\troot\t" + "\t".join(parts[6:]) + "\n"
+                if len(parts)>6 and parts[7] == "+" and dupe_root_review.match(parts[6]):
+                    if no_kept_root_review.match(parts[6]):
+                        sentence += "\t".join(parts[0:4]) + "\t0\troot\n"
+                    else:
+                        sentence += "\t".join(parts[0:4]) + "\t0\troot\t" + \
+                            " ".join(parts[6].replace("*","* *").split(" ")[:4]).replace("* *", "*") + " * *\t+\n"
+                else:
+                    sentence += ("\t".join(parts[0:4]) + "\t0\troot\t" + "\t".join(parts[6:])).strip() + "\n"
             elif len(parts) > 6 and parts[7] == "+" and dupe_review.match(parts[6]):
                 sentence += "\t".join(parts[:6]) + "\n"
             else:
@@ -200,7 +209,7 @@ if __name__ == "__main__":
             new_m += sent_id + suffix + "\t" + meta[sent_id] + "\n"
         for suffix, seg in zip(string.ascii_lowercase, cseg):
             new_c += segment(clines, seg[0], seg[1], seg[2], suffix) + "\n"
-    open(ofn+".segmented.auto",'w').write(new_o)
-    open(cfn+".segmented.auto",'w').write(new_c)
-    open(mfn+".segmented.auto",'w').write(new_m)
+    open(ofn+".segmented",'w').write(new_o)
+    open(cfn+".segmented",'w').write(new_c)
+    open(mfn+".segmented",'w').write(new_m)
 

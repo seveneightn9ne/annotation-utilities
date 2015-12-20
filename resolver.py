@@ -165,6 +165,8 @@ def process_line(line, line_num):
 def process_file(input_path, output_path):
     with open(input_path, "r") as in_file, open(output_path, "w") as out_file:
         for line_num, line in enumerate([""] + in_file.readlines()):
+            if line_num == 0:
+                continue
             try:
                 out_line = process_line(line, line_num)
                 out_file.write(out_line + "\n")
