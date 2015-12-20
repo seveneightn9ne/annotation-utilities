@@ -12,10 +12,10 @@ matches = [
 matches_i = 0
 
 def get_segmentations(sentence):
-    title, segment_text = sentence[6].split("=")
+    title, segment_text = sentence[3].split("=")
     assert title == "#SEGMENT", "Sentence doesn't have expected #SEGMENT line: %s" % sentence
     try:
-        root = get_ind(filter(is_root, sentence[12:])[0])
+        root = get_ind(filter(is_root, sentence[9:])[0])
     except IndexError:
         pprint.pprint(sentence)
         raise RuntimeError("aah")
@@ -41,9 +41,9 @@ def get_ind(line):
 
 def segment(lines, start, root, end, idsuffix):
     sentence = lines[0] + idsuffix + "\n"
-    sentence += "\n".join(lines[1:6]) + "\n"
+    sentence += "\n".join(lines[1:3]) + "\n"
     sentence += "#SEGMENT=\n"
-    for metaline in lines[7:11]:
+    for metaline in lines[4:8]:
         title, content = metaline.split("=")
         sentence += title + "="
         if content:
@@ -57,8 +57,8 @@ def segment(lines, start, root, end, idsuffix):
                     kept_things.append(new_thing)
             sentence += ",".join(kept_things)
         sentence += "\n"
-    sentence += lines[11] + "\n"
-    for line in lines[12:]:
+    sentence += lines[8] + "\n"
+    for line in lines[9:]:
         new_root = str(root-start + 1)
         if get_ind(line) >= start and get_ind(line) <= end:
             parts = shift_line_indices(line,start-1,new_root).split("\t")
@@ -135,7 +135,7 @@ if __name__ == "__main__":
     for o,c in sentences:
         olines = o.split("\n")
         clines = c.split("\n")
-        if not olines[0:5] == clines[0:5]:
+        if not olines[0:2] == clines[0:2]:
             print "ParseError on sentence %s: Metadata differs in corrected file" % olines[0]
             #print "\n".join(olines[0:5])
             #print "\n".join(clines[0:5])
