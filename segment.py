@@ -110,6 +110,19 @@ def fix_ends(segs, last):
     new.append((segs[-1][0], segs[-1][1], last))
     return new
 
+def verify_same_segment(osent, oseg, csent, cseg):
+    if oseg < 2 and cseg < 2:
+        return
+    def get_word(sent, index):
+        return filter(lambda line: get_ind(line) == index+1, sent[9:])[0].split("\t")[1]
+    def sameish(w1, w2):
+        return (w1.lower() == w2.lower()) or (w1 in ".," and w2 in ".,")
+    if not (sameish(get_word(osent, oseg-2), get_word(csent, cseg-2)) \
+            or sameish(get_word(osent, oseg-1), get_word(csent, cseg-1))):
+        #print get_word(osent, oseg-2), "is not similar to", get_word(csent, cseg-2)
+        #print get_word(osent, oseg-1), "is not similar to", get_word(csent, cseg-1)
+        print "Possibly misaligned segment on sentence " + osent[0]
+
 if __name__ == "__main__":
     if len(argv) < 4:
         ofn = raw_input("Enter original file name: ")
@@ -203,13 +216,15 @@ if __name__ == "__main__":
         oseg = fix_ends(oseg, get_ind(olines[-1]))
         cseg = fix_ends(cseg, get_ind(clines[-1]))
         assert len(oseg) == len(cseg)
+        for os, cs in zip(oseg, cseg):
+            verify_same_segment(olines, os[0], clines, cs[0])
         for suffix, seg in zip(string.ascii_lowercase, oseg):
             #print seg
             new_o += segment(olines, seg[0], seg[1], seg[2], suffix) + "\n"
             new_m += sent_id + suffix + "\t" + meta[sent_id] + "\n"
         for suffix, seg in zip(string.ascii_lowercase, cseg):
             new_c += segment(clines, seg[0], seg[1], seg[2], suffix) + "\n"
-    open(ofn+".segmented",'w').write(new_o)
-    open(cfn+".segmented",'w').write(new_c)
-    open(mfn+".segmented",'w').write(new_m)
+    open(ofn+".segmented2",'w').write(new_o)
+    open(cfn+".segmented2",'w').write(new_c)
+    open(mfn+".segmented2",'w').write(new_m)
 
