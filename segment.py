@@ -39,9 +39,17 @@ def is_root(line):
 def get_ind(line):
     return int(line.split("\t")[0])
 
-def segment(lines, start, root, end, idsuffix):
-    sentence = lines[0] + idsuffix + "\n"
-    sentence += "\n".join(lines[1:3]) + "\n"
+def segment(lines, start, root, end, idsuffix, sent_meta_dict):
+    new_id = lines[0].split("=")[1].strip() + idsuffix
+    sentence = "#ID=" + new_id + "\n"
+    try:
+        sentence += "#SENT-XML=" + sent_meta_dict[new_id][0].strip() + "\n"
+        sentence += "#SENT=" + sent_meta_dict[new_id][1].strip() + "\n"
+    except KeyError:
+        #pprint.pprint(sent_meta_dict)
+        raise RuntimeError("Sentence not found in the dict: " + new_id)
+    #sentence = lines[0] + idsuffix + "\n"
+    #sentence += "\n".join(lines[1:3]) + "\n"
     sentence += "#SEGMENT=\n"
     for metaline in lines[4:8]:
         title, content = metaline.split("=")
@@ -123,6 +131,21 @@ def verify_same_segment(osent, oseg, csent, cseg):
         #print get_word(osent, oseg-1), "is not similar to", get_word(csent, cseg-1)
         print "Possibly misaligned segment on sentence " + osent[0]
 
+def read_sentence_segmentations():
+    output = {}
+    for version in ('original','corrected'):
+        output[version] = {}
+        f = open('treebank.' + version + '.segmented-sentences')
+        lines = map(lambda line: line.strip(), f.readlines())
+        for i in range(len(lines)/3):
+            idd = lines[i*3]
+            sent_xml = lines[i*3+1]
+            sent = lines[i*3+2]
+            if not '.xml' in lines[i*3]:
+                raise RuntimeError("Bad sentence here:" + idd)
+            output[version][idd] = (sent_xml, sent)
+    return (output['original'], output['corrected'])
+
 if __name__ == "__main__":
     if len(argv) < 4:
         ofn = raw_input("Enter original file name: ")
@@ -153,6 +176,7 @@ if __name__ == "__main__":
             #print "\n".join(olines[0:5])
             #print "\n".join(clines[0:5])
             #print "---------------------------------------------------------------------------"
+    o_sent_meta, c_sent_meta = read_sentence_segmentations()
     for o,c in sentences:
         olines = o.split("\n")
         clines = c.split("\n")
@@ -220,11 +244,11 @@ if __name__ == "__main__":
             verify_same_segment(olines, os[0], clines, cs[0])
         for suffix, seg in zip(string.ascii_lowercase, oseg):
             #print seg
-            new_o += segment(olines, seg[0], seg[1], seg[2], suffix) + "\n"
+            new_o += segment(olines, seg[0], seg[1], seg[2], suffix, o_sent_meta) + "\n"
             new_m += sent_id + suffix + "\t" + meta[sent_id] + "\n"
         for suffix, seg in zip(string.ascii_lowercase, cseg):
-            new_c += segment(clines, seg[0], seg[1], seg[2], suffix) + "\n"
-    open(ofn+".segmented2",'w').write(new_o)
-    open(cfn+".segmented2",'w').write(new_c)
-    open(mfn+".segmented2",'w').write(new_m)
+            new_c += segment(clines, seg[0], seg[1], seg[2], suffix, c_sent_meta) + "\n"
+    open(ofn+".segmented",'w').write(new_o)
+    open(cfn+".segmented",'w').write(new_c)
+    open(mfn+".segmented",'w').write(new_m)
 
