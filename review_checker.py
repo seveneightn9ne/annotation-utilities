@@ -69,8 +69,6 @@ def check_review_format(review_str, line_num):
     '''returns a message if there is at least one problem, None otherwise'''
     if not (review_str.startswith('#') or review_str.startswith('@')):
         return "FormatError on line "+str(line_num)+" : Review should start with #/@"
-    if review_str.startswith('# ') or review_str.startswith('@ '):
-        return "FormatError on line "+str(line_num)+" : Review must not have space after #/@"
     if not(review_str[1:].strip()):
         return "FormatError on line "+str(line_num)+" : No review"
     if review_str[1:] == '* * * *':
@@ -78,6 +76,8 @@ def check_review_format(review_str, line_num):
     review_fields = review_str[1:].replace('*', 'CORRECT NONE').split()
     if len(review_fields) != 8:
         return "FormatError on line "+str(line_num)+" : too many or too few fields"
+    if review_str.startswith('# ') or review_str.startswith('@ '):
+        return "FormatError on line "+str(line_num)+" : Review must not have space after #/@"
 
 def check_resolution(annotation_parts, review_str, resolution_str, line_num, sent_len):
     """Check the format of a resolution and its related review."""
