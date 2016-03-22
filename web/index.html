@@ -1,10 +1,65 @@
-<form>
-  <!--The form contains several <input> elements which receive info from the user.
-  Each <input> element has a 'type' attribute, which determines if it's a textbox, radio button, etc.-->
-  <label for="search">Search:</label>
-  <input id="search" type="text" name="search"><br>
+<html>
 
-  <!--The submit-type input is a button that sends the information as name:value pairs to the form's 'action'-->
-    <input type="submit" value="Submit">
-    <form action="handle_input.py" method="get">
-</form>
+<head>
+
+    <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/jquery-ui-redmond.css">
+    <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/main.css">
+    <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/style-vis.css">
+
+	 <style>
+        body {
+            margin: 20px;
+        }
+        #search-box {
+        	margin-bottom: 10px;
+        }
+        #instructions {
+        	font-size: 14px;
+        	background-color: lightblue;
+        	padding: 10px;
+        }
+        #instructions p {
+        	margin-bottom: 5px;
+        	margin-top: 5px;
+        }
+        ul {
+        	margin-left: 40px;
+        }
+    </style>
+</head>
+
+<body>
+	<form>
+	  	<!--The form contains several <input> elements which receive info from the user.
+	  	Each <input> element has a 'type' attribute, which determines if it's a textbox, radio button, etc.-->
+	  	<!--The submit-type input is a button that sends the information as name:value pairs to the form's 'action'-->
+	  	<div id="search-box">
+	  		<label for="search">Search:</label>
+	  		<input type="text" name="search"><br>
+	  		<label for="error">Error type:</label>
+	  		<select name="error">
+  				<option value="A">Any</option>
+  				<option value="N">None</option>
+  				<option value="MISS">Missing word</option>
+  				<option value="TENSE">Verb tense</option>
+			</select><br>
+	    	<input type="submit" value="Submit" id="search-box">
+	    	<form action="handle_input.py" method="get">
+	  	</div>
+	</form>
+	<div id="instructions">
+		<p><b>Search Guidelines</b></p>
+		<p>You may search for a combination of verbatim words, regexes that match words, and part of speech categories.</p>
+		<p>For example:
+			<ul>
+				<li>go eat <i>matches</i> the string "go eat"</li>
+				<li>go <b>\w</b>+ing <i>matches</i> "go fishing", "go shopping", etc.
+				<li>go <b>VERB</b> <i>matches</i> "go fishing", etc., but also "go eat", "go look", etc.</li>
+			</ul>
+
+		<p>Available part of speech categories:</p>
+		<p><b>ADJ, ADV, INTJ, NOUN, PROPN, VERB, ADP, AUX, CONJ, DET, NUM, PART, PRON, SCONJ,<br>PUNCT, SYM, X</b></p>
+	</div>
+</body>
+
+</html>

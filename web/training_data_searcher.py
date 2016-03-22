@@ -5,14 +5,20 @@ match_header = '<pre><code class="language-conllu">'
 
 match_footer = '\n</code></pre>'
 
+punct = [".",",","!","?",":"]
+
 class Sentence(object):
     def __init__(self, lines):
+        self.headers = filter(lambda x: x[0]=='#', lines)
+        self.errors = []
+        lines = filter(lambda x: x[0]!='#', lines)
         self.fulltext = "\n".join(lines)
+        print self.fulltext
         self.words = map(Word, lines)
         self.match = None
 
     def __str__(self):
-        return " ".join(map(str, self.words))
+        return " ".join(self.headers) + " ".join(map(str, self.words))
 
     def matches(self, string):
         words = string.split(" ")
@@ -21,13 +27,13 @@ class Sentence(object):
             for (i, word) in enumerate(words):
                 word_obj = self.words[si+i]
                 if word_obj.matches(word):
-                    self.match.append(word_obj)
+                    self.match.append(si+i)
                 else:
                     self.match = None
                     break
             if self.match != None:
-                return True
-        return False
+                return self.match
+        return None
 
     def match_attr(self, attr):
         if self.match == None:
@@ -51,7 +57,7 @@ class Word(object):
             "cc:preconj","dep"])
 
     def __init__(self, line):
-        print "line:", line
+        # print "line:", line
         items = line.split("\t")
         self.word = items[1]
         self.pos = items[3]
@@ -78,8 +84,7 @@ def lines_to_sentences(lines):
                 sentences.append(Sentence(current_sentence))
                 current_sentence = []
             continue
-        if line[0] != '#':
-            current_sentence.append(line)
+        current_sentence.append(line)
     return sentences
 
 
@@ -90,25 +95,45 @@ def analyze_frequency(items, upto=10):
 
 def search_corpus(phrase):
     output = []
-    output.append(phrase)
     corpus = "English.train.conllu"
     f = open(corpus, "r")
     lines = f.read().split("\n")
     sentences = lines_to_sentences(lines)
-    matches = filter(lambda s: s.matches(phrase), sentences)
+    sentences = map(lambda s: (s, s.matches(phrase)), sentences)
+    matches = filter(lambda s: s[1] is not None, sentences)
+    #matches = filter(lambda s: s.matches(phrase), sentences)
     if matches:
-        output.append( str(len(matches)) + " matching sentences.<p>" )
-        output.append("Part of Speech:")
-        analyze_frequency(map(lambda m: m.match_attr("pos"), matches))
-        output.append("<p>Relation:")
-        analyze_frequency(map(lambda m: m.match_attr("rel"), matches))
+        output.append('<div id="search-results-header">')
+        output.append("<p>You searched for <i>"+phrase+"</i>.</p>")
+        output.append( "<p>"+str(len(matches))+" matching sentences.</p>" )
+        output.append('</div>')
+        #output.append("Part of Speech:")
+        #analyze_frequency(map(lambda m: m.match_attr("pos"), matches))
+        #output.append("<p>Relation:")
+        #analyze_frequency(map(lambda m: m.match_attr("rel"), matches))
         output.append("")
         for s in matches:
-            output.append(str(s))
+            output.append('<div class="result">')
+            sentence = str(s[0]).split(" ")
+            build_html_sentence = []
+            for i in range(len(sentence)):
+                if i>0 and sentence[i] not in punct:
+                    build_html_sentence.append(" ")
+                if i in s[1]:
+                    build_html_sentence.append('<span class="matched-word">')
+                    build_html_sentence.append(sentence[i])
+                    build_html_sentence.append('</span>')
+                else:
+                    build_html_sentence.append(sentence[i])
+            output.append("".join(build_html_sentence))
             output.append(match_header)
-            for line in s.fulltext.split("\n"):
+            for match in s[1]:
+                output.append("# visual-style "+str(match+1)+" bgColor:green")
+
+            for line in s[0].fulltext.split("\n"):
                 output.append(line)
             output.append(match_footer)
+            output.append("</div>")
 
     else:
         output.append("no matches found")
