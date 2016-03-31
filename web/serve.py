@@ -9,7 +9,7 @@ import urlparse
 
 import training_data_searcher as tds
 
-PORT = 8008
+PORT = 8000
 
 results_header = '''
 <!DOCTYPE html>
