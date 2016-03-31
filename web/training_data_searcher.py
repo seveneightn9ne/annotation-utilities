@@ -12,6 +12,7 @@ RESULTS_LIMIT = 100
 class Sentence(object):
 	def __init__(self, lines):
 		self.headers = filter(lambda x: x[0]=='#', lines)
+		self.errors = []
 		for head in self.headers:
 			if head.startswith("#SENT"):
 				self.errors = re.findall('(?<=ns type=")(.+?)(?=")', head)
