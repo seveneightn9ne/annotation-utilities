@@ -1,5 +1,7 @@
 import SimpleHTTPServer
 import SocketServer
+import traceback
+import datetime
 
 import urlparse
 #url = 'http://example.com/?q=abc&p=123'
@@ -7,7 +9,7 @@ import urlparse
 
 import training_data_searcher as tds
 
-PORT = 8000
+PORT = 8008
 
 results_header = '''
 <!DOCTYPE html>
@@ -23,25 +25,7 @@ results_header = '''
 	<link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/main.css">
 	<link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/style-vis.css">
 
-	<style>
-		body {
-			margin: 20px;
-		}
-		pre.embedding {
-			margin-bottom: 20px;
-		}
-		#search-results-header {
-			background-color: lightblue;
-			padding: 10px;
-		}
-		.result {
-			padding: 10px;
-			background-color: #e9e9e9;
-		}
-		.matched-word {
-			background-color: lightgreen;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="searchstyle.css">
 
 	<script type="text/javascript" src="http://spyysalo.github.io/conllu.js/lib/ext/head.load.min.js"></script>
 </head>
@@ -107,17 +91,39 @@ results_footer = '''
 class MyRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	def do_GET(self):
 		#self.wfile.write(self.path)
-		print "hi, I'm handling a get"
 		print self.path
 		if 'search=' in self.path:
-			parsed_args = urlparse.parse_qs(urlparse.urlparse(self.path).query)
-			self.send_response(200)
-			self.send_header('Content-type','text/html')
-			self.end_headers()
-			search_phrase = " ".join(parsed_args['search'])
-			self.wfile.write(results_header)
-			self.wfile.write(tds.search_corpus(search_phrase))
-			self.wfile.write(results_footer)
+			try:
+				parsed_args = urlparse.parse_qs(urlparse.urlparse(self.path).query)
+				self.send_response(200)
+				self.send_header('Content-type','text/html')
+				self.end_headers()
+				try:
+					search_phrase = " ".join(parsed_args['search'])
+				except KeyError as e:
+					search_phrase = ""
+				corpus = parsed_args['corpus'][0]
+				error = parsed_args['error'][0]
+				print error
+
+				with open('index.html', 'r') as searchPageFile:
+					searchPageText = searchPageFile.read()
+
+				searchPageBody = searchPageText[searchPageText.find("<body>")+6:searchPageText.find("</body>")]
+
+				self.wfile.write(results_header)
+				self.wfile.write(searchPageBody)
+				self.wfile.write(tds.search_corpus(search_phrase, error, corpus))
+				self.wfile.write(results_footer)
+			except Exception as e:
+				errorFile = open("error.log","a")
+				errorFile.write("================\n")
+				errorFile.write(str(datetime.datetime.now())+"\n")
+				errorFile.write("================\n")
+
+				traceback.print_exc(file=errorFile)
+
+				errorFile.write("\n\n\n")
 
 			return
 		else:

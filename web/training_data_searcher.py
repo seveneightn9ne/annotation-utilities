@@ -7,10 +7,15 @@ match_footer = '\n</code></pre>'
 
 punct = [".",",","!","?",":"]
 
+RESULTS_LIMIT = 100
+
 class Sentence(object):
 	def __init__(self, lines):
 		self.headers = filter(lambda x: x[0]=='#', lines)
-		self.errors = []
+		for head in self.headers:
+			if head.startswith("#SENT"):
+				self.errors = re.findall('(?<=ns type=")(.+?)(?=")', head)
+				break
 		lines = filter(lambda x: x[0]!='#', lines)
 		self.fulltext = "\n".join(lines)
 		self.words = map(Word, lines)
@@ -19,19 +24,20 @@ class Sentence(object):
 	def __str__(self):
 		return " ".join(self.headers) + " ".join(map(str, self.words))
 
-	def matches(self, string):
+	def sentenceText(self):
+		return " ".join(map(str, self.words))
+
+	def matches(self, string, error):
 		words = string.split(" ")
+		search_words = self.words + self.errors
+		self.match = []
 		for si in range(len(self.words)-len(words)):
-			self.match = []
 			for (i, word) in enumerate(words):
 				word_obj = self.words[si+i]
 				if word_obj.matches(word):
 					self.match.append(si+i)
-				else:
-					self.match = None
-					break
-			if self.match != None:
-				return self.match
+		if len(self.match) > 0 or error in self.errors:
+			return self.match
 		return None
 
 	def match_attr(self, attr):
@@ -47,6 +53,12 @@ class Word(object):
 
 	all_upos = set(["ADJ","ADV","INTJ","NOUN","PROPN","VERB","ADP","AUX","CONJ","DET","NUM","PART",
 			"PRON","SCONJ","PUNCT","SYM","X"])
+
+	all_errors = set(["AGN","AGV","CL","CN","ID","IV","MA","MD","MT","MV","RA","RD","RJ","RN","RT",
+			"RV","RY","UA","UD","UT","UV","TV","AGA","AGD","AGQ","AS","CD","CE","CQ","DA","DD","DV",
+			"FD","FJ","FY","W","X","DJ","DN","DY","FN","FV","IJ","IN","IQ","L","MC","MJ","MN","MQ",
+			"MY","RC","RQ","UC","UJ","UN","UQ","UY","AG","FQ","DQ","IY","FA","DI","IA","DT","UP","MP",
+			"RP","S","SA","SX","M","R","U"])
 
 	all_rel = set(["nsubj","nsubjpass","dobj","iobj","csubj","csubjpass","ccomp","xcomp","nummod",
 			"appos","nmod","nmod:npmod","nmod:tmod","nmod:poss","acl","acl:relcl","amod","det",
@@ -66,6 +78,8 @@ class Word(object):
 		return self.word
 
 	def matches(self, string):
+		#if string in self.all_errors:
+		#	return string == self.word
 		if string.isupper() and string != "I":
 			return string == self.pos
 		if string == self.rel:
@@ -93,19 +107,33 @@ def analyze_frequency(items, upto=10):
 		#print "%s\t%d" % (item, 100*float(freqs[item])/float(len(items))) + "%"
 		pass
 
-def search_corpus(phrase):
+def search_corpus(phrase, error, search_corpus):
 	output = []
-	corpus = "English.train.conllu"
+	if search_corpus == "eng":
+		corpus = "English.train.conllu"
+		corpus_name = "English"
+	else:
+		corpus = "en-esl-ud.conllu"
+		corpus_name = "ESL"
 	f = open(corpus, "r")
 	lines = f.read().split("\n")
 	sentences = lines_to_sentences(lines)
-	sentences = map(lambda s: (s, s.matches(phrase)), sentences)
+	sentences = map(lambda s: (s, s.matches(phrase, error)), sentences)
 	matches = filter(lambda s: s[1] is not None, sentences)
+	if len(matches) > RESULTS_LIMIT:
+		fullLength = len(matches)
+		matches = matches[:RESULTS_LIMIT]
+		limited = True
+	else:
+		limited = False
 	#matches = filter(lambda s: s.matches(phrase), sentences)
 	if matches:
 		output.append('<div id="search-results-header">')
-		output.append("<p>You searched for <i>"+phrase+"</i>.</p>")
-		output.append( "<p>"+str(len(matches))+" matching sentences.</p>" )
+		output.append("<p>You searched for <i>"+phrase+"</i> in the "+corpus_name+" corpus.</p>")
+		if (limited):
+			output.append( "<p>"+str(fullLength)+" matching sentences. <i>(Results limited to first "+str(RESULTS_LIMIT)+".)</i></p>" )
+		else:
+			output.append( "<p>"+str(len(matches))+" matching sentences.</p>" )
 		output.append('</div>')
 		#output.append("Part of Speech:")
 		#analyze_frequency(map(lambda m: m.match_attr("pos"), matches))
@@ -114,7 +142,7 @@ def search_corpus(phrase):
 		output.append("")
 		for s in matches:
 			output.append('<div class="result">')
-			sentence = str(s[0]).split(" ")
+			sentence = s[0].sentenceText().split(" ") + s[0].errors
 			build_html_sentence = []
 			for i in range(len(sentence)):
 				if i>0 and sentence[i] not in punct:
