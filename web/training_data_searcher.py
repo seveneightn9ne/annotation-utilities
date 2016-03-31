@@ -143,7 +143,7 @@ def search_corpus(phrase, error, search_corpus):
 		output.append("")
 		for s in matches:
 			output.append('<div class="result">')
-			sentence = s[0].sentenceText().split(" ") + s[0].errors
+			sentence = s[0].sentenceText().split(" ")
 			build_html_sentence = []
 			for i in range(len(sentence)):
 				if i>0 and sentence[i] not in punct:
@@ -154,6 +154,12 @@ def search_corpus(phrase, error, search_corpus):
 					build_html_sentence.append('</span>')
 				else:
 					build_html_sentence.append(sentence[i])
+			build_html_sentence.append("  ")
+			for error in s[0].errors:
+				build_html_sentence.append('<span class="error-code">')
+				build_html_sentence.append(error)
+				build_html_sentence.append('</span>  ')
+
 			output.append("".join(build_html_sentence))
 			output.append(match_header)
 			for match in s[1]:

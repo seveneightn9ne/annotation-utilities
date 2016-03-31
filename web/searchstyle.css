@@ -16,6 +16,12 @@ pre.embedding {
 	background-color: lightgreen;
 }
 
+.error-code {
+	background-color: pink;
+	font-weight: bold;
+	font-size: 12px;
+}
+
 #search-box {
 	margin-bottom: 10px;
 }
