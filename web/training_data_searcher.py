@@ -33,9 +33,14 @@ class Sentence(object):
 		search_words = self.words + self.errors
 		self.match = []
 		for si in range(len(self.words)-len(words)):
+			matched = True
 			for (i, word) in enumerate(words):
 				word_obj = self.words[si+i]
-				if word_obj.matches(word):
+				if not word_obj.matches(word):
+					matched = False
+					break
+			if matched:
+				for i in range(len(words)):
 					self.match.append(si+i)
 		if len(self.match) > 0 or error in self.errors:
 			return self.match
@@ -103,10 +108,11 @@ def lines_to_sentences(lines):
 
 
 def analyze_frequency(items, upto=10):
+	returnList = []
 	freqs = {item: items.count(item) for item in set(items)}
 	for item in sorted(freqs.keys(), lambda x,y: cmp(freqs[x], freqs[y]), reverse=True)[:upto]:
-		#print "%s\t%d" % (item, 100*float(freqs[item])/float(len(items))) + "%"
-		pass
+		returnList.append("%s\t%d" % (item, 100*float(freqs[item])/float(len(items))) + "%")
+	return returnList
 
 def search_corpus(phrase, error, search_corpus):
 	output = []

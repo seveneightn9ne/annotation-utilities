@@ -28,6 +28,19 @@ results_header = '''
 	<link rel="stylesheet" type="text/css" href="searchstyle.css">
 
 	<script type="text/javascript" src="http://spyysalo.github.io/conllu.js/lib/ext/head.load.min.js"></script>
+'''
+
+insert_javascript_esl = '''
+	<script type="text/javascript"> window.onload = function() {
+  		document.getElementById('corpus_list').getElementsByTagName('option')[0].selected = 'selected'; 
+	};</script>'''
+
+insert_javascript_eng = '''
+	<script type="text/javascript"> window.onload = function() {
+  		document.getElementById('corpus_list').getElementsByTagName('option')[1].selected = 'selected'; 
+	};</script>'''
+
+results_header_end = '''
 </head>
 
 <body>
@@ -112,6 +125,11 @@ class MyRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 				searchPageBody = searchPageText[searchPageText.find("<body>")+6:searchPageText.find("</body>")]
 
 				self.wfile.write(results_header)
+				if corpus == 'esl':
+					self.wfile.write(insert_javascript_esl)
+				else:
+					self.wfile.write(insert_javascript_eng)
+				self.wfile.write(results_header_end)
 				self.wfile.write(searchPageBody)
 				self.wfile.write(tds.search_corpus(search_phrase, error, corpus))
 				self.wfile.write(results_footer)
