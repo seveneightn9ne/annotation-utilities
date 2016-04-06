@@ -7,7 +7,7 @@ match_footer = '\n</code></pre>'
 
 punct = [".",",","!","?",":"]
 
-RESULTS_LIMIT = 100
+RESULTS_LIMIT = 6000
 
 class Sentence(object):
 	def __init__(self, lines):
