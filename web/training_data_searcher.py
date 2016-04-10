@@ -16,7 +16,8 @@ class Sentence(object):
 		for head in self.headers:
 			if head.startswith("#SENT"):
 				self.errors = re.findall('(?<=ns type=")(.+?)(?=")', head)
-				break
+			if head.startswith("#ID"):
+				self.id = head[4:]
 		lines = filter(lambda x: x[0]!='#', lines)
 		self.fulltext = "\n".join(lines)
 		self.words = map(Word, lines)
@@ -24,6 +25,9 @@ class Sentence(object):
 
 	def __str__(self):
 		return " ".join(self.headers) + " ".join(map(str, self.words))
+
+	def setCorrectedVersion(self, corrected):
+		self.corrected = corrected
 
 	def sentenceText(self):
 		return " ".join(map(str, self.words))
@@ -94,7 +98,11 @@ class Word(object):
 		return re.match(restring, self.word, re.I)
 
 
-def lines_to_sentences(lines):
+def lines_to_sentences(lines, lines_corr=[]):
+
+	print len(lines), len(lines_corr)
+	
+	# create original sentences
 	sentences = []
 	current_sentence = []
 	for line in map(lambda line: line.strip(), lines):
@@ -104,6 +112,24 @@ def lines_to_sentences(lines):
 				current_sentence = []
 			continue
 		current_sentence.append(line)
+
+	# create corrected sentences
+	sentences_corr = {}
+	current_corr_sentence = []
+	for line_corr in map(lambda line_corr: line_corr.strip(), lines_corr):
+		if not line_corr:
+			if len(current_corr_sentence) > 0:
+				new_corr_sentence = Sentence(current_corr_sentence)
+				sentences_corr[new_corr_sentence.id] = new_corr_sentence
+				current_corr_sentence = []
+			continue
+		current_corr_sentence.append(line_corr)
+
+	# match original sentences to corrected sentences
+	if len(lines_corr) > 0:
+		for sentence in sentences:
+			sentence.setCorrectedVersion(sentences_corr[sentence.id])
+
 	return sentences
 
 
@@ -114,17 +140,23 @@ def analyze_frequency(items, upto=10):
 		returnList.append("%s\t%d" % (item, 100*float(freqs[item])/float(len(items))) + "%")
 	return returnList
 
-def search_corpus(phrase, error, search_corpus):
+def search_corpus(phrase, error, search_corpus, show_corr):
 	output = []
 	if search_corpus == "eng":
 		corpus = "English.train.conllu"
 		corpus_name = "English"
+		f = open(corpus, "r")
+		lines = f.read().split("\n")
+		lines_corr = []
 	else:
 		corpus = "en-esl-ud.conllu"
+		corpus_corr = "en-cesl-ud.conllu"
 		corpus_name = "ESL"
-	f = open(corpus, "r")
-	lines = f.read().split("\n")
-	sentences = lines_to_sentences(lines)
+		f = open(corpus, "r")
+		f_corr = open(corpus_corr, "r")
+		lines = f.read().split("\n")
+		lines_corr = f_corr.read().split("\n")
+	sentences = lines_to_sentences(lines, lines_corr)
 	sentences = map(lambda s: (s, s.matches(phrase, error)), sentences)
 	matches = filter(lambda s: s[1] is not None, sentences)
 	if len(matches) > RESULTS_LIMIT:
@@ -174,6 +206,22 @@ def search_corpus(phrase, error, search_corpus):
 			for line in s[0].fulltext.split("\n"):
 				output.append(line)
 			output.append(match_footer)
+			output.append("\n")
+
+			if(search_corpus=='esl' and show_corr):
+				sentence = s[0].corrected.sentenceText().split(" ")
+				build_html_sentence = []
+				for i in range(len(sentence)):
+					if i>0 and sentence[i] not in punct:
+						build_html_sentence.append(" ")
+					build_html_sentence.append(sentence[i])
+				output.append("".join(build_html_sentence))
+
+				output.append(match_header)
+				for line in s[0].corrected.fulltext.split("\n"):
+					output.append(line)
+				output.append(match_footer)
+
 			output.append("</div>")
 
 	else:

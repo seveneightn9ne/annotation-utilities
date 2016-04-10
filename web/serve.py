@@ -117,7 +117,10 @@ class MyRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 					search_phrase = ""
 				corpus = parsed_args['corpus'][0]
 				error = parsed_args['error'][0]
-				print error
+				if 'corr' in parsed_args:
+					show_corr = True
+				else:
+					show_corr = False
 
 				with open('index.html', 'r') as searchPageFile:
 					searchPageText = searchPageFile.read()
@@ -131,7 +134,7 @@ class MyRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 					self.wfile.write(insert_javascript_eng)
 				self.wfile.write(results_header_end)
 				self.wfile.write(searchPageBody)
-				self.wfile.write(tds.search_corpus(search_phrase, error, corpus))
+				self.wfile.write(tds.search_corpus(search_phrase, error, corpus, show_corr))
 				self.wfile.write(results_footer)
 			except Exception as e:
 				errorFile = open("error.log","a")
