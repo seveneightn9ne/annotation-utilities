@@ -44,8 +44,10 @@ class Sentence(object):
 					matched = False
 					break
 			if matched:
+				myMatch = []
 				for i in range(len(words)):
-					self.match.append(si+i)
+					myMatch.append((self.words[si+i], si+i))
+					self.match.append(myMatch)
 		if len(self.match) > 0 or error in self.errors:
 			return self.match
 		return None
@@ -53,7 +55,7 @@ class Sentence(object):
 	def match_attr(self, attr):
 		if self.match == None:
 			raise RuntimeError("Querying %s of a nonexistent match" % attr)
-		return " ".join(map(lambda w: getattr(w, attr), self.match))
+		return " ".join(map(lambda w: getattr(w[0], attr), self.match[0]))
 
 
 class Word(object):
@@ -99,8 +101,6 @@ class Word(object):
 
 
 def lines_to_sentences(lines, lines_corr=[]):
-
-	print len(lines), len(lines_corr)
 	
 	# create original sentences
 	sentences = []
@@ -137,8 +137,15 @@ def analyze_frequency(items, upto=10):
 	returnList = []
 	freqs = {item: items.count(item) for item in set(items)}
 	for item in sorted(freqs.keys(), lambda x,y: cmp(freqs[x], freqs[y]), reverse=True)[:upto]:
-		returnList.append("%s\t%d" % (item, 100*float(freqs[item])/float(len(items))) + "%")
-	return returnList
+		returnList.append("<td>%s</td><td>%d" % (item, 100*float(freqs[item])/float(len(items))) + "%</td>")
+	output = []
+	output.append('<table>')
+	for item in returnList:
+		output.append('<tr>')
+		output.append(item)
+		output.append('</tr>')
+	output.append('</table>')
+	return "".join(output)
 
 def search_corpus(phrase, error, search_corpus, show_corr):
 	output = []
@@ -174,19 +181,20 @@ def search_corpus(phrase, error, search_corpus, show_corr):
 		else:
 			output.append( "<p>"+str(len(matches))+" matching sentences.</p>" )
 		output.append('</div>')
-		#output.append("Part of Speech:")
-		#analyze_frequency(map(lambda m: m.match_attr("pos"), matches))
-		#output.append("<p>Relation:")
-		#analyze_frequency(map(lambda m: m.match_attr("rel"), matches))
+		output.append("Part of Speech:")
+		output.append(analyze_frequency(map(lambda m: m[0].match_attr("pos"), matches)))
+		output.append("<p>Relation:")
+		output.append(analyze_frequency(map(lambda m: m[0].match_attr("rel"), matches)))
 		output.append("")
 		for s in matches:
 			output.append('<div class="result">')
 			sentence = s[0].sentenceText().split(" ")
+			match_indices = [x[1] for x in [item for sublist in s[1] for item in sublist]]
 			build_html_sentence = []
 			for i in range(len(sentence)):
 				if i>0 and sentence[i] not in punct:
 					build_html_sentence.append(" ")
-				if i in s[1]:
+				if i in match_indices:
 					build_html_sentence.append('<span class="matched-word">')
 					build_html_sentence.append(sentence[i])
 					build_html_sentence.append('</span>')
@@ -200,7 +208,7 @@ def search_corpus(phrase, error, search_corpus, show_corr):
 
 			output.append("".join(build_html_sentence))
 			output.append(match_header)
-			for match in s[1]:
+			for match in match_indices:
 				output.append("# visual-style "+str(match+1)+" bgColor:green")
 
 			for line in s[0].fulltext.split("\n"):
