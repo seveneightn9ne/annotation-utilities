@@ -48,13 +48,15 @@ class Sentence(object):
 				for i in range(len(words)):
 					myMatch.append((self.words[si+i], si+i))
 					self.match.append(myMatch)
-		if len(self.match) > 0 or error in self.errors:
+		if len(self.match) > 0 or (error in self.errors and string == ""):
 			return self.match
 		return None
 
 	def match_attr(self, attr):
 		if self.match == None:
 			raise RuntimeError("Querying %s of a nonexistent match" % attr)
+		if len(self.match) == 0:
+			return ""
 		return " ".join(map(lambda w: getattr(w[0], attr), self.match[0]))
 
 
@@ -181,11 +183,11 @@ def search_corpus(phrase, error, search_corpus, show_corr):
 		else:
 			output.append( "<p>"+str(len(matches))+" matching sentences.</p>" )
 		output.append('</div>')
-		output.append("Part of Speech:")
+		output.append('<table><tr><td style="vertical-align:top">Part of Speech:')
 		output.append(analyze_frequency(map(lambda m: m[0].match_attr("pos"), matches)))
-		output.append("<p>Relation:")
+		output.append("</td><td>Relation:")
 		output.append(analyze_frequency(map(lambda m: m[0].match_attr("rel"), matches)))
-		output.append("")
+		output.append("</td></tr></table>")
 		for s in matches:
 			output.append('<div class="result">')
 			sentence = s[0].sentenceText().split(" ")
