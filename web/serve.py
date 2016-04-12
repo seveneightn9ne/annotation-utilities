@@ -9,7 +9,7 @@ import urlparse
 
 import training_data_searcher as tds
 
-PORT = 8000
+PORT = 80
 
 results_header = '''
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ results_header = '''
 
 <head>
 	<meta charset="utf-8">
-	<title>conllu.js</title>
+	<title>Treebank of Learner English</title>
 	<meta name="viewport" content="width=device-width">
 	<meta name="description" content="CoNLL-U format library for JavaScript">
 
