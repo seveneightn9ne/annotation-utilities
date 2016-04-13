@@ -211,7 +211,7 @@ def search_corpus(phrase, error, search_corpus, show_corr):
 			output.append("".join(build_html_sentence))
 			output.append(match_header)
 			for match in match_indices:
-				output.append("# visual-style "+str(match+1)+" bgColor:green")
+				output.append("# visual-style "+str(match+1)+" bgColor:#fff59d")
 
 			for line in s[0].fulltext.split("\n"):
 				output.append(line)

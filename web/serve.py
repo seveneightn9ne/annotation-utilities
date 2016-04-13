@@ -9,25 +9,20 @@ import urlparse
 
 import training_data_searcher as tds
 
-PORT = 80
+PORT = 8013
 
 results_header = '''
 <!DOCTYPE html>
 <html>
 
-<head>
-	<meta charset="utf-8">
-	<title>Treebank of Learner English</title>
-	<meta name="viewport" content="width=device-width">
-	<meta name="description" content="CoNLL-U format library for JavaScript">
-
-	<link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/jquery-ui-redmond.css">
-	<link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/main.css">
-	<link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/style-vis.css">
-
-	<link rel="stylesheet" type="text/css" href="searchstyle.css">
-
-	<script type="text/javascript" src="http://spyysalo.github.io/conllu.js/lib/ext/head.load.min.js"></script>
+<head>	
+    <title>Treebank of Learner English</title>	
+    <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/jquery-ui-redmond.css">
+    <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/main.css">
+    <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/style-vis.css">
+    <link rel="stylesheet" type="text/css" href="searchstyle.css">
+    <script type="text/javascript" src="http://spyysalo.github.io/conllu.js/lib/ext/head.load.min.js"></script>
+    <script src="jsfunctions.js"></script>
 '''
 
 insert_javascript_esl = '''
@@ -123,7 +118,7 @@ class MyRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 					show_corr = False
 
 				with open('index.html', 'r') as searchPageFile:
-					searchPageText = searchPageFile.read()
+					searchPageText = searchPageFile.read().strip()
 
 				searchPageBody = searchPageText[searchPageText.find("<body>")+6:searchPageText.find("</body>")]
 

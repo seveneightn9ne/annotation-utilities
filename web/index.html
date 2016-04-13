@@ -1,13 +1,13 @@
 <html>
 
 <head>
-
+    <title>Treebank of Learner English</title>	
     <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/jquery-ui-redmond.css">
     <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/main.css">
     <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/style-vis.css">
-
     <link rel="stylesheet" type="text/css" href="searchstyle.css">
-
+    <script type="text/javascript" src="http://spyysalo.github.io/conllu.js/lib/ext/head.load.min.js"></script>
+    <script src="jsfunctions.js"></script>
 </head>
 
 <body>
@@ -25,96 +25,91 @@
 			</select><br>	  		
 			<label for="error">Error type:</label>
 			<select name="error" id="error">
-				<option value=" "> </option>
-				<option value="AGN">AGN</option>
-				<option value="AGV">AGV</option>
-				<option value="CL">CL</option>
-				<option value="CN">CN</option>
-				<option value="ID">ID</option>
-				<option value="IV">IV</option>
-				<option value="MA">MA</option>
-				<option value="MD">MD</option>
-				<option value="MT">MT</option>
-				<option value="MV">MV</option>
-				<option value="RA">RA</option>
-				<option value="RD">RD</option>
-				<option value="RJ">RJ</option>
-				<option value="RN">RN</option>
-				<option value="RT">RT</option>
-				<option value="RV">RV</option>
-				<option value="RY">RY</option>
-				<option value="UA">UA</option>
-				<option value="UD">UD</option>
-				<option value="UT">UT</option>
-				<option value="UV">UV</option>
-				<option value="TV">TV</option>
-				<option value="AGA">AGA</option>
-				<option value="AGD">AGD</option>
-				<option value="AGQ">AGQ</option>
-				<option value="AS">AS</option>
-				<option value="CD">CD</option>
-				<option value="CE">CE</option>
-				<option value="CQ">CQ</option>
-				<option value="DA">DA</option>
-				<option value="DD">DD</option>
-				<option value="DV">DV</option>
-				<option value="FD">FD</option>
-				<option value="FJ">FJ</option>
-				<option value="FY">FY</option>
-				<option value="W">W</option>
-				<option value="X">X</option>
-				<option value="DJ">DJ</option>
-				<option value="DN">DN</option>
-				<option value="DY">DY</option>
-				<option value="FN">FN</option>
-				<option value="FV">FV</option>
-				<option value="IJ">IJ</option>
-				<option value="IN">IN</option>
-				<option value="IQ">IQ</option>
-				<option value="L">L</option>
-				<option value="MC">MC</option>
-				<option value="MJ">MJ</option>
-				<option value="MN">MN</option>
-				<option value="MQ">MQ</option>
-				<option value="MY">MY</option>
-				<option value="RC">RC</option>
-				<option value="RQ">RQ</option>
-				<option value="UC">UC</option>
-				<option value="UJ">UJ</option>
-				<option value="UN">UN</option>
-				<option value="UQ">UQ</option>
-				<option value="UY">UY</option>
-				<option value="AG">AG</option>
-				<option value="FQ">FQ</option>
-				<option value="DQ">DQ</option>
-				<option value="IY">IY</option>
-				<option value="FA">FA</option>
-				<option value="DI">DI</option>
-				<option value="IA">IA</option>
-				<option value="DT">DT</option>
-				<option value="UP">UP</option>
-				<option value="MP">MP</option>
-				<option value="RP">RP</option>
-				<option value="S">S</option>
-				<option value="SA">SA</option>
-				<option value="SX">SX</option>
-				<option value="M">M</option>
-				<option value="R">R</option>
-				<option value="U">U</option>
+			  <option value=" "> </option>
+			  <option value="AGN">Agreement noun</option>
+			  <option value="AGV">Agreement verb</option>
+			  <option value="AGA">Agreement pronoun</option>
+			  <option value="AGD">Agreement determiner</option>
+			  <option value="AGQ">Agreement quantifier</option>
+			  <option value="AS">Argument structure</option>
+			  <option value="CL">Collocation</option>
+			  <option value="CE">Compound</option>
+			  <option value="CD">Countability determiner</option>
+			  <option value="CN">Countability noun</option>  
+			  <option value="CQ">Countability quantifier</option>
+			  <option value="DJ">Derivation adjective</option>
+			  <option value="DY">Derivation adverb</option>
+			  <option value="DD">Derivation determiner</option>
+			  <option value="DN">Derivation noun</option>
+			  <option value="DT">Derivation preposition</option>
+			  <option value="DA">Derivation pronoun</option>
+			  <option value="DQ">Derivation quantifier</option>
+			  <option value="DV">Derivation verb</option>
+			  <option value="FJ">Form adjective</option>
+			  <option value="FY">Form adverb</option>
+			  <option value="FD">Form determiner</option>
+			  <option value="FN">Form noun</option>
+			  <option value="FA">Form pronoun</option>
+			  <option value="FQ">Form quantifier</option>
+			  <option value="FV">Form verb</option>
+			  <option value="IJ">Formation adjective</option>
+			  <option value="IY">Formation adverb</option>
+			  <option value="ID">Formation determiner</option>
+			  <option value="X">Formation negation</option>
+			  <option value="IN">Formation noun</option>
+			  <option value="IA">Formation pronoun</option>
+			  <option value="IQ">Formation quantifier</option>
+			  <option value="IV">Formation verb</option>  
+			  <option value="MJ">Missing adjective</option>
+			  <option value="MY">Missing adverb</option>
+			  <option value="MC">Missing conjunction</option>
+			  <option value="MD">Missing determiner</option>
+			  <option value="MN">Missing noun</option>
+			  <option value="MT">Missing preposition</option>
+			  <option value="MA">Missing pronoun</option>
+			  <option value="MP">Missing punctuation</option>
+			  <option value="MQ">Missing quantifier</option>
+			  <option value="MV">Missing verb</option>
+			  <option value="L">Register</option>
+			  <option value="RJ">Replace adjective</option>
+			  <option value="RY">Replace adverb</option>
+			  <option value="RC">Replace conjunction</option>
+			  <option value="RD">Replace determiner</option>
+			  <option value="RN">Replace noun</option>
+			  <option value="RT">Replace preposition</option>
+			  <option value="RQ">Replace quantifier</option>
+			  <option value="RA">Replace pronoun</option>
+			  <option value="RP">Replace punctuation</option>
+			  <option value="RV">Replace verb</option>
+			  <option value="S">Spelling</option>
+			  <option value="SA">Spelling (American)</option>
+			  <option value="SX">Spelling confusion</option>
+			  <option value="TV">Tense verb</option>
+			  <option value="UJ">Unnecessary adjective</option>
+			  <option value="UY">Unnecessary adverb</option>
+			  <option value="UC">Unnecessary conjunction</option>
+			  <option value="UD">Unnecessary determiner</option>
+			  <option value="UN">Unnecessary noun</option>
+			  <option value="UT">Unnecessary preposition</option>
+			  <option value="UA">Unnecessary pronoun</option>
+			  <option value="UP">Unneccessary punctuation</option>
+			  <option value="UQ">Unnecessary quantifier</option>
+			  <option value="UV">Unnecessary verb</option>			  
+			  <option value="W">Word order</option>
 			</select><br>
 			<input type="checkbox" name="corr" value="true"> Show corrected version<br>
 	    	<input type="submit" value="Submit" id="search-box">
 	    	<form action="handle_input.py" method="get">
 	  	</div>
-	</form>
-	<div id="instructions">
-		<p><b>Search Guidelines</b></p>
+	</form>	
+		<a href="#" style="color:#03a9f4"; onclick="return toggleMe('instructions')">Instructions</a>
+		<div id="instructions" style="display:none">
 		<p>You may search for a combination of verbatim words, regexes that match words, and part of speech categories.</p>
 		<p>For example:
 			<ul>
-				<li>go eat <i>matches</i> the string "go eat"</li>
-				<li>go <b>\w+</b>ing <i>matches</i> "go fishing", "go shopping", etc.
-				<li>go <b>VERB</b> <i>matches</i> "go fishing", etc., but also "go eat", "go look", etc.</li>
+				<li>go there <i>matches</i> the string "go there"</li>
+				<li>go <b>\w+</b>ing <i>matches</i> "go swimming", "go shopping", etc.
+				<li>go <b>VERB</b> <i>matches</i> "go swimming", etc., but also "go travel", "go look", etc.</li>
 			</ul>
 
 		<p>Available part of speech categories:</p>
