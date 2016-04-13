@@ -152,14 +152,14 @@ def analyze_frequency(items, upto=10):
 def search_corpus(phrase, error, search_corpus, show_corr):
 	output = []
 	if search_corpus == "eng":
-		corpus = "English.train.conllu"
+		corpus = "../data/en-ud-train-1.2.conllu"
 		corpus_name = "English"
 		f = open(corpus, "r")
 		lines = f.read().split("\n")
 		lines_corr = []
 	else:
-		corpus = "en-esl-ud.conllu"
-		corpus_corr = "en-cesl-ud.conllu"
+		corpus = "../data/en_esl-ud.conllu"
+		corpus_corr = "../data/en_cesl-ud.conllu"
 		corpus_name = "ESL"
 		f = open(corpus, "r")
 		f_corr = open(corpus_corr, "r")
