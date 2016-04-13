@@ -9,14 +9,14 @@ import urlparse
 
 import training_data_searcher as tds
 
-PORT = 8013
+PORT = 80
 
 results_header = '''
 <!DOCTYPE html>
 <html>
 
 <head>	
-    <title>Treebank of Learner English</title>	
+    <title>TLE</title>	
     <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/jquery-ui-redmond.css">
     <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/main.css">
     <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/style-vis.css">
