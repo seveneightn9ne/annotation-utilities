@@ -21,7 +21,7 @@ class Sentence(object):
 		lines = filter(lambda x: x[0]!='#', lines)
 		self.fulltext = "\n".join(lines)
 		self.words = map(Word, lines)
-		self.match = None
+		self.match = []
 
 	def __str__(self):
 		return " ".join(self.headers) + " ".join(map(str, self.words))
@@ -33,24 +33,29 @@ class Sentence(object):
 		return " ".join(map(str, self.words))
 
 	def matches(self, string, error):
-		words = string.split(" ")
-		search_words = self.words + self.errors
-		self.match = []
-		for si in range(len(self.words)-len(words)):
-			matched = True
-			for (i, word) in enumerate(words):
-				word_obj = self.words[si+i]
-				if not word_obj.matches(word):
-					matched = False
-					break
-			if matched:
-				myMatch = []
-				for i in range(len(words)):
-					myMatch.append((self.words[si+i], si+i))
-					self.match.append(myMatch)
-		if len(self.match) > 0 or (error in self.errors and string == ""):
-			return self.match
-		return None
+                #search for error type witout query
+                if not(string):
+                        return error in self.errors
+                else:
+                        words = string.split()
+                        #find query matches
+                        search_words = self.words
+                        for si in range(len(self.words)-len(words)):
+                                matched = True
+                                for (i, word) in enumerate(words):
+                                        word_obj = self.words[si+i]
+                                        if not word_obj.matches(word):
+                                                matched = False
+                                                break
+                                if matched:
+                                        myMatch = []
+                                        for i in range(len(words)):
+                                                myMatch.append((self.words[si+i], si+i))
+                                                self.match.append(myMatch)
+                        matched_error = not(error.strip()) or error in self.errors
+                        if self.match and matched_error:
+                                return self.match
+                return False
 
 	def match_attr(self, attr):
 		if self.match == None:
@@ -167,13 +172,14 @@ def search_corpus(phrase, error, search_corpus, show_corr):
 		lines_corr = f_corr.read().split("\n")
 	sentences = lines_to_sentences(lines, lines_corr)
 	sentences = map(lambda s: (s, s.matches(phrase, error)), sentences)
-	matches = filter(lambda s: s[1] is not None, sentences)
+	matches = filter(lambda s: s[1], sentences)
 	if len(matches) > RESULTS_LIMIT:
 		fullLength = len(matches)
 		matches = matches[:RESULTS_LIMIT]
 		limited = True
 	else:
 		limited = False
+
 	#matches = filter(lambda s: s.matches(phrase), sentences)
 	if matches:
 		output.append('<div id="search-results-header">')
@@ -182,16 +188,19 @@ def search_corpus(phrase, error, search_corpus, show_corr):
 			output.append( "<p>"+str(fullLength)+" matching sentences. <i>(Results limited to first "+str(RESULTS_LIMIT)+".)</i></p>" )
 		else:
 			output.append( "<p>"+str(len(matches))+" matching sentences.</p>" )
-		output.append('</div>')
-		output.append('<table><tr><td style="vertical-align:top">Part of Speech:')
-		output.append(analyze_frequency(map(lambda m: m[0].match_attr("pos"), matches)))
-		output.append("</td><td>Relation:")
-		output.append(analyze_frequency(map(lambda m: m[0].match_attr("rel"), matches)))
-		output.append("</td></tr></table>")
+                output.append('</div>')
+                if phrase.split():
+                        output.append('<table><tr><td style="vertical-align:top">Part of Speech:')
+                        output.append(analyze_frequency(map(lambda m: m[0].match_attr("pos"), matches)))
+                        output.append("</td><td>Relation:")
+                        output.append(analyze_frequency(map(lambda m: m[0].match_attr("rel"), matches)))
+                        output.append("</td></tr></table>")
 		for s in matches:
 			output.append('<div class="result">')
 			sentence = s[0].sentenceText().split(" ")
-			match_indices = [x[1] for x in [item for sublist in s[1] for item in sublist]]
+                        match_indices = []
+                        if phrase.strip():
+                                match_indices = [x[1] for x in [item for sublist in s[1] for item in sublist]]
 			build_html_sentence = []
 			for i in range(len(sentence)):
 				if i>0 and sentence[i] not in punct:
