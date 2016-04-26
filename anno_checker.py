@@ -270,7 +270,7 @@ def numbered_lines_to_sentences(numbered_lines,fn):
     sentences = []
     current_sentence = []
     meta = ""
-    equiv = {'``':'"', "''":'"', '(':'-lrb-', ')':'-rrb-'}
+    equiv = {'``':'"', "''":'"', '(':'-lrb-', ')':'-rrb-', '{':'-lcb-', '}':'-rcb-'}
     for num, line in map(lambda nline: (nline[0], nline[1].strip()), numbered_lines):
         if line[0:6] == "#SENT=":
             sent_token = line[6:].split(' ')
