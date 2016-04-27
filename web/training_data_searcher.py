@@ -32,6 +32,16 @@ class Sentence(object):
 	def sentenceText(self):
 		return " ".join(map(str, self.words))
 
+        def triplet_matches(self, string):
+                words = string.split()
+                if len(words) != 3:
+                        return False
+                for i, w in enumerate(self.words):
+                        hind = w.hind-1
+                        if w.matches(words[0]) and w.relmatches(words[1]) and self.words[hind].matches(words[2]):
+                                self.match.append([(self.words[i], i), (self.words[hind], hind)])
+                return self.match
+                
 	def matches(self, string, error):
                 #search for error type witout query
                 if not(string):
@@ -91,6 +101,7 @@ class Word(object):
 		items = line.split("\t")
 		self.word = items[1]
 		self.pos = items[3]
+                self.hind = int(items[6])
 		self.rel = items[7]
 
 	def __str__(self):
@@ -106,6 +117,10 @@ class Word(object):
 		restring = "^" + string + "$"
 		return re.match(restring, self.word, re.I)
 
+        def relmatches(self, string):
+		if string == self.rel:
+			return True
+                return False
 
 def lines_to_sentences(lines, lines_corr=[]):
 	
@@ -154,7 +169,7 @@ def analyze_frequency(items, upto=10):
 	output.append('</table>')
 	return "".join(output)
 
-def search_corpus(phrase, error, search_corpus, show_corr):
+def search_corpus(phrase, triplet_match, error, search_corpus, show_corr):
 	output = []
 	if search_corpus == "eng":
 		corpus = "../data/en-ud-train-1.2.conllu"
@@ -171,7 +186,11 @@ def search_corpus(phrase, error, search_corpus, show_corr):
 		lines = f.read().split("\n")
 		lines_corr = f_corr.read().split("\n")
 	sentences = lines_to_sentences(lines, lines_corr)
-	sentences = map(lambda s: (s, s.matches(phrase, error)), sentences)
+        if triplet_match:
+                sentences = map(lambda s: (s, s.triplet_matches(phrase)), sentences)
+        else:
+                sentences = map(lambda s: (s, s.matches(phrase, error)), sentences)
+                
 	matches = filter(lambda s: s[1], sentences)
 	if len(matches) > RESULTS_LIMIT:
 		fullLength = len(matches)
@@ -247,32 +266,3 @@ def search_corpus(phrase, error, search_corpus, show_corr):
 		output.append("no matches found")
 
 	return '\n'.join(output)
-
-
-if __name__ == "__main__" and len(sys.argv) > 1:
-	phrase = sys.argv[1].strip("\"")
-	#print phrase
-	if len(sys.argv) > 2 and sys.argv[2].startswith("--corpus="):
-		corpus = sys.argv[2].split("=")[1]
-	else:
-		corpus = "English.train.conllu"
-	f = open(corpus, "r")
-	lines = f.read().split("\n")
-	sentences = lines_to_sentences(lines)
-	matches = filter(lambda s: s.matches(phrase), sentences)
-	if matches:
-		#print len(matches), "matching sentences.<p>"
-		#print "Part of Speech:"
-		analyze_frequency(map(lambda m: m.match_attr("pos"), matches))
-		#print "<p>Relation:"
-		analyze_frequency(map(lambda m: m.match_attr("rel"), matches))
-		#print
-		for s in matches:
-			#print s
-			for line in s.fulltext.split("\n"):
-				#print line + "<p>"
-				pass
-
-	else:
-		#print "no matches found"
-		pass
