@@ -101,6 +101,7 @@ class Word(object):
 		items = line.split("\t")
 		self.word = items[1]
 		self.pos = items[3]
+                self.ptbpos = items[4]
                 self.hind = int(items[6])
 		self.rel = items[7]
 
@@ -111,7 +112,7 @@ class Word(object):
 		#if string in self.all_errors:
 		#	return string == self.word
 		if string.isupper() and string != "I":
-			return string == self.pos
+			return (string == self.pos) or (string == self.ptbpos)
 		if string == self.rel:
 			return True
 		restring = "^" + string + "$"
