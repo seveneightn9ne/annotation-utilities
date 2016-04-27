@@ -22,6 +22,7 @@
 			$.get(ajax_url, success=function(response){
 				$('#results').empty();
 				$('#results').append(format_response(response, show_corr, hl_err));
+				Annodoc.activate(Config.bratCollData, documentCollections);
 			});
 		}
 		function checkSubmit(e) {
@@ -61,7 +62,7 @@
 		}
 
 		function wrap_sentence_fulltext(text) {
-			return '<pre><code class="language-conllu">'+text+'</code></pre>';
+			return '<pre><code class="language-conllu">'+text+'\n\n</code></pre>';
 		}
     </script>
 </head>
@@ -69,7 +70,6 @@
 <body>
 
 	<div id="search-box" onKeyDown="return checkSubmit(event)">
-		<p>SEARCH TOOL</p>
 		<label for="search">Search:</label>
 		<input type="text" id="search_field">
 		<label for="corpus">Corpus:</label>
@@ -174,5 +174,56 @@
 
 	
 </body>
+
+<!-- XXX -->
+
+</article>
+
+</body>
+
+<script type="text/javascript">
+	var root = 'http://spyysalo.github.io/conllu.js/'; // filled in by jekyll
+	head.js(
+		// External libraries
+		root + 'lib/ext/jquery.min.js',
+		root + 'lib/ext/jquery.svg.min.js',
+		root + 'lib/ext/jquery.svgdom.min.js',
+		root + 'lib/ext/jquery-ui.min.js',
+		root + 'lib/ext/waypoints.min.js',
+
+		// brat helper modules
+		root + 'lib/brat/configuration.js',
+		/* root + 'lib/brat/util.js', */
+		'util.js',
+		root + 'lib/brat/annotation_log.js',
+		root + 'lib/ext/webfont.js',
+		// brat modules
+		root + 'lib/brat/dispatcher.js',
+		root + 'lib/brat/url_monitor.js',
+		root + 'lib/brat/visualizer.js',
+
+		// annotation documentation support
+		'http://spyysalo.github.io/annodoc/lib/local/annodoc.js',
+		root + 'lib/local/config.js',
+
+		// the conllu.js library itself
+		root + 'conllu.js'
+	);
+
+	var webFontURLs = [
+		root + 'static/fonts/PT_Sans-Caption-Web-Regular.ttf',
+		root + 'static/fonts/Liberation_Sans-Regular.ttf'
+	];
+
+	/* not used here */
+	var documentCollections = {};
+
+	head.ready(function() {
+	// performes all embedding and support functions
+	Annodoc.activate(Config.bratCollData, documentCollections);
+	});
+</script>
+
+
 
 </html>

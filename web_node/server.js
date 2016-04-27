@@ -15,10 +15,10 @@ app.get('/search', function (req, res) {
     //res.send(req.query);
     console.log(req.query.query);
     searcher.do_search(req.query.query, req.query.error, req.query.corpus, function(matches) {
-    	res.send({"query":req.query, "matches": matches});
+    	res.send({"query":req.query, "stats":{}, "matches": matches});
     	console.log("returned result");
     });
     console.log("GET /search");
 });
 
-app.listen(8080);
+app.listen(8888);

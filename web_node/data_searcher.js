@@ -9,6 +9,8 @@ var do_search = function(phrase, error, search_corpus, callback) {
 		var corpus_corr = "";
 
 	} else {
+		//var corpus = "data/en_esl-ud.conllu";
+		//var corpus_corr = "data/en_cesl-ud.conllu";
 		var corpus = "data/en_esl-ud.conllu";
 		var corpus_corr = "data/en_cesl-ud.conllu";
 	}
@@ -59,13 +61,21 @@ var search_file = function(phrase, error, file_data, corr_filename, callback) {
 }
 
 var search_sentences = function(phrase, error, sentences, callback) {
+	console.log("searching for phrase: "+phrase+". error: "+error);
 	var matches = [];
 	for(var i=0; i<sentences.length; i++) {
 		var matches_in_sentence = sentences[i].matches(phrase, error);
+		//console.log("Matches in sentence: "+JSON.stringify(matches_in_sentence));
 		if(matches_in_sentence.length > 0) {
 			matches.push({sentence:sentences[i], positions:matches_in_sentence});
 		}
 	}
+	/*var rel_stats = matches.map(function(match){
+		//[].concat.apply([], response.matches[i].positions);
+		return match.positions[0].map(function(position) {
+
+		});
+	});*/
 	callback(matches);
 
 }
@@ -95,12 +105,10 @@ var Sentence = function(lines) {
 		var str_matches = false;
 		var err_matches = false;
 		var all_matches = [];
-		if(this.sent_xml == undefined) {
-			console.log("sent_xml undefined error: "+this.fulltext);
-		}
-		if (this.sent_xml.indexOf(error) >= 0) {
+
+		if (err_matches == "" || this.sent_xml.indexOf('"error '+error+'"') >= 0) {
 			err_matches = true;
-			all_matches.push[[-1]];
+			//all_matches.push([[-1]]);
 		}
 		if (search_string == "") {
 			str_matches = true;
@@ -121,7 +129,15 @@ var Sentence = function(lines) {
 				}
 			}
 		}
-		return all_matches;
+
+		if(str_matches && err_matches) {
+			if(all_matches.length == 0 && error != "") {
+				all_matches.push([[-1]]);
+			}
+			return all_matches;
+		} else {
+			return [];
+		}
 	}
 }
 
