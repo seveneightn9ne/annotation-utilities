@@ -17,7 +17,7 @@
 	  	<!--The submit-type input is a button that sends the information as name:value pairs to the form's 'action'-->
 	  	<div id="search-box">
 	  		<label for="search">Search:</label>
-	  		<input type="text" name="search">
+	  		<input type="text" name="search">			
 	  		<label for="corpus">Corpus:</label>
 	  		<select name="corpus" id="corpus_list">
   				<option value="esl">ESL</option>
@@ -97,6 +97,7 @@
 			  <option value="UV">Unnecessary verb</option>			  
 			  <option value="W">Word order</option>
 			</select><br>
+			<input type="checkbox" name="triplet" value="true"> Dependent Relation Head Search<br>
 			<input type="checkbox" name="corr" value="true"> Show corrected version<br>
 	    	<input type="submit" value="Submit" id="search-box">
 	    	<form action="handle_input.py" method="get">

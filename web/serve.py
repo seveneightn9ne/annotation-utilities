@@ -9,7 +9,7 @@ import urlparse
 
 import training_data_searcher as tds
 
-PORT = 80
+PORT = 8080
 
 results_header = '''
 <!DOCTYPE html>
@@ -116,6 +116,10 @@ class MyRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 					show_corr = True
 				else:
 					show_corr = False
+                                if 'triplet' in parsed_args:
+					triplet_match = True
+				else:
+					triplet_match = False
 
 				with open('index.html', 'r') as searchPageFile:
 					searchPageText = searchPageFile.read().strip()
@@ -129,7 +133,7 @@ class MyRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 					self.wfile.write(insert_javascript_eng)
 				self.wfile.write(results_header_end)
 				self.wfile.write(searchPageBody)
-				self.wfile.write(tds.search_corpus(search_phrase, error, corpus, show_corr))
+				self.wfile.write(tds.search_corpus(search_phrase, triplet_match, error, corpus, show_corr))
 				self.wfile.write(results_footer)
 			except Exception as e:
 				errorFile = open("error.log","a")
