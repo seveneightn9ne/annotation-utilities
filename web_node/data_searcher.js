@@ -106,7 +106,8 @@ var Sentence = function(lines) {
 		var err_matches = false;
 		var all_matches = [];
 
-		if (err_matches == "" || this.sent_xml.indexOf('"error '+error+'"') >= 0) {
+		if (error == "" || this.sent_xml.indexOf('"error '+error+'"') >= 0) {
+			//console.log("error found at position "+)
 			err_matches = true;
 			//all_matches.push([[-1]]);
 		}
