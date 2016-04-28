@@ -7,7 +7,7 @@ Outputs a new file, with suffix .fixed-punct
 import sys
 
 lrb = ['``', '-LRB-']
-rrb = ['\'\'', '-RRB']
+rrb = ['\'\'', '-RRB-']
 
 def satisfies_projectivity(ind, hind, sentence):
     """ Is this relation of ind/hind ok? """
