@@ -37,21 +37,15 @@ var search_file = function(phrase, error, file_data, corr_filename, callback) {
 		var lines = text.split('\n');
 
 		if(corr_filename != "") {
-			var now = Date.now() / 1000;
 			fs.readFile(corr_filename, function(err, data) {
-				console.log("First time: "+((Date.now() / 1000) - now));
 
 				// if there was an error, throw it (fix this later)
 				if(err) throw err;
 
 				var text = data.toString();
-				console.log("1.2 time: "+((Date.now() / 1000) - now));
 				var lines_corr = text.split('\n');
-				console.log("1.4 time: "+((Date.now() / 1000) - now));
 				var sentences = lines_to_sentences(lines, lines_corr);
-				console.log("Second time: "+((Date.now() / 1000) - now));
 				search_sentences(phrase, error, sentences, function(matches, stats) {
-					console.log("Third time: "+((Date.now() / 1000) - now));
 					callback(matches, stats);
 				});
 
@@ -71,11 +65,20 @@ var make_sentences = function(file_data, file_corr_data) {
 
 		// convert buffer to string
 		var text = file_data.toString();
-		var text_corr = file_corr_data.toString();
-
 		// split into lines
 		var lines = text.split('\n');
-		var lines_corr = text_corr.split('\n');
+
+		// do the same thing for the corrected file data,
+		// but first check if it's undefined
+		if (!(file_corr_data == undefined)) {
+			var text_corr = file_corr_data.toString();
+			var lines_corr = text_corr.split('\n');
+		} else {
+			var lines_corr = [];
+		}
+
+
+		// split into lines
 
 		var sentences = lines_to_sentences(lines, lines_corr);
 		
@@ -84,12 +87,17 @@ var make_sentences = function(file_data, file_corr_data) {
 }
 
 var search_sentences = function(phrase, error, sentences, callback) {
+	var now = Date.now() / 1000;
 	console.log("searching for phrase: "+phrase+". error: "+error);
 	var matches = [];
 	var pos_stats = {};
 	var rel_stats = {};
+	console.log("kiwis "+((Date.now() / 1000) - now));
 	for(var i=0; i<sentences.length; i++) {
 		var matches_in_sentence = sentences[i].matches(phrase, error);
+		if(i == Math.floor(sentences.length/2)) {
+				console.log("kumquats "+((Date.now() / 1000) - now));
+		}
 		//console.log("Matches in sentence: "+JSON.stringify(matches_in_sentence));
 		if(matches_in_sentence.length > 0) {
 			matches.push({sentence:sentences[i], positions:matches_in_sentence});
@@ -109,6 +117,7 @@ var search_sentences = function(phrase, error, sentences, callback) {
 			}
 		}
 	}
+	console.log("bananas "+((Date.now() / 1000) - now));
 	var stats = {rel: rel_stats, pos: pos_stats};
 	callback(matches, stats);
 }
@@ -230,8 +239,8 @@ var Word = function(line) {
 		if (string == this.rel) {
 			return true;
 		}
-		var re = new RegExp("^"+string+"$");
-		return re.test(this.word);
+		var re = new RegExp("^"+string.toLowerCase()+"$");
+		return re.test(this.word.toLowerCase());
 	}
 
 }
