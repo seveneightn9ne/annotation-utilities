@@ -20,8 +20,8 @@ var do_search = function(phrase, error, search_corpus, callback) {
 		// if there was an error, throw it (fix this later)
 		if(err) throw err;
 
-		search_file(phrase, error, data, corpus_corr, function(sentences) {
-			callback(sentences);
+		search_file(phrase, error, data, corpus_corr, function(sentences, stats) {
+			callback(sentences, stats);
 		});
 
 	});
@@ -37,47 +37,80 @@ var search_file = function(phrase, error, file_data, corr_filename, callback) {
 		var lines = text.split('\n');
 
 		if(corr_filename != "") {
+			var now = Date.now() / 1000;
 			fs.readFile(corr_filename, function(err, data) {
+				console.log("First time: "+((Date.now() / 1000) - now));
 
 				// if there was an error, throw it (fix this later)
 				if(err) throw err;
 
 				var text = data.toString();
+				console.log("1.2 time: "+((Date.now() / 1000) - now));
 				var lines_corr = text.split('\n');
+				console.log("1.4 time: "+((Date.now() / 1000) - now));
 				var sentences = lines_to_sentences(lines, lines_corr);
-				search_sentences(phrase, error, sentences, function(matches) {
-					callback(matches);
+				console.log("Second time: "+((Date.now() / 1000) - now));
+				search_sentences(phrase, error, sentences, function(matches, stats) {
+					console.log("Third time: "+((Date.now() / 1000) - now));
+					callback(matches, stats);
 				});
 
 			});
 		} else {
 			// create sentences
 			var sentences = lines_to_sentences(lines, []);
-			search_sentences(phrase, error, sentences, function(matches) {
-				callback(matches);
+			search_sentences(phrase, error, sentences, function(matches, stats) {
+				callback(matches, stats);
 			});
 		}
+
+}
+
+
+var make_sentences = function(file_data, file_corr_data) {
+
+		// convert buffer to string
+		var text = file_data.toString();
+		var text_corr = file_corr_data.toString();
+
+		// split into lines
+		var lines = text.split('\n');
+		var lines_corr = text_corr.split('\n');
+
+		var sentences = lines_to_sentences(lines, lines_corr);
+		
+		return sentences;
 
 }
 
 var search_sentences = function(phrase, error, sentences, callback) {
 	console.log("searching for phrase: "+phrase+". error: "+error);
 	var matches = [];
+	var pos_stats = {};
+	var rel_stats = {};
 	for(var i=0; i<sentences.length; i++) {
 		var matches_in_sentence = sentences[i].matches(phrase, error);
 		//console.log("Matches in sentence: "+JSON.stringify(matches_in_sentence));
 		if(matches_in_sentence.length > 0) {
 			matches.push({sentence:sentences[i], positions:matches_in_sentence});
+			for(var j=0; j<matches_in_sentence.length; j++) {
+				var get_pos = sentences[i].get_pos(matches_in_sentence[j])
+				if(pos_stats[get_pos] == undefined) {
+					pos_stats[get_pos] = 1;
+				} else {
+					pos_stats[get_pos] = pos_stats[get_pos]+1;
+				}
+				var get_rel = sentences[i].get_rel(matches_in_sentence[j])
+				if(rel_stats[get_rel] == undefined) {
+					rel_stats[get_rel] = 1;
+				} else {
+					rel_stats[get_rel] = rel_stats[get_rel]+1;
+				}
+			}
 		}
 	}
-	/*var rel_stats = matches.map(function(match){
-		//[].concat.apply([], response.matches[i].positions);
-		return match.positions[0].map(function(position) {
-
-		});
-	});*/
-	callback(matches);
-
+	var stats = {rel: rel_stats, pos: pos_stats};
+	callback(matches, stats);
 }
 
 var Sentence = function(lines) {
@@ -99,6 +132,24 @@ var Sentence = function(lines) {
 			this.fulltext = this.fulltext.concat("\n"+lines[i]);
 			this.words.push(new Word(lines[i]));
 		}
+	}
+
+	this.get_pos = function(array) {
+		pos_str = "";
+		for (var i=0; i<array.length; i++) {
+			pos_str += this.words[array[i]].pos;
+			if(i<array.length-1) pos_str += " ";
+		}
+		return pos_str;
+	}
+
+	this.get_rel = function(array) {
+		rel_str = "";
+		for (var i=0; i<array.length; i++) {
+			rel_str += this.words[array[i]].rel;
+			if(i<array.length-1) rel_str += " ";
+		}
+		return rel_str;
 	}
 
 	this.matches = function (search_string, error) {
@@ -235,6 +286,8 @@ var lines_to_sentences = function(lines, lines_corr) {
 
 
 module.exports.do_search = do_search;
+module.exports.make_sentences = make_sentences;
+module.exports.search_sentences = search_sentences;
 
 
 

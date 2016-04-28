@@ -37,6 +37,9 @@
 			html_string += "<p>You searched for <i>"+response.query.query+"</i> in the "+response.query.corpus+" corpus.</p>";
 			html_string += "<p>"+response.matches.length+" matching sentences.</p>";
 			html_string += "</div>";
+			html_string += '<div id="stats">';
+			html_string += JSON.stringify(response.stats);
+			html_string += "</div>";
 
 			for(var i=0; i<response.matches.length; i++) {
 				html_string += '<div class="result">';
