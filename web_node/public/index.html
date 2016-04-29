@@ -23,6 +23,10 @@
 				$('#results').empty();
 				$('#results').append(format_response(response, show_corr, hl_err));
 				Annodoc.activate(Config.bratCollData, documentCollections);
+				if(hl_err) {
+					console.log("highlighting errors");
+					$( ".error" ).css( "backgroundColor", "#F88");
+				}
 			});
 		}
 		function checkSubmit(e) {
@@ -30,6 +34,58 @@
       			document.getElementById("search_button").click();
    			}
 		}
+
+		function format_stats_section(stats) {
+			html_string = "<b>Result statistics</b>";
+			html_string += '<table id="stats_table">';
+			html_string += '<tr><td>Parts of speech</td><td width="20px"></td><td>Relations</td></tr>';
+			html_string += '<tr><td>';
+			html_string += format_stats_table(stats.pos);
+			html_string += '</td><td></td><td>';
+			html_string += format_stats_table(stats.rel);
+			html_string += '</td></tr></table>';
+			return html_string;
+		}
+
+		function format_stats_table(stats_object) {
+			var html_string = '';
+			var stats_array = arrayify_and_sort(percentify(stats_object));
+			html_string += '<table>';
+			for(var i=0; i<stats_array.length; i++) {
+				html_string += '<tr><td>'+stats_array[i].key+'</td><td width="10px"></td><td>'+stats_array[i].value+'%</td></tr>';
+			}
+			html_string += '</table>';
+			return html_string;
+		}
+
+		function percentify(number_dict) {
+			var total = sum_dict(number_dict);
+			var percentified_dict = {};
+			for (var item in number_dict) {
+				percentified_dict[item] = (Math.round(number_dict[item]/total*1000)/10);
+			}
+			return percentified_dict;
+		}
+
+		function arrayify_and_sort(number_dict) {
+			var my_array = [];
+			for(var item in number_dict) {
+				my_array.push({"key":item, "value":number_dict[item]});
+			}
+			my_array = my_array.sort(function(a,b) { 
+				a.value - b.value;
+			});
+			return my_array;
+		}
+
+		function sum_dict(my_dict) {
+			var total = 0;
+			for (var item in my_dict) {
+    			total += my_dict[item];
+			}
+			return total;
+		}
+
 		function format_response(response, show_corr, hl_err) {
 
 			var max_results = 200;
@@ -39,26 +95,29 @@
 			html_string += '<div id="search-results-header">';
 			html_string += "<p>You searched for <i>"+response.query.query+"</i> in the "+response.query.corpus+" corpus.</p>";
 			html_string += "<p>"+response.matches.length+" matching sentences.</p>";
-			html_string += "</div>";
 			html_string += '<div id="stats">';
-			html_string += JSON.stringify(response.stats);
+			html_string += format_stats_section(response.stats);
+			html_string += "</div>";
 			html_string += "</div>";
 
 			for(var i=0; i<Math.min(response.matches.length, max_results); i++) {
 				html_string += '<div class="result">';
 				var match_positions = [].concat.apply([], response.matches[i].positions);
-				for(var j=0; j<response.matches[i].sentence.words.length; j++) {
+				/*for(var j=0; j<response.matches[i].sentence.words.length; j++) {
 					if(match_positions.indexOf(j) >= 0) {
 						html_string += '<span class="match">' + response.matches[i].sentence.words[j].word + '</span> ';
 					} else {
 						html_string += response.matches[i].sentence.words[j].word + ' ';
 					}
+				}*/
+				html_string += response.matches[i].sentence.sent_xml;
+
+				var tree_highlights = "";
+				for(var j=0; j<match_positions.length; j++) {
+					tree_highlights += '# visual-style '+(match_positions[j]+1)+' bgColor:#fff59d';
+					if(j<match_positions.length-1) tree_highlights += '\n';
 				}
-				if(hl_err) {
-					html_string += '<br/>' + response.matches[i].sentence.sent_xml;
-				}
-				html_string += wrap_sentence_fulltext(response.matches[i].sentence.fulltext);
-				html_string += '<br/>';
+				html_string += wrap_sentence_fulltext(tree_highlights+response.matches[i].sentence.fulltext);
 				if(show_corr) {
 					html_string += wrap_sentence_fulltext(response.matches[i].sentence.corrected.fulltext);
 				}
@@ -70,115 +129,154 @@
 		function wrap_sentence_fulltext(text) {
 			return '<pre><code class="language-conllu">'+text+'\n\n</code></pre>';
 		}
+
+
+		jQuery(document).ready(function() {
+		    jQuery('.tabs .tab-links a').on('click', function(e)  {
+		    	console.log("clicked tab");
+		        var currentAttrValue = jQuery(this).attr('href');
+		        console.log(currentAttrValue);
+		 
+		        // Show/Hide Tabs
+		        var activateTab = jQuery(currentAttrValue);
+		        console.log(activateTab);
+		        activateTab.show();
+		        var tabsToHide = activateTab.siblings();
+		        console.log(tabsToHide);
+		        tabsToHide.hide();
+		 
+		        // Change/remove current tab to active
+		        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+		 
+		        e.preventDefault();
+		    });
+		});
     </script>
 </head>
 
 <body>
 
-	<div id="search-box" onKeyDown="return checkSubmit(event)">
-		<label for="search">Search:</label>
-		<input type="text" id="search_field">
-		<label for="corpus">Corpus:</label>
-		<select id="corpus_list">
-			<option value="esl">ESL</option>
-			<option value="eng">English</option>
-		</select><br>	  		
-		<label for="error">Error type:</label>
-		<select id="error">
-			<option value=""> </option>
-			<option value="AGN">Agreement noun</option>
-			<option value="AGV">Agreement verb</option>
-			<option value="AGA">Agreement pronoun</option>
-			<option value="AGD">Agreement determiner</option>
-			<option value="AGQ">Agreement quantifier</option>
-			<option value="AS">Argument structure</option>
-			<option value="CL">Collocation</option>
-			<option value="CE">Compound</option>
-			<option value="CD">Countability determiner</option>
-			<option value="CN">Countability noun</option>  
-			<option value="CQ">Countability quantifier</option>
-			<option value="DJ">Derivation adjective</option>
-			<option value="DY">Derivation adverb</option>
-			<option value="DD">Derivation determiner</option>
-			<option value="DN">Derivation noun</option>
-			<option value="DT">Derivation preposition</option>
-			<option value="DA">Derivation pronoun</option>
-			<option value="DQ">Derivation quantifier</option>
-			<option value="DV">Derivation verb</option>
-			<option value="FJ">Form adjective</option>
-			<option value="FY">Form adverb</option>
-			<option value="FD">Form determiner</option>
-			<option value="FN">Form noun</option>
-			<option value="FA">Form pronoun</option>
-			<option value="FQ">Form quantifier</option>
-			<option value="FV">Form verb</option>
-			<option value="IJ">Formation adjective</option>
-			<option value="IY">Formation adverb</option>
-			<option value="ID">Formation determiner</option>
-			<option value="X">Formation negation</option>
-			<option value="IN">Formation noun</option>
-			<option value="IA">Formation pronoun</option>
-			<option value="IQ">Formation quantifier</option>
-			<option value="IV">Formation verb</option>  
-			<option value="MJ">Missing adjective</option>
-			<option value="MY">Missing adverb</option>
-			<option value="MC">Missing conjunction</option>
-			<option value="MD">Missing determiner</option>
-			<option value="MN">Missing noun</option>
-			<option value="MT">Missing preposition</option>
-			<option value="MA">Missing pronoun</option>
-			<option value="MP">Missing punctuation</option>
-			<option value="MQ">Missing quantifier</option>
-			<option value="MV">Missing verb</option>
-			<option value="L">Register</option>
-			<option value="RJ">Replace adjective</option>
-			<option value="RY">Replace adverb</option>
-			<option value="RC">Replace conjunction</option>
-			<option value="RD">Replace determiner</option>
-			<option value="RN">Replace noun</option>
-			<option value="RT">Replace preposition</option>
-			<option value="RQ">Replace quantifier</option>
-			<option value="RA">Replace pronoun</option>
-			<option value="RP">Replace punctuation</option>
-			<option value="RV">Replace verb</option>
-			<option value="S">Spelling</option>
-			<option value="SA">Spelling (American)</option>
-			<option value="SX">Spelling confusion</option>
-			<option value="TV">Tense verb</option>
-			<option value="UJ">Unnecessary adjective</option>
-			<option value="UY">Unnecessary adverb</option>
-			<option value="UC">Unnecessary conjunction</option>
-			<option value="UD">Unnecessary determiner</option>
-			<option value="UN">Unnecessary noun</option>
-			<option value="UT">Unnecessary preposition</option>
-			<option value="UA">Unnecessary pronoun</option>
-			<option value="UP">Unneccessary punctuation</option>
-			<option value="UQ">Unnecessary quantifier</option>
-			<option value="UV">Unnecessary verb</option>			  
-			<option value="W">Word order</option>
-		</select><br>
-		<input type="checkbox" id="corr" value="true"> Show corrected version<br>
-		<input type="checkbox" id="hl_err" value="true"> Highlight errors<br>
-		<button id="search_button" onclick="do_search()">Search</button>
+	<h1>The Treebank of Learner English</h1>
+
+	<div class="tabs">
+	    <ul class="tab-links">
+	        <li class="active" id="leftmost-tab"><a href="#search">Search</a></li>
+	        <li><a href="#about">About</a></li>
+	    </ul>
 	</div>
 
-	<a href="#" style="color:#03a9f4"; onclick="return toggleMe('instructions')">Instructions</a>
-	<div id="instructions" style="display:none">
-		<p>You may search for a combination of verbatim words, regexes that match words, and part of speech categories.</p>
-		<p>For example:
-			<ul>
-				<li>go there <i>matches</i> the string "go there"</li>
-				<li>go <b>\w+</b>ing <i>matches</i> "go swimming", "go shopping", etc.
-				<li>go <b>VERB</b> <i>matches</i> "go swimming", etc., but also "go travel", "go look", etc.</li>
-			</ul>
+	<div class="tab-content">
+	    <div id="search" class="tab active">
+			<div id="search-box" onKeyDown="return checkSubmit(event)">
+				<label for="search">Search:</label>
+				<input type="text" id="search_field">
+				<label for="corpus">Corpus:</label>
+				<select id="corpus_list">
+					<option value="esl">ESL</option>
+					<option value="eng">English</option>
+				</select><br>	  		
+				<label for="error">Error type:</label>
+				<select id="error">
+					<option value=""> </option>
+					<option value="AGN">Agreement noun</option>
+					<option value="AGV">Agreement verb</option>
+					<option value="AGA">Agreement pronoun</option>
+					<option value="AGD">Agreement determiner</option>
+					<option value="AGQ">Agreement quantifier</option>
+					<option value="AS">Argument structure</option>
+					<option value="CL">Collocation</option>
+					<option value="CE">Compound</option>
+					<option value="CD">Countability determiner</option>
+					<option value="CN">Countability noun</option>  
+					<option value="CQ">Countability quantifier</option>
+					<option value="DJ">Derivation adjective</option>
+					<option value="DY">Derivation adverb</option>
+					<option value="DD">Derivation determiner</option>
+					<option value="DN">Derivation noun</option>
+					<option value="DT">Derivation preposition</option>
+					<option value="DA">Derivation pronoun</option>
+					<option value="DQ">Derivation quantifier</option>
+					<option value="DV">Derivation verb</option>
+					<option value="FJ">Form adjective</option>
+					<option value="FY">Form adverb</option>
+					<option value="FD">Form determiner</option>
+					<option value="FN">Form noun</option>
+					<option value="FA">Form pronoun</option>
+					<option value="FQ">Form quantifier</option>
+					<option value="FV">Form verb</option>
+					<option value="IJ">Formation adjective</option>
+					<option value="IY">Formation adverb</option>
+					<option value="ID">Formation determiner</option>
+					<option value="X">Formation negation</option>
+					<option value="IN">Formation noun</option>
+					<option value="IA">Formation pronoun</option>
+					<option value="IQ">Formation quantifier</option>
+					<option value="IV">Formation verb</option>  
+					<option value="MJ">Missing adjective</option>
+					<option value="MY">Missing adverb</option>
+					<option value="MC">Missing conjunction</option>
+					<option value="MD">Missing determiner</option>
+					<option value="MN">Missing noun</option>
+					<option value="MT">Missing preposition</option>
+					<option value="MA">Missing pronoun</option>
+					<option value="MP">Missing punctuation</option>
+					<option value="MQ">Missing quantifier</option>
+					<option value="MV">Missing verb</option>
+					<option value="L">Register</option>
+					<option value="RJ">Replace adjective</option>
+					<option value="RY">Replace adverb</option>
+					<option value="RC">Replace conjunction</option>
+					<option value="RD">Replace determiner</option>
+					<option value="RN">Replace noun</option>
+					<option value="RT">Replace preposition</option>
+					<option value="RQ">Replace quantifier</option>
+					<option value="RA">Replace pronoun</option>
+					<option value="RP">Replace punctuation</option>
+					<option value="RV">Replace verb</option>
+					<option value="S">Spelling</option>
+					<option value="SA">Spelling (American)</option>
+					<option value="SX">Spelling confusion</option>
+					<option value="TV">Tense verb</option>
+					<option value="UJ">Unnecessary adjective</option>
+					<option value="UY">Unnecessary adverb</option>
+					<option value="UC">Unnecessary conjunction</option>
+					<option value="UD">Unnecessary determiner</option>
+					<option value="UN">Unnecessary noun</option>
+					<option value="UT">Unnecessary preposition</option>
+					<option value="UA">Unnecessary pronoun</option>
+					<option value="UP">Unneccessary punctuation</option>
+					<option value="UQ">Unnecessary quantifier</option>
+					<option value="UV">Unnecessary verb</option>			  
+					<option value="W">Word order</option>
+				</select><br>
+				<input type="checkbox" id="corr" value="true"> Show corrected version<br>
+				<input type="checkbox" id="hl_err" value="true"> Highlight errors<br>
+				<button id="search_button" onclick="do_search()">Search</button>
+			</div>
 
-		<p>Available part of speech categories:</p>
-		<p><b>ADJ, ADV, INTJ, NOUN, PROPN, VERB, ADP, AUX, CONJ, DET, NUM, PART, PRON, SCONJ,<br>PUNCT, SYM, X</b></p>
-	</div>
-	<div id="results">
+			<a href="#" style="color:#03a9f4"; onclick="return toggleMe('instructions')">Instructions</a>
+			<div id="instructions" style="display:none">
+				<p>You may search for a combination of verbatim words, regexes that match words, and part of speech categories.</p>
+				<p>For example:
+					<ul>
+						<li>go there <i>matches</i> the string "go there"</li>
+						<li>go <b>\w+</b>ing <i>matches</i> "go swimming", "go shopping", etc.
+						<li>go <b>VERB</b> <i>matches</i> "go swimming", etc., but also "go travel", "go look", etc.</li>
+					</ul>
+
+				<p>Available part of speech categories:</p>
+				<p><b>ADJ, ADV, INTJ, NOUN, PROPN, VERB, ADP, AUX, CONJ, DET, NUM, PART, PRON, SCONJ,<br>PUNCT, SYM, X</b></p>
+			</div>
+			<div id="results">
+			</div>
+	    </div>
+	 
+	    <div id="about" class="tab">
+	        Some information about the treebank.
+	    </div>
+
 	</div>
 
-	
 </body>
 
 <!-- XXX -->

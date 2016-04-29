@@ -92,12 +92,8 @@ var search_sentences = function(phrase, error, sentences, callback) {
 	var matches = [];
 	var pos_stats = {};
 	var rel_stats = {};
-	console.log("kiwis "+((Date.now() / 1000) - now));
 	for(var i=0; i<sentences.length; i++) {
 		var matches_in_sentence = sentences[i].matches(phrase, error);
-		if(i == Math.floor(sentences.length/2)) {
-				console.log("kumquats "+((Date.now() / 1000) - now));
-		}
 		//console.log("Matches in sentence: "+JSON.stringify(matches_in_sentence));
 		if(matches_in_sentence.length > 0) {
 			matches.push({sentence:sentences[i], positions:matches_in_sentence});
@@ -117,7 +113,6 @@ var search_sentences = function(phrase, error, sentences, callback) {
 			}
 		}
 	}
-	console.log("bananas "+((Date.now() / 1000) - now));
 	var stats = {rel: rel_stats, pos: pos_stats};
 	callback(matches, stats);
 }
@@ -146,6 +141,10 @@ var Sentence = function(lines) {
 	this.get_pos = function(array) {
 		pos_str = "";
 		for (var i=0; i<array.length; i++) {
+			if (array[i] == -1) continue;
+			if(this.words[array[i]] == undefined) {
+				console.log(array);
+			}
 			pos_str += this.words[array[i]].pos;
 			if(i<array.length-1) pos_str += " ";
 		}
@@ -155,6 +154,7 @@ var Sentence = function(lines) {
 	this.get_rel = function(array) {
 		rel_str = "";
 		for (var i=0; i<array.length; i++) {
+			if (array[i] == -1) continue;
 			rel_str += this.words[array[i]].rel;
 			if(i<array.length-1) rel_str += " ";
 		}

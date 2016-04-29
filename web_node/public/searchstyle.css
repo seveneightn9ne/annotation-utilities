@@ -1,17 +1,27 @@
 body {
 	margin: 20px;
+	background-color: #e9e9e9;
 }
 pre.embedding {
 	margin-bottom: 20px;
 }
 #search-results-header {
-	background-color: lightblue;
+	background-color: #ADD8E6;
 	padding: 10px;
+	border-radius: 2px;
 }
+
+h1 {
+	font-style: bold;
+	font-size: 36;
+	font-family: Verdana;
+}
+
 .result {
 	padding: 10px;
-	margin: 10px;
+	margin: 10px 0px;
 	background-color: #e9e9e9;
+	border-radius: 2px;
 }
 .matched-word {
 	background-color: #fff59d;
@@ -28,24 +38,41 @@ pre.embedding {
 }
 #instructions {
 	font-size: 14px;
-	background-color: lightblue;
+	background-color: #ADD8E6;
 	padding: 10px;
+	margin-bottom: 5px;
 }
 #instructions p {
-	margin-bottom: 5px;
-	margin-top: 5px;
+	margin: 5px 0px;
 }
 
 #search_button {
 	padding: 5px;
 }
 
-ul {
+#stats_table td {
+    vertical-align: top;
+    font-size: 10pt;
+}
+
+#stats_table td {
+    vertical-align: top;
+}
+
+#stats{
+    background-color: #D5EFF7;
+    display: inline-block;
+    font-size: 10pt;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+#instructions ul {
 	margin-left: 40px;
 }
 
 .error {
-	background-color: #F88;
+	/*background-color: #F88;*/
 }
 
 .match {
@@ -62,4 +89,69 @@ i {
 
 ns {
 	/*background-color: blue;*/
+}
+
+
+
+/*----- Tabs -----*/
+.tabs {
+    width:100%;
+    display:inline-block;
+}
+ 
+/*----- Tab Links -----*/
+/* Clearfix */
+.tab-links:after {
+    display:block;
+    clear:both;
+    content:'';
+}
+
+.tab-links li {
+    margin:0px 5px;
+    float:left;
+    list-style:none;
+}
+
+#leftmost-tab {
+	margin-left: 0px;
+}
+
+
+.tab-links a {
+    padding: 3px 15px;
+    display:inline-block;
+    border-radius:3px 3px 0px 0px;
+	background-color: #D0D0D0;
+    font-size:16px;
+    font-weight:600;
+    color: #4c4c4c;
+    transition:all linear 0.15s;
+    box-shadow: -1px 0px 1px rgba(0,0,0,0.15);
+}
+
+.tab-links a:hover {
+    background:#B0B0B0;
+    text-decoration:none;
+}
+
+li.active a, li.active a:hover {
+    background:#fff;
+    color:#4c4c4c;
+}
+
+/*----- Content of Tabs -----*/
+.tab-content {
+    padding:15px;
+    border-radius: 0px 3px 3px 3px;
+    box-shadow: -1px 1px 1px rgba(0,0,0,0.15);
+    background:#fff;
+}
+
+.tab {
+    display:none;
+}
+
+.tab.active {
+    display:block;
 }

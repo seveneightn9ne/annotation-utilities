@@ -13,6 +13,10 @@ server.listen(8080);*/
 app.use(express.static(__dirname + '/public'));
 
 app.get('/search', function (req, res) {
+
+    var logstr = (new Date).toString() + " " + JSON.stringify(req.query) + "\n";
+    fs.appendFile('searches.log', logstr, function (err) {});
+
     //res.send(req.query);
     console.log(req.query.query);
     /*searcher.do_search(req.query.query, req.query.error, req.query.corpus, function(matches, stats) {
@@ -45,6 +49,7 @@ fs.readFile(esl_corpus.main,
                 fs.readFile(eng_corpus.main, function(err, data) {
                     var eng_sentences = searcher.make_sentences(data, undefined);
                     data_sources["eng_sentences"] = eng_sentences;
+                    console.log("Starting server");
                     app.listen(8888);
                 });
         });
