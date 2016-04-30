@@ -43,6 +43,12 @@ fs.readFile(esl_corpus.main,
     function(err, data1) {
         fs.readFile(esl_corpus.corr,
             function(err, data2) {
+                if(data1 == undefined) {
+                    console.log(esl_corpus.main+"is missing");
+                }
+                if(data2 == undefined) {
+                    console.log(esl_corpus.corr+"is missing");
+                }
                 var esl_sentences = searcher.make_sentences(data1, data2);
                 data_sources["esl_sentences"] = esl_sentences;
 

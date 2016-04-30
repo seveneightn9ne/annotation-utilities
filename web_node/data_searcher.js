@@ -138,6 +138,16 @@ var Sentence = function(lines) {
 		}
 	}
 
+	sent = "";
+	var punct = ['.', ',', '?', '!', "n't"];
+	for(var i=0; i<this.words.length; i++) {
+		if(punct.indexOf(this.words[i].word) == -1 && i>0) {
+			sent += " ";
+		}
+		sent += this.words[i].word;
+	}
+	this.word_sentence = sent;
+
 	this.get_pos = function(array) {
 		pos_str = "";
 		for (var i=0; i<array.length; i++) {
@@ -226,6 +236,8 @@ var Word = function(line) {
 	var line_items = line.split("\t");
 	this.word = line_items[1];
 	this.pos = line_items[3];
+	this.ptb_pos = line_items[5];
+	this.h_ind = line_items[6];
 	this.rel = line_items[7];
 
 	this.toString = function() {
@@ -234,7 +246,7 @@ var Word = function(line) {
 
 	this.matches = function(string) {
 		if(string == string.toUpperCase() && string != "I") {
-			return string == this.pos;
+			return (string == this.pos || string == this.ptb_pos);
 		}
 		if (string == this.rel) {
 			return true;

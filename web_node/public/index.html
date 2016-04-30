@@ -88,17 +88,19 @@
 
 		function format_response(response, show_corr, hl_err) {
 
-			var max_results = 200;
+			var max_results = 10000;
 
 			console.log(response.matches.length);
 			var html_string = "";
+			html_string += '<table width="100%"><tr><td width="50%"">'
 			html_string += '<div id="search-results-header">';
 			html_string += "<p>You searched for <i>"+response.query.query+"</i> in the "+response.query.corpus+" corpus.</p>";
 			html_string += "<p>"+response.matches.length+" matching sentences.</p>";
+			html_string += '</div></td><td width="50%">';
 			html_string += '<div id="stats">';
 			html_string += format_stats_section(response.stats);
 			html_string += "</div>";
-			html_string += "</div>";
+			html_string += "</td></tr></table>";
 
 			for(var i=0; i<Math.min(response.matches.length, max_results); i++) {
 				html_string += '<div class="result">';
@@ -110,7 +112,11 @@
 						html_string += response.matches[i].sentence.words[j].word + ' ';
 					}
 				}*/
-				html_string += response.matches[i].sentence.sent_xml;
+				if(response.matches[i].sentence.sent_xml != undefined) {
+					html_string += response.matches[i].sentence.sent_xml;
+				} else {
+					html_string += response.matches[i].sentence.word_sentence;
+				}
 
 				var tree_highlights = "";
 				for(var j=0; j<match_positions.length; j++) {
@@ -167,6 +173,8 @@
 
 	<div class="tab-content">
 	    <div id="search" class="tab active">
+	    	<table id="search-and-instructions">
+	    	<tr><td width="50%">
 			<div id="search-box" onKeyDown="return checkSubmit(event)">
 				<label for="search">Search:</label>
 				<input type="text" id="search_field">
@@ -253,9 +261,9 @@
 				<input type="checkbox" id="hl_err" value="true"> Highlight errors<br>
 				<button id="search_button" onclick="do_search()">Search</button>
 			</div>
-
-			<a href="#" style="color:#03a9f4"; onclick="return toggleMe('instructions')">Instructions</a>
-			<div id="instructions" style="display:none">
+			</td><td>
+			<div id="instructions">
+				<p>Instructions</p>
 				<p>You may search for a combination of verbatim words, regexes that match words, and part of speech categories.</p>
 				<p>For example:
 					<ul>
@@ -267,6 +275,7 @@
 				<p>Available part of speech categories:</p>
 				<p><b>ADJ, ADV, INTJ, NOUN, PROPN, VERB, ADP, AUX, CONJ, DET, NUM, PART, PRON, SCONJ,<br>PUNCT, SYM, X</b></p>
 			</div>
+			</td></tr></table>
 			<div id="results">
 			</div>
 	    </div>
