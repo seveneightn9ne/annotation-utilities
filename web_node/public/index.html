@@ -263,17 +263,16 @@
 			</div>
 			</td><td>
 			<div id="instructions">
-				<p>Instructions</p>
-				<p>You may search for a combination of verbatim words, regexes that match words, and part of speech categories.</p>
-				<p>For example:
+				<p><b>Instructions</b></p>
+				<p>Search for sequences of words, <a href=http://universaldependencies.org/u/pos/index.html>universal</a>/<a href=https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html>PTB</a> part-of-speech tags and <a href=http://universaldependencies.org/en/dep/index.htmlEnglish>UD relation labels</a>.</p>
+				<p>The query engine supports regular expressions when searching for words.</p> 
+				<p><b>Examples</b>
 					<ul>
-						<li>go there <i>matches</i> the string "go there"</li>
-						<li>go <b>\w+</b>ing <i>matches</i> "go swimming", "go shopping", etc.
-						<li>go <b>VERB</b> <i>matches</i> "go swimming", etc., but also "go travel", "go look", etc.</li>
+						<li>see it <i>matches</i> the string "see it"</li>
+						<li>see DET NOUN <i>matches</i> see that show, see the sign, etc.</li>
+						<li>\w+ing something <i>matches</i> "seeing something", "seeking something", etc.</li>
+	                                        <li>amod NNS<i>matches</i> adjectival modifier followed by a plural noun, such as "best cakes", "bigger halls", etc. </li>
 					</ul>
-
-				<p>Available part of speech categories:</p>
-				<p><b>ADJ, ADV, INTJ, NOUN, PROPN, VERB, ADP, AUX, CONJ, DET, NUM, PART, PRON, SCONJ,<br>PUNCT, SYM, X</b></p>
 			</div>
 			</td></tr></table>
 			<div id="results">
@@ -281,7 +280,7 @@
 	    </div>
 	 
 	    <div id="about" class="tab">
-	        Some information about the treebank.
+	        Coming soon!
 	    </div>
 
 	</div>
