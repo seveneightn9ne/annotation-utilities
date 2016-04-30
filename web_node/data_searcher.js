@@ -236,7 +236,7 @@ var Word = function(line) {
 	var line_items = line.split("\t");
 	this.word = line_items[1];
 	this.pos = line_items[3];
-	this.ptb_pos = line_items[5];
+	this.ptb_pos = line_items[4];
 	this.h_ind = line_items[6];
 	this.rel = line_items[7];
 
