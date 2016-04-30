@@ -25,7 +25,7 @@
 				Annodoc.activate(Config.bratCollData, documentCollections);
 				if(hl_err) {
 					console.log("highlighting errors");
-					$( ".error" ).css( "backgroundColor", "#F88");
+					$( ".error" ).css( "backgroundColor", "#ef9a9a");
 				}
 			});
 		}
@@ -36,9 +36,9 @@
 		}
 
 		function format_stats_section(stats) {
-			html_string = "<b>Result statistics</b>";
+			html_string = "";
 			html_string += '<table id="stats_table">';
-			html_string += '<tr><td>Parts of speech</td><td width="20px"></td><td>Relations</td></tr>';
+			html_string += '<tr><td><u>Parts of speech</u></td><td width="20px"></td><td><u>Relations</u></td></tr>';
 			html_string += '<tr><td>';
 			html_string += format_stats_table(stats.pos);
 			html_string += '</td><td></td><td>';
@@ -92,10 +92,9 @@
 
 			console.log(response.matches.length);
 			var html_string = "";
-			html_string += '<div id="search-results-header">';
-			html_string += "<p>You searched for <em>"+response.query.query+"</em> in the "+response.query.corpus+" corpus.</p>";
-			html_string += "<p><b>"+response.matches.length+"</b> matching sentences.</p>";
-			html_string += '</div>;
+                        
+			html_string += "<p><b>"+response.matches.length+"</b> matching sentences for <em>"+response.query.query+"</em> in the "+response.query.corpus+" corpus.</p>";
+			
 			html_string += '<div id="stats">';
 			html_string += format_stats_section(response.stats);
 			html_string += "</div>";
@@ -255,15 +254,15 @@
 					<option value="UV">Unnecessary verb</option>			  
 					<option value="W">Word order</option>
 				</select><br>
-				<input type="checkbox" id="corr" value="true"> Show corrected version<br>
 				<input type="checkbox" id="hl_err" value="true"> Highlight grammatical errors<br>
+				<input type="checkbox" id="corr" value="true"> Show corrected version<br>
 				<button id="search_button" onclick="do_search()">Search</button>
 			</div>
 			</td><td>
 			<div id="instructions">
 				<p><b>Instructions</b></p>
-				<p>Search for sequences of words, <a href=http://universaldependencies.org/u/pos/index.html>universal</a>/<a href=https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html>PTB</a> part-of-speech tags and <a href=http://universaldependencies.org/en/dep/index.html> English UD relation labels</a>.</p>
-				<p>The query engine supports regular expressions when searching for words.</p> 
+				<p>Search for sequences of words, <a href=http://universaldependencies.org/u/pos/index.html>universal</a>/<a href=https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html>PTB</a> part-of-speech tags and <a href=http://universaldependencies.org/en/dep/index.html> English UD relation labels</a></p>
+				<p>Regular expressions are supported for searching words.</p> 
 				<p><b>Examples</b>
 					<ul>
 						<li><em>see it</em> matches the string "see it"</li>
