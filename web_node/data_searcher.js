@@ -152,10 +152,10 @@ var Sentence = function(lines) {
 		pos_str = "";
 		for (var i=0; i<array.length; i++) {
 			if (array[i] == -1) continue;
-			if(this.words[array[i]] == undefined) {
+			if(this.words[array[i].index] == undefined) {
 				console.log(array);
 			}
-			pos_str += this.words[array[i]].pos;
+			pos_str += this.words[array[i].index].pos;
 			if(i<array.length-1) pos_str += " ";
 		}
 		return pos_str;
@@ -165,7 +165,7 @@ var Sentence = function(lines) {
 		rel_str = "";
 		for (var i=0; i<array.length; i++) {
 			if (array[i] == -1) continue;
-			rel_str += this.words[array[i]].rel;
+			rel_str += this.words[array[i].index].rel;
 			if(i<array.length-1) rel_str += " ";
 		}
 		return rel_str;
@@ -177,7 +177,6 @@ var Sentence = function(lines) {
 		var all_matches = [];
 
 		if (error == "" || this.sent_xml.indexOf('"error '+error+'"') >= 0) {
-			//console.log("error found at position "+)
 			err_matches = true;
 			//all_matches.push([[-1]]);
 		}
@@ -188,11 +187,11 @@ var Sentence = function(lines) {
 			for(var i=0; i<this.words.length-search_words.length; i++) {
 				current_match = [];
 				for (var j=0; j<search_words.length; j++) {
-					if(!this.words[i+j].matches(search_words[j])) {
+					var match = this.words[i+j].matches(search_words[j]);
+					if(match=="false") {
 						break;
 					}
-					//console.log(this.words[i+j]+" matches "+search_words[j]);
-					current_match.push(i+j);
+					current_match.push({index:i+j, what:match});
 					if(j==search_words.length-1) {
 						str_matches = true;
 						all_matches.push(current_match);
@@ -203,7 +202,7 @@ var Sentence = function(lines) {
 
 		if(str_matches && err_matches) {
 			if(all_matches.length == 0 && error != "") {
-				all_matches.push([[-1]]);
+				all_matches.push([[{index:-1, what:"error"}]]);
 			}
 			return all_matches;
 		} else {
@@ -237,7 +236,7 @@ var Word = function(line) {
 	this.word = line_items[1];
 	this.pos = line_items[3];
 	this.ptb_pos = line_items[4];
-	this.h_ind = line_items[6];
+	this.h_ind = parseInt(line_items[6]);
 	this.rel = line_items[7];
 
 	this.toString = function() {
@@ -246,13 +245,18 @@ var Word = function(line) {
 
 	this.matches = function(string) {
 		if(string == string.toUpperCase() && string != "I") {
-			return (string == this.pos || string == this.ptb_pos);
+			if (string == this.pos || string == this.ptb_pos) {
+				return "pos";
+			}
 		}
 		if (string == this.rel) {
-			return true;
+			return "rel";
 		}
 		var re = new RegExp("^"+string.toLowerCase()+"$");
-		return re.test(this.word.toLowerCase());
+		if(re.test(this.word.toLowerCase())) {
+			return "word";
+		}
+		return "false";
 	}
 
 }
