@@ -72,7 +72,7 @@
 				my_array.push({"key":item, "value":number_dict[item]});
 			}
 			my_array = my_array.sort(function(a,b) { 
-				a.value - b.value;
+				return b.value - a.value;
 			});
 			return my_array;
 		}
