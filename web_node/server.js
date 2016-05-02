@@ -17,6 +17,8 @@ app.get('/search', function (req, res) {
     var logstr = (new Date).toString() + " " + JSON.stringify(req.query) + "\n";
     fs.appendFile('searches.log', logstr, function (err) {});
 
+    console.log(logstr);
+
     //res.send(req.query);
     console.log(req.query.query);
     /*searcher.do_search(req.query.query, req.query.error, req.query.corpus, function(matches, stats) {
@@ -28,7 +30,7 @@ app.get('/search', function (req, res) {
     } else {
         var corpus = data_sources["eng_sentences"]
     }
-    searcher.search_sentences(req.query.query, req.query.error, corpus, function(matches, stats) {
+    searcher.search_sentences(req.query.query, req.query.error, req.query.language, corpus, function(matches, stats) {
         res.send({"query":req.query, "stats":stats, "matches": matches});
         console.log("returned result");
     });
@@ -41,8 +43,10 @@ var esl_corpus = {main:"data/en_esl-ud.conllu", corr:"data/en_cesl-ud.conllu"};
 var data_sources = {};
 fs.readFile(esl_corpus.main,
     function(err, data1) {
+        if (err) throw err;
         fs.readFile(esl_corpus.corr,
             function(err, data2) {
+                if (err) throw err;
                 if(data1 == undefined) {
                     console.log(esl_corpus.main+"is missing");
                 }

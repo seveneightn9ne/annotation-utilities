@@ -14,11 +14,12 @@
 			$('#results').empty();
 			var query = document.getElementById("search_field").value;
     		var error = document.getElementById("error").value;
+    		var language = document.getElementById("language").value;
     		var corpus = document.getElementById("corpus_list").value;
     		var show_corr = document.getElementById("corr").checked;
     		var hl_err = document.getElementById("hl_err").checked;
     		$('#results').append("<p>Searching for <b>"+query+"</b>...</p>");	
-    		var ajax_url = "/search?query="+encodeURIComponent(query)+"&corpus="+corpus+"&error="+error;
+    		var ajax_url = "/search?query="+encodeURIComponent(query)+"&corpus="+corpus+"&error="+error+"&language="+language;
 			$.get(ajax_url, success=function(response){
 				$('#results').empty();
 				$('#results').append(format_response(response, show_corr, hl_err));
@@ -102,14 +103,12 @@
 				html_string += '<div class="result">';
 				var match_positions = [].concat.apply([], response.matches[i].positions);
 				if(hl_err) {
-					console.log("highlighting errors");
 					if(response.matches[i].sentence.sent_xml != undefined) {
 						html_string += response.matches[i].sentence.sent_xml;
 					} else {
 						html_string += response.matches[i].sentence.word_sentence;
 					}
 				} else {
-					console.log("highlighting matches instead");
 					var match_indices = [];
 					for(var x=0; x<match_positions.length; x++) {
 						match_indices.push(match_positions[x].index);
@@ -191,7 +190,7 @@
 				</select><br>	  		
 				<label for="error">Error type:</label>
 				<select id="error">
-					<option value=""> </option>
+					<option value="">(Any)</option>
 					<option value="AGN">Agreement noun</option>
 					<option value="AGV">Agreement verb</option>
 					<option value="AGA">Agreement pronoun</option>
@@ -262,7 +261,22 @@
 					<option value="UQ">Unnecessary quantifier</option>
 					<option value="UV">Unnecessary verb</option>			  
 					<option value="W">Word order</option>
-				</select><br>
+				</select>
+				<label for="language">Language:</label>
+				<select id="language">
+					<option value="">(Any)</option>
+					<option value="chinese">Chinese</option>
+					<option value="french">French</option>
+					<option value="german">German</option>
+					<option value="italian">Italian</option>
+					<option value="japanese">Japanese</option>
+					<option value="korean">Korean</option>
+					<option value="portuguese">Portuguese</option>
+					<option value="spanish">Spanish</option>
+					<option value="russian">Russian</option>
+					<option value="turkish">Turkish</option>
+				</select>
+				<br>
 				<input type="checkbox" id="hl_err" value="true"> Highlight grammatical errors<br>
 				<input type="checkbox" id="corr" value="true"> Show corrected version<br>
 				<button id="search_button" onclick="do_search()">Search</button>

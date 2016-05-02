@@ -86,14 +86,14 @@ var make_sentences = function(file_data, file_corr_data) {
 
 }
 
-var search_sentences = function(phrase, error, sentences, callback) {
+var search_sentences = function(phrase, error, language, sentences, callback) {
 	var now = Date.now() / 1000;
 	console.log("searching for phrase: "+phrase+". error: "+error);
 	var matches = [];
 	var pos_stats = {};
 	var rel_stats = {};
 	for(var i=0; i<sentences.length; i++) {
-		var matches_in_sentence = sentences[i].matches(phrase, error);
+		var matches_in_sentence = sentences[i].matches(phrase, error, language);
 		//console.log("Matches in sentence: "+JSON.stringify(matches_in_sentence));
 		if(matches_in_sentence.length > 0) {
 			matches.push({sentence:sentences[i], positions:matches_in_sentence});
@@ -125,6 +125,7 @@ var Sentence = function(lines) {
 	this.fulltext = "";
 	this.words = [];
 	this.corrected;
+	this.lang;
 	for(var i=0; i<lines.length; i++) {
 		// process lines[i]
 		if(lines[i].charAt(0) == '#') {
@@ -135,6 +136,8 @@ var Sentence = function(lines) {
 				this.sent_xml = sent_xml_initial;
 			} else if(lines[i].slice(0,3) == '#ID') {
 				this.id = lines[i].slice(4);
+			} else if(lines[i].slice(0,3) == '#L1') {
+				this.lang = lines[i].slice(4);
 			}
 		} else {
 			this.fulltext = this.fulltext.concat("\n"+lines[i]);
@@ -172,15 +175,24 @@ var Sentence = function(lines) {
 		return rel_str;
 	}
 
-	this.matches = function (search_string, error) {
+	this.matches = function (search_string, error, language) {
 		var str_matches = false;
 		var err_matches = false;
+		var lang_matches = false;
 		var all_matches = [];
 
 		if (error == "" || this.sent_xml.indexOf('"error '+error+'"') >= 0) {
 			err_matches = true;
 			//all_matches.push([[-1]]);
 		}
+
+		if (language == "" 
+			|| this.lang == undefined 
+			|| this.lang.toLowerCase() == language.toLowerCase()) {
+			//console.log("LANGUAGE "+this.lang+" "+language);
+			lang_matches = true;
+		}
+
 		if (search_string == "") {
 			str_matches = true;
 		} else {
@@ -200,10 +212,19 @@ var Sentence = function(lines) {
 				}
 			}
 		}
+		// console.log("======")
+		// console.log("query: ("+search_string+") ("+error+") ("+language+")");
+		// console.log(this.sent_xml)
+		// console.log(this.lang)
+		// console.log("str_matches: "+str_matches);
+		// console.log("err_matches: "+err_matches);
+		// console.log("lang_matches: "+lang_matches);
+		// console.log("======")
 
-		if(str_matches && err_matches) {
-			if(all_matches.length == 0 && error != "") {
-				all_matches.push([[{index:-1, what:"error"}]]);
+
+		if(str_matches && err_matches && lang_matches) {
+			if(all_matches.length == 0) {
+				all_matches.push([[{index:-1, what:"other"}]]);
 			}
 			return all_matches;
 		} else {
