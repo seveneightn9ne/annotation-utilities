@@ -98,7 +98,11 @@ var search_sentences = function(phrase, error, sentences, callback) {
 		if(matches_in_sentence.length > 0) {
 			matches.push({sentence:sentences[i], positions:matches_in_sentence});
 			for(var j=0; j<matches_in_sentence.length; j++) {
-				var get_pos = sentences[i].get_pos(matches_in_sentence[j])
+				try {
+					var get_pos = sentences[i].get_pos(matches_in_sentence[j])
+				} catch (err) {
+					continue;
+				}
 				if(pos_stats[get_pos] == undefined) {
 					pos_stats[get_pos] = 1;
 				} else {
@@ -152,9 +156,6 @@ var Sentence = function(lines) {
 		pos_str = "";
 		for (var i=0; i<array.length; i++) {
 			if (array[i] == -1) continue;
-			if(this.words[array[i].index] == undefined) {
-				console.log(array);
-			}
 			pos_str += this.words[array[i].index].pos;
 			if(i<array.length-1) pos_str += " ";
 		}

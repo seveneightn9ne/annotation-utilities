@@ -88,43 +88,52 @@
 		function format_response(response, show_corr, hl_err) {
 			var max_results = 10000;
 			var html_string = "";
+			var corpus_names = {esl:"ESL", eng:"English"};
                         
-			html_string += "<p><b>"+response.matches.length+"</b> matching sentences for <em>"+response.query.query+"</em> in the "+response.query.corpus+" corpus.</p>";
+			html_string += "<p><b>"+response.matches.length+"</b> matching sentences for <em>"+response.query.query+"</em> in the "+corpus_names[response.query.corpus]+" corpus.</p>";
 			
-			html_string += '<div id="stats">';
-			html_string += format_stats_section(response.stats);
-			html_string += "</div>";
+			if(response.stats.length > 0) {
+				html_string += '<div id="stats">';
+				html_string += format_stats_section(response.stats);
+				html_string += "</div>";
+			}
 
 			for(var i=0; i<Math.min(response.matches.length, max_results); i++) {
 				html_string += '<div class="result">';
 				var match_positions = [].concat.apply([], response.matches[i].positions);
-				/*for(var j=0; j<response.matches[i].sentence.words.length; j++) {
-					if(match_positions.indexOf(j) >= 0) {
-						html_string += '<span class="match">' + response.matches[i].sentence.words[j].word + '</span> ';
+				if(hl_err) {
+					console.log("highlighting errors");
+					if(response.matches[i].sentence.sent_xml != undefined) {
+						html_string += response.matches[i].sentence.sent_xml;
 					} else {
-						html_string += response.matches[i].sentence.words[j].word + ' ';
+						html_string += response.matches[i].sentence.word_sentence;
 					}
-				}*/
-				if(response.matches[i].sentence.sent_xml != undefined) {
-					html_string += response.matches[i].sentence.sent_xml;
 				} else {
-					html_string += response.matches[i].sentence.word_sentence;
+					console.log("highlighting matches instead");
+					var match_indices = [];
+					for(var x=0; x<match_positions.length; x++) {
+						match_indices.push(match_positions[x].index);
+					}
+					for(var j=0; j<response.matches[i].sentence.words.length; j++) {
+						if(match_indices.indexOf(j) >= 0) {
+							html_string += '<span class="match">' + response.matches[i].sentence.words[j].word + '</span> ';
+						} else {
+							html_string += response.matches[i].sentence.words[j].word + ' ';
+						}
+					}
 				}
 
-				var tree_highlights = "# sentence-label "+(i+1)+"a\n";
+				var tree_highlights = ["# sentence-label "+(i+1)+"a"];
 				for(var j=0; j<match_positions.length; j++) {
 					if(match_positions[j].what == "word") {
-						tree_highlights += '# visual-style '+(match_positions[j].index+1)+' bgColor:#D1C113';
+						tree_highlights.push('# visual-style '+(match_positions[j].index+1)+' bgColor:#D1C113');
 					} else if(match_positions[j].what == "pos") {
-						tree_highlights += '# visual-style '+(match_positions[j].index+1)+' bgColor:#D1C113';
+						tree_highlights.push('# visual-style '+(match_positions[j].index+1)+' bgColor:#D1C113');
 					} else if(match_positions[j].what == "rel") {
-						tree_highlights += '# visual-style '+(response.matches[i].sentence.words[match_positions[j].index].h_ind)+' '+(match_positions[j].index+1)+' '+response.matches[i].sentence.words[match_positions[j].index].rel+' color:#D1C113';
-					} else {
-						console.log(match_positions[j].what);
+						tree_highlights.push('# visual-style '+(response.matches[i].sentence.words[match_positions[j].index].h_ind)+' '+(match_positions[j].index+1)+' '+response.matches[i].sentence.words[match_positions[j].index].rel+' color:#D1C113');
 					}
-					if(j<match_positions.length-1) tree_highlights += '\n';
 				}
-				html_string += wrap_sentence_fulltext(tree_highlights+response.matches[i].sentence.fulltext);
+				html_string += wrap_sentence_fulltext(tree_highlights.join("\n")+response.matches[i].sentence.fulltext);
 				if(show_corr) {
 					html_string += wrap_sentence_fulltext("# sentence-label "+(i+1)+"b"+response.matches[i].sentence.corrected.fulltext);
 				}
