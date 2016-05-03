@@ -125,9 +125,9 @@
 				var tree_highlights = ["# sentence-label "+(i+1)+"a"];
 				for(var j=0; j<match_positions.length; j++) {
 					if(match_positions[j].what == "word") {
-						tree_highlights.push('# visual-style '+(match_positions[j].index+1)+' bgColor:#D1C113');
+						tree_highlights.push('# visual-style '+(match_positions[j].index+1)+' bgColor:#fff59d');
 					} else if(match_positions[j].what == "pos") {
-						tree_highlights.push('# visual-style '+(match_positions[j].index+1)+' bgColor:#D1C113');
+						tree_highlights.push('# visual-style '+(match_positions[j].index+1)+' bgColor:#fff59d');
 					} else if(match_positions[j].what == "rel") {
 						tree_highlights.push('# visual-style '+(response.matches[i].sentence.words[match_positions[j].index].h_ind)+' '+(match_positions[j].index+1)+' '+response.matches[i].sentence.words[match_positions[j].index].rel+' color:#D1C113');
 					}
@@ -181,16 +181,16 @@
 	    	<table id="search-and-instructions">
 	    	<tr><td width="50%">
 			<div id="search-box" onKeyDown="return checkSubmit(event)">
-				<label for="search">Search:</label>
+				<label for="search">Search</label>
 				<input type="text" id="search_field">
-				<label for="corpus">Corpus:</label>
+				<label for="corpus">Corpus</label>
 				<select id="corpus_list">
 					<option value="esl">ESL</option>
 					<option value="eng">English</option>
-				</select><br>	  		
-				<label for="error">Error type:</label>
+				</select><br><br>
+				<label for="error">Error</label>
 				<select id="error">
-					<option value="">(Any)</option>
+					<option value="">Any</option>
 					<option value="AGN">Agreement noun</option>
 					<option value="AGV">Agreement verb</option>
 					<option value="AGA">Agreement pronoun</option>
@@ -262,9 +262,10 @@
 					<option value="UV">Unnecessary verb</option>			  
 					<option value="W">Word order</option>
 				</select>
-				<label for="language">Language:</label>
+				<br>
+				<label for="language">Native Language</label>
 				<select id="language">
-					<option value="">(Any)</option>
+					<option value="">Any</option>
 					<option value="chinese">Chinese</option>
 					<option value="french">French</option>
 					<option value="german">German</option>
@@ -277,15 +278,15 @@
 					<option value="turkish">Turkish</option>
 				</select>
 				<br>
-				<input type="checkbox" id="hl_err" value="true"> Highlight grammatical errors<br>
-				<input type="checkbox" id="corr" value="true"> Show corrected version<br>
+				<input type="checkbox" id="hl_err" value="true"> Highlight errors<br>
+				<input type="checkbox" id="corr" value="true"> Show corrections<br><br>
 				<button id="search_button" onclick="do_search()">Search</button>
 			</div>
 			</td><td>
 			<div id="instructions">
 				<p><b>Instructions</b></p>
-				<p>Search for sequences of words, <a href=http://universaldependencies.org/u/pos/index.html>universal</a>/<a href=https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html>PTB</a> part-of-speech tags and <a href=http://universaldependencies.org/en/dep/index.html> English UD relation labels</a></p>
-				<p>Regular expressions are supported for searching words.</p> 
+				<p>Search for sequences of words, <a href=http://universaldependencies.org/u/pos/index.html>universal</a>/<a href=https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html>PTB</a> part-of-speech tags and <a href=http://universaldependencies.org/en/dep/index.html> English UD relation labels</a><br>
+				Regular expressions are supported for searching words.</p> 
 				<p><b>Examples</b>
 					<ul>
 						<li><em>see it</em> matches the string "see it"</li>
@@ -293,6 +294,10 @@
 						<li><em>\w+ing something</em> matches "seeing something", "seeking something", etc.</li>
 	                                        <li><em>amod NNS</em> matches adjectival modifier followed by a plural noun, such as "best cakes", "bigger halls", etc. </li>
 					</ul>
+				</p>
+				<p><b>Filters</b></p>
+				<p>Filter query results to sentences that contain a specific gramattical error and/or specific native language. Using filters when the query is empty will retrieve all the sentences that correspond to the filter.</p>
+				  
 			</div>
 			</td></tr></table>
 			<div id="results">
