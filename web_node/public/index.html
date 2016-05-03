@@ -93,11 +93,11 @@
                         
 			html_string += "<p><b>"+response.matches.length+"</b> matching sentences for <em>"+response.query.query+"</em> in the "+corpus_names[response.query.corpus]+" corpus.</p>";
 			
-			if(response.stats.length > 0) {
+			//if(response.stats.length > 0) {
 				html_string += '<div id="stats">';
 				html_string += format_stats_section(response.stats);
 				html_string += "</div>";
-			}
+			//}
 
 			for(var i=0; i<Math.min(response.matches.length, max_results); i++) {
 				html_string += '<div class="result">';
