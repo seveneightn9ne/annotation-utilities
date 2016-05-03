@@ -45,6 +45,7 @@ h2 {
 
 #search-box {
     line-height: 150%;
+    vertical-align: top;
 }
 #instructions {
 	background-color: none;
@@ -69,7 +70,7 @@ h2 {
 }
 
 #stats{
-    background-color: #fff59d;
+    background-color: #D8B6F1;
     display: inline-block;
     padding: 10px;
     margin: 10px 0px;
