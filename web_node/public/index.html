@@ -6,10 +6,21 @@
     <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/main.css">
     <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/style-vis.css">
     <link rel="stylesheet" type="text/css" href="searchstyle.css">
-    <script src="jquery-1.12.3.min.js"></script>
+  
+	<script src="jquery-1.12.3.min.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<!--<link rel="stylesheet" href="/resources/demos/style.css">-->
+
+
     <script type="text/javascript" src="http://spyysalo.github.io/conllu.js/lib/ext/head.load.min.js"></script>
     <script src="jsfunctions.js"></script>
     <script type="text/javascript">
+    	$(function() {
+    		$( document ).tooltip();
+  		});
+
 		function do_search(event) {
 			$('#results').empty();
 			var query = document.getElementById("search_field").value;
@@ -24,9 +35,6 @@
 				$('#results').empty();
 				$('#results').append(format_response(response, show_corr, hl_err));
 				Annodoc.activate(Config.bratCollData, documentCollections);
-				if(hl_err) {
-					$( ".error" ).css( "backgroundColor", "#ef9a9a");
-				}
 			});
 		}
 		function checkSubmit(e) {

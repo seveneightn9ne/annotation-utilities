@@ -132,8 +132,15 @@ var Sentence = function(lines) {
 			// it's a header line. process accordingly.
 			if(lines[i].slice(0,5) == '#SENT') {
 				sent_xml_initial = lines[i].slice(6);
-				sent_xml_initial = sent_xml_initial.replace(/type="/g, 'class="error ');
+				sent_xml_initial = sent_xml_initial.replace(/<ns type="/g, '<span class="error" title="');
+				sent_xml_initial = sent_xml_initial.replace(/<\/ns>/g, '<\/span>');
+				sent_xml_initial = sent_xml_initial.replace(/<i>/g, '<span class="err-orig">');
+				sent_xml_initial = sent_xml_initial.replace(/<\/i>/g, '<\/span>');
+				sent_xml_initial = sent_xml_initial.replace(/<c>/g, '<span class="err-corr">');
+				sent_xml_initial = sent_xml_initial.replace(/<\/c>/g, '<\/span>');
+
 				this.sent_xml = sent_xml_initial;
+				console.log(this.sent_xml);
 			} else if(lines[i].slice(0,3) == '#ID') {
 				this.id = lines[i].slice(4);
 			} else if(lines[i].slice(0,3) == '#L1') {

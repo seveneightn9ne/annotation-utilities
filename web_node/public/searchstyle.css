@@ -87,19 +87,17 @@ h1 {
 	background-color: #FF8;
 }
 
-c {
+.err-corr {
 	display: none;
 }
 
-i {
-	font-style: normal;
+.err-orig {
+    background-color: #ef9a9a;
 }
 
-ns {
-	/*background-color: blue;*/
+.err-orig:hover {
+    background-color: #946060;
 }
-
-
 
 /*----- Tabs -----*/
 .tabs {
