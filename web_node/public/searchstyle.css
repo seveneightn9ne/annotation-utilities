@@ -74,9 +74,9 @@ h2 {
     display: inline-block;
     padding: 10px;
     margin: 10px 0px;
+    border-radius: 2px;
     /*margin-top: 5px;
     font-size: 10pt;
-    border-radius: 2px;
     height: 100%;*/
 }
 

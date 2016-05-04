@@ -140,7 +140,6 @@ var Sentence = function(lines) {
 				sent_xml_initial = sent_xml_initial.replace(/<\/c>/g, '<\/span>');
 
 				this.sent_xml = sent_xml_initial;
-				console.log(this.sent_xml);
 			} else if(lines[i].slice(0,3) == '#ID') {
 				this.id = lines[i].slice(4);
 			} else if(lines[i].slice(0,3) == '#L1') {
