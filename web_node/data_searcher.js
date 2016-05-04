@@ -187,7 +187,7 @@ var Sentence = function(lines) {
 		var lang_matches = false;
 		var all_matches = [];
 
-		if (error == "" || this.sent_xml.indexOf('"error '+error+'"') >= 0) {
+		if (error == "" || this.sent_xml.indexOf('"'+error+'"') >= 0) {
 			err_matches = true;
 			//all_matches.push([[-1]]);
 		}
