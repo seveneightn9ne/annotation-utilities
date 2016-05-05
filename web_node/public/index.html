@@ -17,8 +17,11 @@
     <script type="text/javascript" src="http://spyysalo.github.io/conllu.js/lib/ext/head.load.min.js"></script>
     <script src="jsfunctions.js"></script>
     <script type="text/javascript">
+
     	$(function() {
-    		$( document ).tooltip();
+    		$( document ).tooltip({
+    			tooltipClass: "error_tooltip"
+    		});
   		});
 
 		function do_search(event) {
@@ -345,7 +348,8 @@
 		// brat modules
 		root + 'lib/brat/dispatcher.js',
 		root + 'lib/brat/url_monitor.js',
-		root + 'lib/brat/visualizer.js',
+		//root + 'lib/brat/visualizer.js',
+		'/lib/brat/visualizer.js',
 
 		// annotation documentation support
 		'http://spyysalo.github.io/annodoc/lib/local/annodoc.js',
