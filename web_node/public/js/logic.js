@@ -125,12 +125,12 @@ function format_errors() {
 
 	error_corr.each(function(index) {
 		var siblings = $(this).siblings();
-		console.log($(this).text());
+		//console.log($(this).text());
 		siblings.each(function(index) {
 			//console.log("has sibling "+$(this).text());
 		});
 		if(siblings.length == 0) {
-			console.log($(this).text()+" has 0 siblings");
+			//console.log($(this).text()+" has 0 siblings");
 			$(this).append('<span class="err-orig">HELLO</span>');
 		}
 	});
@@ -255,8 +255,10 @@ function format_response(response, show_corr, hl_err) {
 		if(show_corr) {
 
 			html_string += '<span class="sent-corr">';
-			html_string += sentence_text(response.matches[i].sentence, match_indices,hl_err);
+			html_string += sentence_text(response.matches[i].sentence, match_indices,true);
 			html_string += '</span>';
+
+			//$(".sent-corr").css({backgroundColor: 'red'});
 
 			html_string += wrap_sentence_fulltext("# sentence-label "+(i+1)+" corrected"+response.matches[i].sentence.corrected.fulltext);
 		}
