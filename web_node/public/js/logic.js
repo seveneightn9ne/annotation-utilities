@@ -77,11 +77,11 @@ $(function() {
 	$( document ).tooltip({
 		//tooltipClass: "error_tooltip"
 	});
-	});
-
-	$(".error_tooltip").text(function () {
-	return $(this).text().replace("RV", "hello everyone"); 
 });
+
+/*$(".error_tooltip").text(function () {
+	return $(this).text().replace("RV", "hello everyone"); 
+});*/
 
 /*$(document).ready(function() {
     $('.tooltip').tooltipster();
@@ -102,9 +102,33 @@ function do_search(event) {
 		$('#results').append(format_response(response, show_corr, hl_err));
 		$(".error").addClass("tooltip");
 		//$('.tooltip').tooltipster();
+		format_errors();
 		Annodoc.activate(Config.bratCollData, documentCollections);
 	});
 }
+
+function update_filter_visibility(value) {
+	if(value == "esl") {
+		$("#filters").css("display", "inline");
+	} else {
+		$("#filters").css("display", "none");
+	}
+}
+
+function format_errors() {
+
+	var error_orig = $(".err-orig");
+
+	for(var i=0; i<error_orig.length; i++) {
+		console.log(error_orig[i]);
+		console.log("error-orig has "+error_orig[i].siblings()+" siblings.");
+	}
+	//console.log("Found "+error_mistakes.length+" errors.");
+
+	//$( "li.third-item" ).siblings().css( "background-color", "red" );
+}
+
+
 function checkSubmit(e) {
 		if(e && e.keyCode == 13) {
 			document.getElementById("search_button").click();
@@ -240,6 +264,8 @@ function wrap_sentence_fulltext(text) {
 jQuery(document).ready(function() {
 
 	//$('.tooltip').tooltipster();
+
+	console.log($('#search').siblings());
 
     jQuery('.tabs .tab-links a').on('click', function(e)  {
         var currentAttrValue = jQuery(this).attr('href');

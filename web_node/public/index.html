@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/style-vis.css">
     <link rel="stylesheet" type="text/css" href="css/searchstyle.css">
   
-	<script src="jquery-1.12.3.min.js"></script>
+	<!--<script src="js/jquery-1.12.3.min.js"></script>-->
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>-->
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<!--<link rel="stylesheet" href="/resources/demos/style.css">-->
 
 	<!--<link rel="stylesheet" type="text/css" href="css/tooltipster.css" />
@@ -37,107 +37,109 @@
 	<div class="tab-content">
 	    <div id="search" class="tab active">
 	    	<table id="search-and-instructions">
-	    	<tr><td width="50%">
+	    	<tr><td width="50%" style="padding-top:70px; vertical-align:top">
 			<div id="search-box" onKeyDown="return checkSubmit(event)">
 				<label for="search">Query</label>
 				<input type="text" id="search_field">
 				<label for="corpus">Corpus</label>
-				<select id="corpus_list">
+				<select id="corpus_list" onchange="update_filter_visibility(this.value)">
 					<option value="esl">ESL</option>
 					<option value="eng">English</option>
 				</select><br><br>
-				<label for="error">Error</label>
-				<select id="error">
-					<option value="">Any</option>
-					<option value="AGN">Agreement noun</option>
-					<option value="AGV">Agreement verb</option>
-					<option value="AGA">Agreement pronoun</option>
-					<option value="AGD">Agreement determiner</option>
-					<option value="AGQ">Agreement quantifier</option>
-					<option value="AS">Argument structure</option>
-					<option value="CL">Collocation</option>
-					<option value="CE">Compound</option>
-					<option value="CD">Countability determiner</option>
-					<option value="CN">Countability noun</option>  
-					<option value="CQ">Countability quantifier</option>
-					<option value="DJ">Derivation adjective</option>
-					<option value="DY">Derivation adverb</option>
-					<option value="DD">Derivation determiner</option>
-					<option value="DN">Derivation noun</option>
-					<option value="DT">Derivation preposition</option>
-					<option value="DA">Derivation pronoun</option>
-					<option value="DQ">Derivation quantifier</option>
-					<option value="DV">Derivation verb</option>
-					<option value="FJ">Form adjective</option>
-					<option value="FY">Form adverb</option>
-					<option value="FD">Form determiner</option>
-					<option value="FN">Form noun</option>
-					<option value="FA">Form pronoun</option>
-					<option value="FQ">Form quantifier</option>
-					<option value="FV">Form verb</option>
-					<option value="IJ">Formation adjective</option>
-					<option value="IY">Formation adverb</option>
-					<option value="ID">Formation determiner</option>
-					<option value="X">Formation negation</option>
-					<option value="IN">Formation noun</option>
-					<option value="IA">Formation pronoun</option>
-					<option value="IQ">Formation quantifier</option>
-					<option value="IV">Formation verb</option>  
-					<option value="MJ">Missing adjective</option>
-					<option value="MY">Missing adverb</option>
-					<option value="MC">Missing conjunction</option>
-					<option value="MD">Missing determiner</option>
-					<option value="MN">Missing noun</option>
-					<option value="MT">Missing preposition</option>
-					<option value="MA">Missing pronoun</option>
-					<option value="MP">Missing punctuation</option>
-					<option value="MQ">Missing quantifier</option>
-					<option value="MV">Missing verb</option>
-					<option value="L">Register</option>
-					<option value="RJ">Replace adjective</option>
-					<option value="RY">Replace adverb</option>
-					<option value="RC">Replace conjunction</option>
-					<option value="RD">Replace determiner</option>
-					<option value="RN">Replace noun</option>
-					<option value="RT">Replace preposition</option>
-					<option value="RQ">Replace quantifier</option>
-					<option value="RA">Replace pronoun</option>
-					<option value="RP">Replace punctuation</option>
-					<option value="RV">Replace verb</option>
-					<option value="S">Spelling</option>
-					<option value="SA">Spelling (American)</option>
-					<option value="SX">Spelling confusion</option>
-					<option value="TV">Tense verb</option>
-					<option value="UJ">Unnecessary adjective</option>
-					<option value="UY">Unnecessary adverb</option>
-					<option value="UC">Unnecessary conjunction</option>
-					<option value="UD">Unnecessary determiner</option>
-					<option value="UN">Unnecessary noun</option>
-					<option value="UT">Unnecessary preposition</option>
-					<option value="UA">Unnecessary pronoun</option>
-					<option value="UP">Unneccessary punctuation</option>
-					<option value="UQ">Unnecessary quantifier</option>
-					<option value="UV">Unnecessary verb</option>			  
-					<option value="W">Word order</option>
-				</select>
-				<br>
-				<label for="language">Native Language</label>
-				<select id="language">
-					<option value="">Any</option>
-					<option value="chinese">Chinese</option>
-					<option value="french">French</option>
-					<option value="german">German</option>
-					<option value="italian">Italian</option>
-					<option value="japanese">Japanese</option>
-					<option value="korean">Korean</option>
-					<option value="portuguese">Portuguese</option>
-					<option value="spanish">Spanish</option>
-					<option value="russian">Russian</option>
-					<option value="turkish">Turkish</option>
-				</select>
-				<br>
-				<input type="checkbox" id="hl_err" value="true"> Highlight errors<br>
-				<input type="checkbox" id="corr" value="true"> Show corrections<br><br>
+				<div id="filters">
+					<label for="error">Error</label>
+					<select id="error">
+						<option value="">Any</option>
+						<option value="AGN">Agreement noun</option>
+						<option value="AGV">Agreement verb</option>
+						<option value="AGA">Agreement pronoun</option>
+						<option value="AGD">Agreement determiner</option>
+						<option value="AGQ">Agreement quantifier</option>
+						<option value="AS">Argument structure</option>
+						<option value="CL">Collocation</option>
+						<option value="CE">Compound</option>
+						<option value="CD">Countability determiner</option>
+						<option value="CN">Countability noun</option>  
+						<option value="CQ">Countability quantifier</option>
+						<option value="DJ">Derivation adjective</option>
+						<option value="DY">Derivation adverb</option>
+						<option value="DD">Derivation determiner</option>
+						<option value="DN">Derivation noun</option>
+						<option value="DT">Derivation preposition</option>
+						<option value="DA">Derivation pronoun</option>
+						<option value="DQ">Derivation quantifier</option>
+						<option value="DV">Derivation verb</option>
+						<option value="FJ">Form adjective</option>
+						<option value="FY">Form adverb</option>
+						<option value="FD">Form determiner</option>
+						<option value="FN">Form noun</option>
+						<option value="FA">Form pronoun</option>
+						<option value="FQ">Form quantifier</option>
+						<option value="FV">Form verb</option>
+						<option value="IJ">Formation adjective</option>
+						<option value="IY">Formation adverb</option>
+						<option value="ID">Formation determiner</option>
+						<option value="X">Formation negation</option>
+						<option value="IN">Formation noun</option>
+						<option value="IA">Formation pronoun</option>
+						<option value="IQ">Formation quantifier</option>
+						<option value="IV">Formation verb</option>  
+						<option value="MJ">Missing adjective</option>
+						<option value="MY">Missing adverb</option>
+						<option value="MC">Missing conjunction</option>
+						<option value="MD">Missing determiner</option>
+						<option value="MN">Missing noun</option>
+						<option value="MT">Missing preposition</option>
+						<option value="MA">Missing pronoun</option>
+						<option value="MP">Missing punctuation</option>
+						<option value="MQ">Missing quantifier</option>
+						<option value="MV">Missing verb</option>
+						<option value="L">Register</option>
+						<option value="RJ">Replace adjective</option>
+						<option value="RY">Replace adverb</option>
+						<option value="RC">Replace conjunction</option>
+						<option value="RD">Replace determiner</option>
+						<option value="RN">Replace noun</option>
+						<option value="RT">Replace preposition</option>
+						<option value="RQ">Replace quantifier</option>
+						<option value="RA">Replace pronoun</option>
+						<option value="RP">Replace punctuation</option>
+						<option value="RV">Replace verb</option>
+						<option value="S">Spelling</option>
+						<option value="SA">Spelling (American)</option>
+						<option value="SX">Spelling confusion</option>
+						<option value="TV">Tense verb</option>
+						<option value="UJ">Unnecessary adjective</option>
+						<option value="UY">Unnecessary adverb</option>
+						<option value="UC">Unnecessary conjunction</option>
+						<option value="UD">Unnecessary determiner</option>
+						<option value="UN">Unnecessary noun</option>
+						<option value="UT">Unnecessary preposition</option>
+						<option value="UA">Unnecessary pronoun</option>
+						<option value="UP">Unneccessary punctuation</option>
+						<option value="UQ">Unnecessary quantifier</option>
+						<option value="UV">Unnecessary verb</option>			  
+						<option value="W">Word order</option>
+					</select>
+					<br>
+					<label for="language">Native Language</label>
+					<select id="language">
+						<option value="">Any</option>
+						<option value="chinese">Chinese</option>
+						<option value="french">French</option>
+						<option value="german">German</option>
+						<option value="italian">Italian</option>
+						<option value="japanese">Japanese</option>
+						<option value="korean">Korean</option>
+						<option value="portuguese">Portuguese</option>
+						<option value="spanish">Spanish</option>
+						<option value="russian">Russian</option>
+						<option value="turkish">Turkish</option>
+					</select>
+					<br>
+					<input type="checkbox" id="hl_err" value="true"> Highlight errors<br>
+					<input type="checkbox" id="corr" value="true"> Show corrections<br><br>
+				</div>
 				<button id="search_button" onclick="do_search()">Search</button>
 			</div>
 			</td><td>
