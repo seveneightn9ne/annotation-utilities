@@ -1,66 +1,5 @@
 var fs = require('fs');
 
-var do_search = function(phrase, error, search_corpus, callback) {
-
-	var output = [];
-
-	if(search_corpus == "eng") {
-		var corpus = "data/en-ud-train-1.2.conllu";
-		var corpus_corr = "";
-
-	} else {
-		//var corpus = "data/en_esl-ud.conllu";
-		//var corpus_corr = "data/en_cesl-ud.conllu";
-		var corpus = "data/en_esl-ud.conllu";
-		var corpus_corr = "data/en_cesl-ud.conllu";
-	}
-
-	fs.readFile(corpus, function(err, data) {
-
-		// if there was an error, throw it (fix this later)
-		if(err) throw err;
-
-		search_file(phrase, error, data, corpus_corr, function(sentences, stats) {
-			callback(sentences, stats);
-		});
-
-	});
-
-};
-
-var search_file = function(phrase, error, file_data, corr_filename, callback) {
-
-		// convert buffer to string
-		var text = file_data.toString();
-
-		// split into lines
-		var lines = text.split('\n');
-
-		if(corr_filename != "") {
-			fs.readFile(corr_filename, function(err, data) {
-
-				// if there was an error, throw it (fix this later)
-				if(err) throw err;
-
-				var text = data.toString();
-				var lines_corr = text.split('\n');
-				var sentences = lines_to_sentences(lines, lines_corr);
-				search_sentences(phrase, error, sentences, function(matches, stats) {
-					callback(matches, stats);
-				});
-
-			});
-		} else {
-			// create sentences
-			var sentences = lines_to_sentences(lines, []);
-			search_sentences(phrase, error, sentences, function(matches, stats) {
-				callback(matches, stats);
-			});
-		}
-
-}
-
-
 var make_sentences = function(file_data, file_corr_data) {
 
 		// convert buffer to string
@@ -126,6 +65,7 @@ var Sentence = function(lines) {
 	this.words = [];
 	this.corrected;
 	this.lang;
+	this.sent_xml;
 	for(var i=0; i<lines.length; i++) {
 		// process lines[i]
 		if(lines[i].charAt(0) == '#') {
@@ -187,7 +127,8 @@ var Sentence = function(lines) {
 		var lang_matches = false;
 		var all_matches = [];
 
-		if (error == "" || this.sent_xml.indexOf('"'+error+'"') >= 0) {
+		
+		if ((error == "" || this.sent_xml == null) || this.sent_xml.indexOf('"'+error+'"') >= 0) {
 			err_matches = true;
 			//all_matches.push([[-1]]);
 		}
@@ -338,7 +279,7 @@ var lines_to_sentences = function(lines, lines_corr) {
 }
 
 
-module.exports.do_search = do_search;
+//module.exports.do_search = do_search;
 module.exports.make_sentences = make_sentences;
 module.exports.search_sentences = search_sentences;
 

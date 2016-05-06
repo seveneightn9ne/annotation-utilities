@@ -93,7 +93,7 @@ function do_search(event) {
 	var error = document.getElementById("error").value;
 	var language = document.getElementById("language").value;
 	var corpus = document.getElementById("corpus_list").value;
-	var show_corr = document.getElementById("corr").checked;
+	var show_corr = document.getElementById("corr").checked && corpus=="esl";
 	var hl_err = document.getElementById("hl_err").checked;
 	$('#results').append("<p>Searching for <b>"+query+"</b>...</p>");	
 	var ajax_url = "/search?query="+encodeURIComponent(query)+"&corpus="+corpus+"&error="+error+"&language="+language;
@@ -116,16 +116,21 @@ function update_filter_visibility(value) {
 }
 
 function format_errors() {
+	/*
+	var error_corr = $(".err-corr");
 
-	var error_orig = $(".err-orig");
-
-	for(var i=0; i<error_orig.length; i++) {
-		console.log(error_orig[i]);
-		console.log("error-orig has "+error_orig[i].siblings()+" siblings.");
-	}
-	//console.log("Found "+error_mistakes.length+" errors.");
-
-	//$( "li.third-item" ).siblings().css( "background-color", "red" );
+	error_corr.each(function(index) {
+		var siblings = $(this).siblings();
+		console.log($(this).text());
+		siblings.each(function(index) {
+			//console.log("has sibling "+$(this).text());
+		});
+		if(siblings.length == 0) {
+			console.log($(this).text()+" has 0 siblings");
+			$(this).append('<span class="err-orig">HELLO</span>');
+		}
+	});
+	//$( "li.third-item" ).siblings().css( "background-color", "red" );*/
 }
 
 
