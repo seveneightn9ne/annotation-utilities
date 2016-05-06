@@ -75,7 +75,7 @@ var error_names = {
 
 $(function() {
 	$( document ).tooltip({
-		//tooltipClass: "error_tooltip"
+		position: { my: "bottom", at: "top-10" }
 	});
 });
 
