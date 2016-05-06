@@ -1,5 +1,5 @@
 
-/*var error_names = {
+var error_names = {
 	"AGN":"Agreement noun",
 	"AGV":"Agreement verb",
 	"AGA":"Agreement pronoun",
@@ -70,7 +70,7 @@
 	"UQ":"Unnecessary quantifier",
 	"UV":"Unnecessary verb",			  
 	"W":"Word order"
-};*/
+};
 
 
 $(function() {
@@ -116,7 +116,11 @@ function update_filter_visibility(value) {
 }
 
 function format_errors() {
-	/*
+
+	$('.error').each(function(index){
+		$(this).prop('title', error_names[$(this).attr('title')]);
+	});
+	
 	var error_corr = $(".err-corr");
 
 	error_corr.each(function(index) {
@@ -130,7 +134,7 @@ function format_errors() {
 			$(this).append('<span class="err-orig">HELLO</span>');
 		}
 	});
-	//$( "li.third-item" ).siblings().css( "background-color", "red" );*/
+	//$( "li.third-item" ).siblings().css( "background-color", "red" );
 }
 
 
