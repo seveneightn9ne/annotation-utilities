@@ -29,7 +29,7 @@
 	    </ul>
 	    <div id="_search">
 	        <table id="search-and-instructions">
-	    	    <tr><td width="50%" style="padding-top:30px; vertical-align:top">
+	    	    <tr><td width="40%" style="padding-top:30px; vertical-align:top">
 		        <div id="search-box" onKeyDown="return checkSubmit(event)">
 			    <label for="search">Query</label>
 			    <input type="text" id="search_field">
@@ -39,6 +39,21 @@
 			        <option value="eng">English</option>
 			    </select><br><br>
 			    <div id="filters">
+			      <label for="language">Native Language</label>
+			        <select class="select-style" id="language">
+				    <option value="">Any</option>
+				    <option value="chinese">Chinese</option>
+				    <option value="french">French</option>
+				    <option value="german">German</option>
+				    <option value="italian">Italian</option>
+				    <option value="japanese">Japanese</option>
+				    <option value="korean">Korean</option>
+				    <option value="portuguese">Portuguese</option>
+				    <option value="spanish">Spanish</option>
+				    <option value="russian">Russian</option>
+				    <option value="turkish">Turkish</option>
+			        </select>
+			        <br>
 			        <label for="error">Error</label>
 			        <select class="select-style" id="error">
 				    <option value="">Any</option>
@@ -114,21 +129,7 @@
 				    <option value="W">Word order</option>
 			        </select>
 			        <br>
-			        <label for="language">Native Language</label>
-			        <select class="select-style" id="language">
-				    <option value="">Any</option>
-				    <option value="chinese">Chinese</option>
-				    <option value="french">French</option>
-				    <option value="german">German</option>
-				    <option value="italian">Italian</option>
-				    <option value="japanese">Japanese</option>
-				    <option value="korean">Korean</option>
-				    <option value="portuguese">Portuguese</option>
-				    <option value="spanish">Spanish</option>
-				    <option value="russian">Russian</option>
-				    <option value="turkish">Turkish</option>
-			        </select>
-			        <br>
+
 				<label>
 			        <input type="checkbox" id="hl_err" value="true"><span></span> Highlight errors</label>
 				<label>
@@ -142,8 +143,9 @@
 		    </td><td>
 		        <div id="instructions">
 			    <p><b>Instructions</b></p>
-			    <p>Search for <em>sequences</em> of words, <a href=http://universaldependencies.org/u/pos/index.html>universal</a>/<a href=https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html>PTB</a> part-of-speech tags and <a href=http://universaldependencies.org/en/dep/index.html> English UD relation labels</a><br>
-			        Regular expressions are supported for searching words.</p> 
+			    <p>Search for <em>sequences</em> of words, <a href=http://universaldependencies.org/u/pos/index.html>universal</a>/<a href=https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html>PTB</a> POS tags and <a href=http://universaldependencies.org/en/dep/index.html>relation labels</a>.<br>
+			      Regular expressions are supported for searching words.<br>			 
+			    </p> 
 			    <p><b>Examples</b>
 			        <ul>
 				    <li><em>see it</em> matches the string "see it"</li>
@@ -152,9 +154,15 @@
 	                            <li><em>amod NNS</em> matches adjectival modifier followed by a plural noun, such as "best cakes", "bigger halls", etc. </li>
 			        </ul>
 			    </p>
-			    <p><b>Filters</b></p>
-			    <p>Filter query results to sentences that contain a specific gramattical error and/or specific native language. Using filters when the query is empty will retrieve all the sentences that correspond to the filter.</p>
-			    
+			    <p><b>Filters and highliting</b></p>
+			    <p>Filter query results to sentences with a specific grammatical error and/or specific native language. <br> Using filters when the query is empty will retrieve all the sentences that correspond to the filter. <br> Highlight grammatical errors and show annotations of sentence corrections using the checkboxes.</p>
+			    			    
+			    <p><b>Corpora</b>
+			    <ul>
+			      <li>ESL is the Treebank of Learner English.</li> 
+			       <li>English is the EWT UD corpus.</li>
+			       </ul>
+			    </p>
 		        </div>
 		    </td></tr></table>
 	        <div id="results">
@@ -162,8 +170,48 @@
 	    </div>
 	    
 	    <div id="_about">
-	        Coming soon!
-	    </div>
+	      <div id="abouttext">
+	              <p>The Treebank of Learner English (TLE) is a collection of 5,214 English as a Second Language (ESL) sentences, manually annotated with POS tags and dependency trees in the <a href=http://universaldependencies.org/>Universal Dependencies</a> formalism. The dataset represents adult upper-intermediate level English learners from 10 native language backgrounds, with over 500 sentences for each native language. The sentences were drawn from the <a href=http://ilexir.co.uk/applications/clc-fce-dataset/>Cambridge Learner Corpus First Certificate in English</a> (FCE) corpus. </p><br>
+
+<p>
+The dataset and the annotation guidelines were developed in a collaborative project between <a href=http://www.csail.mit.edu/>MIT CSAIL</a>, <a href=http://web.mit.edu/linguistics/>MIT Linguistics</a> and <a href=http://cbmm.mit.edu/>CBMM</a>. Detailed information about the annotations is available in this <a>paper</a>. A <em>draft</em> of the manual used by the annotators is available 
+<a>here</a>. Although we did our best to ensure the quality of this this dataset, it may contain 
+errors. Please contact Yevgeni Berzak (berzak at mit dot edu) if you 
+spot any issues or inconsistencies in the annotations.
+</p><br>
+
+<p>
+  <b>Citation</b> <br>
+  You are encoaraged to cite the following papers when using the dataset in your work:<br>
+  <ul>
+    <li> Yevgeni Berzak, Jessica Kenney, Carolyn Spadine, Jing Xian Wang, Lucia Lam, 
+      Keiko Sophie Mori, Sebastian Garza and Boris Katz (2016) "Universal Dependencies 
+      for Learner English", arXiv preprint.</li>
+    <li> Helen Yannakoudakis, Ted Briscoe and Ben Medlock (2011) "A New Dataset and Method 
+      for Automatically Grading ESOL Texts", In Proceedings of the 49th Annual Meeting of the 
+      Association for Computational Linguistics: Human Language Technologies (ACL), pages 180-189.</li>
+  </ul>
+</p><br>
+
+<p>
+  <b>Download</b> <br>
+  The dataset is available publically through the <a href=http://universaldependencies.org/>UD repository</a>.
+</p><br>
+
+<p>
+  <b>People</b> <br>
+  Annotation and guidelines: Yevgeni Berzak, Jessica Kenney, Carolyn Spadine, Jing Xian Wang, Lucia Lam, 
+  Keiko Sophie Mori, Sebastian Garza, Boris Katz. <br>
+  Web interface: Emily Kellison-Lynn, Yevgeni Berzak, Andrei Barbu, Jessica Kenney.
+</p><br>
+
+<img src="/images/photo.jpg" id="group-photo">
+<p>Left to right: Yevgeni, Lucia, Sophie, Jessica, Jing, Sebastian. </p>
+
+<br><br><br>
+<img src="/images/csail.png" id="small-icon"><img src="/images/cbmm.png" id="small-icon"><img src="/images/nsf.png" id="small-icon-sq">
+</div>	    
+</div>
 	</div>
 
         <script type="text/javascript">

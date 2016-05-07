@@ -252,10 +252,13 @@ jQuery(document).ready(function() {
         activate: function(event, ui) {
             event.preventDefault();
             var id = ui.newPanel.attr('id');
-            window.location.hash = '#' + id.substring(1, id.length);
+	    history.replaceState(undefined, undefined, '#' + id.substring(1))
         }
     });
     if(window.location.hash) {
-        $('#tabs').tabs({active: $('#tabs a[href="#' + window.location.hash + '"]').parent().index()});
+        $('#tabs').tabs({active: $('#tabs a[href="#_' + window.location.hash.substring(1) + '"]').parent().index()});
     }
+    $(window).on('hashchange', function() {
+	$('#tabs').tabs({active: $('#tabs a[href="#_' + window.location.hash.substring(1) + '"]').parent().index()});
+    });
 });
