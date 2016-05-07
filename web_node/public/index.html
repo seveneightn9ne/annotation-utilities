@@ -21,7 +21,7 @@
         <script type="text/javascript" src="/js/logic.js"></script>
     </head>
     <body>
-	<h1>Treebank of Learner English</h1>
+	<img src="/images/tle.png" id="tle">
 	<div id="tabs">
 	    <ul>
 	        <li><a href="#_search"><span>Search</span></a></li>
@@ -29,7 +29,7 @@
 	    </ul>
 	    <div id="_search">
 	        <table id="search-and-instructions">
-	    	    <tr><td width="40%" style="padding-top:30px; vertical-align:top">
+	    	    <tr><td width="42%" style="padding-top:30px; vertical-align:top">
 		        <div id="search-box" onKeyDown="return checkSubmit(event)">
 			    <label for="search">Query</label>
 			    <input type="text" id="search_field">
@@ -155,7 +155,7 @@
 			        </ul>
 			    </p>
 			    <p><b>Filters and highliting</b></p>
-			    <p>Filter query results to sentences with a specific grammatical error and/or specific native language. <br> Using filters when the query is empty will retrieve all the sentences that correspond to the filter. <br> Highlight grammatical errors and show annotations of sentence corrections using the checkboxes.</p>
+			    <p>Filter query results to sentences with a specific grammatical error and/or specific native language. <br> An empty query will retrieve all the sentences that correspond to the specified filters. <br> Highlight grammatical errors and show annotations of sentence corrections using the checkboxes.</p>
 			    			    
 			    <p><b>Corpora</b>
 			    <ul>
@@ -175,14 +175,13 @@
 
 <p>
 The dataset and the annotation guidelines were developed in a collaborative project between <a href=http://www.csail.mit.edu/>MIT CSAIL</a>, <a href=http://web.mit.edu/linguistics/>MIT Linguistics</a> and <a href=http://cbmm.mit.edu/>CBMM</a>. Detailed information about the annotations is available in this <a>paper</a>. A <em>draft</em> of the manual used by the annotators is available 
-<a>here</a>. Although we did our best to ensure the quality of this this dataset, it may contain 
-errors. Please contact Yevgeni Berzak (berzak at mit dot edu) if you 
+<a>here</a>. Although we did our best to ensure the quality of the annotations, the may, in all likelihood, contain errors. Please contact Yevgeni Berzak (berzak at mit dot edu) if you 
 spot any issues or inconsistencies in the annotations.
 </p><br>
 
 <p>
   <b>Citation</b> <br>
-  You are encoaraged to cite the following papers when using the dataset in your work:<br>
+  You are encoaraged to cite the following papers when using the dataset:<br>
   <ul>
     <li> Yevgeni Berzak, Jessica Kenney, Carolyn Spadine, Jing Xian Wang, Lucia Lam, 
       Keiko Sophie Mori, Sebastian Garza and Boris Katz (2016) "Universal Dependencies 
@@ -195,7 +194,7 @@ spot any issues or inconsistencies in the annotations.
 
 <p>
   <b>Download</b> <br>
-  The dataset is available publically through the <a href=http://universaldependencies.org/>UD repository</a>.
+  The TLE is available publically through the <a href=http://universaldependencies.org/>UD repository</a>.
 </p><br>
 
 <p>
@@ -210,6 +209,7 @@ spot any issues or inconsistencies in the annotations.
 
 <br><br><br>
 <img src="/images/csail.png" id="small-icon"><img src="/images/cbmm.png" id="small-icon"><img src="/images/nsf.png" id="small-icon-sq">
+<br><br>
 </div>	    
 </div>
 	</div>
