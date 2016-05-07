@@ -29,18 +29,18 @@
 	    </ul>
 	    <div id="_search">
 	        <table id="search-and-instructions">
-	    	    <tr><td width="50%" style="padding-top:70px; vertical-align:top">
+	    	    <tr><td width="50%" style="padding-top:30px; vertical-align:top">
 		        <div id="search-box" onKeyDown="return checkSubmit(event)">
 			    <label for="search">Query</label>
 			    <input type="text" id="search_field">
 			    <label for="corpus">Corpus</label>
-			    <select id="corpus_list" onchange="update_filter_visibility(this.value)">
+			    <select id="corpus_list" class="select-style" onchange="update_filter_visibility(this.value)">
 			        <option value="esl">ESL</option>
 			        <option value="eng">English</option>
 			    </select><br><br>
 			    <div id="filters">
 			        <label for="error">Error</label>
-			        <select id="error">
+			        <select class="select-style" id="error">
 				    <option value="">Any</option>
 				    <option value="AGN">Agreement noun</option>
 				    <option value="AGV">Agreement verb</option>
@@ -115,7 +115,7 @@
 			        </select>
 			        <br>
 			        <label for="language">Native Language</label>
-			        <select id="language">
+			        <select class="select-style" id="language">
 				    <option value="">Any</option>
 				    <option value="chinese">Chinese</option>
 				    <option value="french">French</option>
@@ -129,15 +129,20 @@
 				    <option value="turkish">Turkish</option>
 			        </select>
 			        <br>
-			        <input type="checkbox" id="hl_err" value="true"> Highlight errors<br>
-			        <input type="checkbox" id="corr" value="true"> Show corrections<br><br>
+				<label>
+			        <input type="checkbox" id="hl_err" value="true"><span></span> Highlight errors</label>
+				<label>
+			        <input type="checkbox" id="corr" value="true"><span></span> Show corrections
+				</label>
+				<br><br>
+				
 			    </div>
 			    <button id="search_button" onclick="do_search()">Search</button>
 		        </div>
 		    </td><td>
 		        <div id="instructions">
 			    <p><b>Instructions</b></p>
-			    <p>Search for sequences of words, <a href=http://universaldependencies.org/u/pos/index.html>universal</a>/<a href=https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html>PTB</a> part-of-speech tags and <a href=http://universaldependencies.org/en/dep/index.html> English UD relation labels</a><br>
+			    <p>Search for <em>sequences</em> of words, <a href=http://universaldependencies.org/u/pos/index.html>universal</a>/<a href=https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html>PTB</a> part-of-speech tags and <a href=http://universaldependencies.org/en/dep/index.html> English UD relation labels</a><br>
 			        Regular expressions are supported for searching words.</p> 
 			    <p><b>Examples</b>
 			        <ul>
