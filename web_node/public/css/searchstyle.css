@@ -256,17 +256,20 @@ body .ui-tooltip {
 
 #abouttext {
     width: 900px;
+    margin-top:25px;
+    padding:5px;
 }
 
 #group-photo {
-    width:600px;
-    height:400px;
+    width:650px;
+    height:420px;
 }
 
 #small-icon {
     width:210px;
     height:100px;
 }
+
 #small-icon-sq {
     margin-left:50px;
     width:110px;
@@ -279,9 +282,4 @@ body .ui-tooltip {
     margin-bottom:-40px;
     margin-left:200px;
     
-}
-
-#abouttext {
-margin-top:30px;
-
 }
