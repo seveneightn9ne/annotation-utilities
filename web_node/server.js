@@ -1,45 +1,60 @@
+/*
+ * THIS IS THE MAIN JAVASCRIPT FILE FOR THE SERVER.
+ * To run, navigate to this directory and type the command
+ *
+ * node server.js
+ *
+ * First it will run the sentence initialization function (see below).
+ * Right now, that takes about 10 seconds. Once that completes,
+ * the server will print "Starting server" and begin serving files.
+ * Until that point, the site will not load.
+ *
+ */
+
+// Includes
 var http = require('http');
 var express = require('express'), 
 	app = express();
 var fs = require('fs');
 var searcher = require('./data_searcher');
 
-/*var server = http.createServer(function(req, res) {
-	res.writeHead(200);
-	res.end('Hello Http');
-});
-server.listen(8080);*/
+// Paths to corpus file locations
+var eng_corpus = {main:"data/en-ud-train-1.2.conllu", corr:""};
+var esl_corpus = {main:"data/en_esl-ud.conllu", corr:"data/en_cesl-ud.conllu"};
 
+// Set directory that the server will serve
 app.use(express.static(__dirname + '/public'));
 
+// Function that runs when an AJAX call is made to /search
 app.get('/search', function (req, res) {
 
+    // Log query to file
     var logstr = (new Date).toString() + " " + JSON.stringify(req.query) + "\n";
     fs.appendFile('searches.log', logstr, function (err) {});
 
     console.log(logstr);
 
-    //res.send(req.query);
-    console.log(req.query.query);
-    /*searcher.do_search(req.query.query, req.query.error, req.query.corpus, function(matches, stats) {
-    	res.send({"query":req.query, "stats":stats, "matches": matches});
-    	console.log("returned result");
-    });*/
+    // Set which corpus to search
     if(req.query.corpus == "esl") {
         var corpus = data_sources["esl_sentences"];
     } else {
         var corpus = data_sources["eng_sentences"]
     }
+
+    // Call search function
     searcher.search_sentences(req.query.query, req.query.error, req.query.language, corpus, function(matches, stats) {
+        // Callback function that runs when search is finished
+        // Send search results back to client
         res.send({"query":req.query, "stats":stats, "matches": matches});
         console.log("returned result");
     });
     console.log("GET /search");
 });
 
-var eng_corpus = {main:"data/en-ud-train-1.2.conllu", corr:""};
-var esl_corpus = {main:"data/en_esl-ud.conllu", corr:"data/en_cesl-ud.conllu"};
 
+// Initialize sentence objects by reading corpus files.
+// This code runs when the server starts up, and the server
+// doesn't begin serving files until the function is complete.
 var data_sources = {};
 fs.readFile(esl_corpus.main,
     function(err, data1) {
@@ -59,6 +74,7 @@ fs.readFile(esl_corpus.main,
                 fs.readFile(eng_corpus.main, function(err, data) {
                     var eng_sentences = searcher.make_sentences(data, undefined);
                     data_sources["eng_sentences"] = eng_sentences;
+                    // When the following line prings, the server is ready
                     console.log("Starting server");
                     app.listen(8888);
                 });
