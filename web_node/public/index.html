@@ -2,261 +2,270 @@
     <head>
         <meta charset="utf-8">
         <title>TLE</title>	
-	<link rel="shortcut icon" href="/images/tle.svg" />
+		<link rel="shortcut icon" href="/images/tle.svg" />
+
+		<!-- Annodoc CSS includes -->
         <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/jquery-ui-redmond.css">
         <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/main.css">
         <link rel="stylesheet" href="http://spyysalo.github.io/conllu.js/css/style-vis.css">
         <link rel="stylesheet" type="text/css" href="css/searchstyle.css">
-        
-	<!--<script src="js/jquery-1.12.3.min.js"></script>-->
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	<!--<link rel="stylesheet" href="/resources/demos/style.css">-->
 
-	<!--<link rel="stylesheet" type="text/css" href="css/tooltipster.css" />
-             <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
-             <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>-->
-
+        <!-- Annodoc javascript includes -->
         <script type="text/javascript" src="http://spyysalo.github.io/conllu.js/lib/ext/head.load.min.js"></script>
+        
+        <!-- JQuery includes -->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+		<!-- Local javascript functions -->
         <script type="text/javascript" src="/js/logic.js"></script>
+
     </head>
     <body>
 	<!--<img src="/images/tle.png" id="tle">-->
 	<h1>Treebank of Learner English</h1>
+
 	<div id="tabs">
 	    <ul>
 	        <li><a href="#_search"><span>Search</span></a></li>
 	        <li><a href="#_about"><span>About</span></a></li>
 	    </ul>
+
+	    <!-- Search tab -->
 	    <div id="_search">
 	        <table id="search-and-instructions">
-	    	    <tr><td width="42%" style="padding-top:30px; vertical-align:top">
-		        <div id="search-box" onKeyDown="return checkSubmit(event)">
-			    <label for="search">Query</label>
-			    <input type="text" id="search_field">
-			    <label for="corpus">Corpus</label>
-			    <select id="corpus_list" class="select-style" onchange="update_filter_visibility(this.value)">
-			        <option value="esl">ESL</option>
-			        <option value="eng">English</option>
-			    </select><br><br>
-			    <div id="filters">
-			      <label for="language">Native Language</label>
-			        <select class="select-style" id="language">
-				    <option value="">Any</option>
-				    <option value="chinese">Chinese</option>
-				    <option value="french">French</option>
-				    <option value="german">German</option>
-				    <option value="italian">Italian</option>
-				    <option value="japanese">Japanese</option>
-				    <option value="korean">Korean</option>
-				    <option value="portuguese">Portuguese</option>
-				    <option value="spanish">Spanish</option>
-				    <option value="russian">Russian</option>
-				    <option value="turkish">Turkish</option>
-			        </select>
-			        <br>
-			        <label for="error">Error</label>
-			        <select class="select-style" id="error">
-				    <option value="">Any</option>
-				    <option value="AGN">Agreement noun</option>
-				    <option value="AGV">Agreement verb</option>
-				    <option value="AGA">Agreement pronoun</option>
-				    <option value="AGD">Agreement determiner</option>
-				    <option value="AGQ">Agreement quantifier</option>
-				    <option value="AS">Argument structure</option>
-				    <option value="CL">Collocation</option>
-				    <option value="CE">Compound</option>
-				    <option value="CD">Countability determiner</option>
-				    <option value="CN">Countability noun</option>  
-				    <option value="CQ">Countability quantifier</option>
-				    <option value="DJ">Derivation adjective</option>
-				    <option value="DY">Derivation adverb</option>
-				    <option value="DD">Derivation determiner</option>
-				    <option value="DN">Derivation noun</option>
-				    <option value="DT">Derivation preposition</option>
-				    <option value="DA">Derivation pronoun</option>
-				    <option value="DQ">Derivation quantifier</option>
-				    <option value="DV">Derivation verb</option>
-				    <option value="FJ">Form adjective</option>
-				    <option value="FY">Form adverb</option>
-				    <option value="FD">Form determiner</option>
-				    <option value="FN">Form noun</option>
-				    <option value="FA">Form pronoun</option>
-				    <option value="FQ">Form quantifier</option>
-				    <option value="FV">Form verb</option>
-				    <option value="IJ">Formation adjective</option>
-				    <option value="IY">Formation adverb</option>
-				    <option value="ID">Formation determiner</option>
-				    <option value="X">Formation negation</option>
-				    <option value="IN">Formation noun</option>
-				    <option value="IA">Formation pronoun</option>
-				    <option value="IQ">Formation quantifier</option>
-				    <option value="IV">Formation verb</option>  
-				    <option value="MJ">Missing adjective</option>
-				    <option value="MY">Missing adverb</option>
-				    <option value="MC">Missing conjunction</option>
-				    <option value="MD">Missing determiner</option>
-				    <option value="MN">Missing noun</option>
-				    <option value="MT">Missing preposition</option>
-				    <option value="MA">Missing pronoun</option>
-				    <option value="MP">Missing punctuation</option>
-				    <option value="MQ">Missing quantifier</option>
-				    <option value="MV">Missing verb</option>
-				    <option value="L">Register</option>
-				    <option value="RJ">Replace adjective</option>
-				    <option value="RY">Replace adverb</option>
-				    <option value="RC">Replace conjunction</option>
-				    <option value="RD">Replace determiner</option>
-				    <option value="RN">Replace noun</option>
-				    <option value="RT">Replace preposition</option>
-				    <option value="RQ">Replace quantifier</option>
-				    <option value="RA">Replace pronoun</option>
-				    <option value="RP">Replace punctuation</option>
-				    <option value="RV">Replace verb</option>
-				    <option value="S">Spelling</option>
-				    <option value="SA">Spelling (American)</option>
-				    <option value="SX">Spelling confusion</option>
-				    <option value="TV">Tense verb</option>
-				    <option value="UJ">Unnecessary adjective</option>
-				    <option value="UY">Unnecessary adverb</option>
-				    <option value="UC">Unnecessary conjunction</option>
-				    <option value="UD">Unnecessary determiner</option>
-				    <option value="UN">Unnecessary noun</option>
-				    <option value="UT">Unnecessary preposition</option>
-				    <option value="UA">Unnecessary pronoun</option>
-				    <option value="UP">Unneccessary punctuation</option>
-				    <option value="UQ">Unnecessary quantifier</option>
-				    <option value="UV">Unnecessary verb</option>			  
-				    <option value="W">Word order</option>
-			        </select>
-			        <br>
+	    	    <tr>
+	    	    <td width="42%" style="padding-top:30px; vertical-align:top">
+	    	    	
+			        <div id="search-box" onKeyDown="return checkSubmit(event)">
+				    
+				    <label for="search">Query</label>
+				    <input type="text" id="search_field">
+				    
+				    <label for="corpus">Corpus</label>
+				    <select id="corpus_list" class="select-style" onchange="update_filter_visibility(this.value)">
+				        <option value="esl">ESL</option>
+				        <option value="eng">English</option>
+				    </select><br><br>
 
-				<label>
-			        <input type="checkbox" id="hl_err" value="true"><span></span> Highlight errors</label>
-				<label>
-			        <input type="checkbox" id="corr" value="true"><span></span> Show corrections
-				</label>
-				<br><br>
-				
-			    </div>
-			    <button id="search_button" onclick="do_search()">Search</button>
-		        </div>
-		    </td><td>
-		        <div id="instructions">
-			    <p><b>Instructions</b></p>
-			    <p>Search for <em>sequences</em> of words, <a href=http://universaldependencies.org/u/pos/index.html>universal</a>/<a href=https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html>PTB</a> POS tags and <a href=http://universaldependencies.org/en/dep/index.html>relation labels</a>.<br>
-			      <a href=https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/>Regular expressions</a> are supported for searching words.<br>			 
-			    </p> 
-			    <p><b>Examples</b>
-			        <ul>
-				    <li><em>see it</em> matches the string "see it"</li>
-				    <li><em>see DET NOUN</em> matches "see that show", "see the sign", etc.</li>
-				    <li><em>\w+ing something</em> matches "seeing something", "seeking something", etc.</li>
-	                            <li><em>amod NNS</em> matches adjectival modifier followed by a plural noun, such as "best cakes", "bigger halls", etc. </li>
-			        </ul>
-			    </p>
-			    <p><b>Filters and highliting</b></p>
-			    <p>Filter query results to sentences with a specific grammatical error and/or specific native language. <br> An empty query will retrieve all the sentences that correspond to the specified filters. <br> Highlight grammatical errors and show annotations of sentence corrections using the checkboxes.</p>
-			    			    
-			    <p><b>Corpora</b>
-			    <ul>
-			      <li>ESL is the Treebank of Learner English.</li> 
-			       <li>English is the EWT UD corpus.</li>
-			       </ul>
-			    </p>
-		        </div>
-		    </td></tr></table>
+				    <div id="filters">
+
+				      <label for="language">Native Language</label>
+				        <select class="select-style" id="language">
+					    <option value="">Any</option>
+					    <option value="chinese">Chinese</option>
+					    <option value="french">French</option>
+					    <option value="german">German</option>
+					    <option value="italian">Italian</option>
+					    <option value="japanese">Japanese</option>
+					    <option value="korean">Korean</option>
+					    <option value="portuguese">Portuguese</option>
+					    <option value="spanish">Spanish</option>
+					    <option value="russian">Russian</option>
+					    <option value="turkish">Turkish</option>
+				        </select>
+				        <br>
+
+				        <label for="error">Error</label>
+				        <select class="select-style" id="error">
+					    <option value="">Any</option>
+					    <option value="AGN">Agreement noun</option>
+					    <option value="AGV">Agreement verb</option>
+					    <option value="AGA">Agreement pronoun</option>
+					    <option value="AGD">Agreement determiner</option>
+					    <option value="AGQ">Agreement quantifier</option>
+					    <option value="AS">Argument structure</option>
+					    <option value="CL">Collocation</option>
+					    <option value="CE">Compound</option>
+					    <option value="CD">Countability determiner</option>
+					    <option value="CN">Countability noun</option>  
+					    <option value="CQ">Countability quantifier</option>
+					    <option value="DJ">Derivation adjective</option>
+					    <option value="DY">Derivation adverb</option>
+					    <option value="DD">Derivation determiner</option>
+					    <option value="DN">Derivation noun</option>
+					    <option value="DT">Derivation preposition</option>
+					    <option value="DA">Derivation pronoun</option>
+					    <option value="DQ">Derivation quantifier</option>
+					    <option value="DV">Derivation verb</option>
+					    <option value="FJ">Form adjective</option>
+					    <option value="FY">Form adverb</option>
+					    <option value="FD">Form determiner</option>
+					    <option value="FN">Form noun</option>
+					    <option value="FA">Form pronoun</option>
+					    <option value="FQ">Form quantifier</option>
+					    <option value="FV">Form verb</option>
+					    <option value="IJ">Formation adjective</option>
+					    <option value="IY">Formation adverb</option>
+					    <option value="ID">Formation determiner</option>
+					    <option value="X">Formation negation</option>
+					    <option value="IN">Formation noun</option>
+					    <option value="IA">Formation pronoun</option>
+					    <option value="IQ">Formation quantifier</option>
+					    <option value="IV">Formation verb</option>  
+					    <option value="MJ">Missing adjective</option>
+					    <option value="MY">Missing adverb</option>
+					    <option value="MC">Missing conjunction</option>
+					    <option value="MD">Missing determiner</option>
+					    <option value="MN">Missing noun</option>
+					    <option value="MT">Missing preposition</option>
+					    <option value="MA">Missing pronoun</option>
+					    <option value="MP">Missing punctuation</option>
+					    <option value="MQ">Missing quantifier</option>
+					    <option value="MV">Missing verb</option>
+					    <option value="L">Register</option>
+					    <option value="RJ">Replace adjective</option>
+					    <option value="RY">Replace adverb</option>
+					    <option value="RC">Replace conjunction</option>
+					    <option value="RD">Replace determiner</option>
+					    <option value="RN">Replace noun</option>
+					    <option value="RT">Replace preposition</option>
+					    <option value="RQ">Replace quantifier</option>
+					    <option value="RA">Replace pronoun</option>
+					    <option value="RP">Replace punctuation</option>
+					    <option value="RV">Replace verb</option>
+					    <option value="S">Spelling</option>
+					    <option value="SA">Spelling (American)</option>
+					    <option value="SX">Spelling confusion</option>
+					    <option value="TV">Tense verb</option>
+					    <option value="UJ">Unnecessary adjective</option>
+					    <option value="UY">Unnecessary adverb</option>
+					    <option value="UC">Unnecessary conjunction</option>
+					    <option value="UD">Unnecessary determiner</option>
+					    <option value="UN">Unnecessary noun</option>
+					    <option value="UT">Unnecessary preposition</option>
+					    <option value="UA">Unnecessary pronoun</option>
+					    <option value="UP">Unneccessary punctuation</option>
+					    <option value="UQ">Unnecessary quantifier</option>
+					    <option value="UV">Unnecessary verb</option>			  
+					    <option value="W">Word order</option>
+				        </select>
+				        <br>
+
+						<label><input type="checkbox" id="hl_err" value="true"><span></span> Highlight errors</label>
+					
+						<label><input type="checkbox" id="corr" value="true"><span></span> Show corrections</label>
+
+						<br><br>
+					
+				    </div>
+				    <button id="search_button" onclick="do_search()">Search</button>
+			        </div>
+			    </td>
+			    <td>
+
+			        <div id="instructions">
+				    <p><b>Instructions</b></p>
+				    <p>Search for <em>sequences</em> of words, <a href=http://universaldependencies.org/u/pos/index.html>universal</a>/<a href=https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html>PTB</a> POS tags and <a href=http://universaldependencies.org/en/dep/index.html>relation labels</a>.<br>
+				      <a href=https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/>Regular expressions</a> are supported for searching words.<br>			 
+				    </p> 
+				    <p><b>Examples</b>
+				        <ul>
+					    <li><em>see it</em> matches the string "see it"</li>
+					    <li><em>see DET NOUN</em> matches "see that show", "see the sign", etc.</li>
+					    <li><em>\w+ing something</em> matches "seeing something", "seeking something", etc.</li>
+		                            <li><em>amod NNS</em> matches adjectival modifier followed by a plural noun, such as "best cakes", "bigger halls", etc. </li>
+				        </ul>
+				    </p>
+				    <p><b>Filters and highliting</b></p>
+				    <p>Filter query results to sentences with a specific grammatical error and/or specific native language. <br> An empty query will retrieve all the sentences that correspond to the specified filters. <br> Highlight grammatical errors and show annotations of sentence corrections using the checkboxes.</p>
+				    			    
+				    <p><b>Corpora</b>
+				    <ul>
+				      <li>ESL is the Treebank of Learner English.</li> 
+				       <li>English is the EWT UD corpus.</li>
+				       </ul>
+				    </p>
+			        </div>
+		    	</td>
+				</tr>
+				</table>
 	        <div id="results">
 	        </div>
 	    </div>
 	    
+	    <!-- About tab -->
 	    <div id="_about">
-	      <div id="abouttext">
-	              <p>The Treebank of Learner English (TLE) is a collection of 5,124 English as a Second Language (ESL) sentences (97,681 words), manually annotated with POS tags and dependency trees in the <a href=http://universaldependencies.org/>Universal Dependencies</a> formalism. The dataset represents upper-intermediate level adult English learners from 10 native language backgrounds, with over 500 sentences for each native language. The sentences were drawn from the <a href=http://ilexir.co.uk/applications/clc-fce-dataset/>Cambridge Learner Corpus First Certificate in English</a> (FCE) corpus. </p><br>
+	        <div id="abouttext">
+                <p>The Treebank of Learner English (TLE) is a collection of 5,124 English as a Second Language (ESL) sentences (97,681 words), manually annotated with POS tags and dependency trees in the <a href=http://universaldependencies.org/>Universal Dependencies</a> formalism. The dataset represents upper-intermediate level adult English learners from 10 native language backgrounds, with over 500 sentences for each native language. The sentences were drawn from the <a href=http://ilexir.co.uk/applications/clc-fce-dataset/>Cambridge Learner Corpus First Certificate in English</a> (FCE) corpus. </p><br>
 
-<p>
-The dataset and the annotation guidelines were developed in a collaborative project between <a href=http://www.csail.mit.edu/>MIT CSAIL</a>, <a href=http://web.mit.edu/linguistics/>MIT Linguistics</a> and <a href=http://cbmm.mit.edu/>CBMM</a>. Detailed information about the annotations is available in this <a>paper</a>. A <em>draft</em> of the manual used by the annotators is available 
-<a>here</a>. Please contact <a href=http://people.csail.mit.edu/berzak/>Yevgeni Berzak</a> (berzak at mit dot edu) if you spot any errors or inconsistencies in the treebank, or if you have questions about the ESL annotation guidelines.
-</p><br>
+                <p>The dataset and the annotation guidelines were developed in a collaborative project between <a href=http://www.csail.mit.edu/>MIT CSAIL</a>, <a href=http://web.mit.edu/linguistics/>MIT Linguistics</a> and <a href=http://cbmm.mit.edu/>CBMM</a>. Detailed information about the annotations is available in this <a>paper</a>. A <em>draft</em> of the manual used by the annotators is available 
+                <a>here</a>. Please contact <a href=http://people.csail.mit.edu/berzak/>Yevgeni Berzak</a> (berzak at mit dot edu) if you spot any errors or inconsistencies in the treebank, or if you have questions about the ESL annotation guidelines.
+               </p><br>
 
-<p>
-  <b>Citation</b> <br>
-  You are encouraged to cite the following papers when using the dataset:<br>
-  <ul>
-    <li> Yevgeni Berzak, Jessica Kenney, Carolyn Spadine, Jing Xian Wang, Lucia Lam, 
-      Keiko Sophie Mori, Sebastian Garza and Boris Katz (2016) "Universal Dependencies 
-      for Learner English", arXiv preprint.</li>
-    <li> Helen Yannakoudakis, Ted Briscoe and Ben Medlock (2011) "A New Dataset and Method 
-      for Automatically Grading ESOL Texts", In Proceedings of the 49th Annual Meeting of the 
-      Association for Computational Linguistics: Human Language Technologies (ACL), pages 180-189.</li>
-  </ul>
-</p><br>
+				<p><b>Citation</b> <br>
+  				You are encouraged to cite the following papers when using the dataset:<br>
+				<ul>
+				    <li> Yevgeni Berzak, Jessica Kenney, Carolyn Spadine, Jing Xian Wang, Lucia Lam, Keiko Sophie Mori, Sebastian Garza and Boris Katz (2016) "Universal Dependencies for Learner English", arXiv preprint.</li>
+				    <li> Helen Yannakoudakis, Ted Briscoe and Ben Medlock (2011) "A New Dataset and Method for Automatically Grading ESOL Texts", In Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics: Human Language Technologies (ACL), pages 180-189.</li>
+                </ul>
+                </p><br>
 
-<p>
-  <b>Download</b> <br>
-  The TLE is available publicly through the <a href=http://universaldependencies.org/>UD repository (English-ESL)</a>.
-</p><br>
+				<p><b>Download</b> <br>
+				The TLE is available publicly through the <a href=http://universaldependencies.org/>UD repository (English-ESL)</a>.
+				</p><br>
 
-<p>
-  <b>People</b> <br>
-  Annotation and guidelines: Yevgeni Berzak, Jessica Kenney, Carolyn Spadine, Jing Xian Wang, Lucia Lam, 
-  Keiko Sophie Mori, Sebastian Garza, Boris Katz. <br>
-  Web search: Emily Kellison-Lynn, Yevgeni Berzak, Andrei Barbu, Jessica Kenney.
-</p><br>
+				<p><b>People</b><br>
+				Annotation and guidelines: Yevgeni Berzak, Jessica Kenney, Carolyn Spadine, Jing Xian Wang, Lucia Lam, Keiko Sophie Mori, Sebastian Garza, Boris Katz. <br>
+				Web search: Emily Kellison-Lynn, Yevgeni Berzak, Andrei Barbu, Jessica Kenney.
+				</p><br>
 
-<img src="/images/photo.jpg" id="group-photo">
-<p>Team Annotations: Yevgeni, Lucia, Sophie, Jessica, Jing, Sebastian. </p>
+				<img src="/images/photo.jpg" id="group-photo">
 
-<br><br><br>
-<img src="/images/csail.png" id="small-icon"><img src="/images/cbmm.png" id="small-icon"><img src="/images/nsf.png" id="small-icon-sq">
-<br><br>
-</div>	    
-</div>
+				<p>Team Annotations: Yevgeni, Lucia, Sophie, Jessica, Jing, Sebastian. </p>
+
+				<br><br><br>
+				<img src="/images/csail.png" id="small-icon"><img src="/images/cbmm.png" id="small-icon"><img src="/images/nsf.png" id="small-icon-sq">
+				<br><br>
+			</div>	    
+		</div>
 	</div>
 
-        <script type="text/javascript">
-         var root = '/js/';
-         head.js(
-	     // External libraries
-	     root + 'lib/ext/jquery.min.js',
-	     root + 'lib/ext/jquery.svg.min.js',
-	     root + 'lib/ext/jquery.svgdom.min.js',
-	     root + 'lib/ext/jquery-ui.min.js',
-	     root + 'lib/ext/waypoints.min.js',
+	<!-- Required for Annodoc -->
+    <script type="text/javascript">
+        var root = '/js/';
+        head.js(
+	    // External libraries
+	    root + 'lib/ext/jquery.min.js',
+	    root + 'lib/ext/jquery.svg.min.js',
+	    root + 'lib/ext/jquery.svgdom.min.js',
+	    root + 'lib/ext/jquery-ui.min.js',
+	    root + 'lib/ext/waypoints.min.js',
 
-	     // brat helper modules
-	     root + 'lib/brat/configuration.js',
-	     root + 'lib/brat/util.js',
-	     root + 'lib/brat/annotation_log.js',
-	     root + 'lib/ext/webfont.js',
-	     // brat modules
-	     root + 'lib/brat/dispatcher.js',
-	     root + 'lib/brat/url_monitor.js',
-	     root + 'lib/brat/visualizer.js',
+	    // brat helper modules
+	    root + 'lib/brat/configuration.js',
+	    root + 'lib/brat/util.js',
+	    root + 'lib/brat/annotation_log.js',
+	    root + 'lib/ext/webfont.js',
+	    // brat modules
+	    root + 'lib/brat/dispatcher.js',
+	    root + 'lib/brat/url_monitor.js',
+	    root + 'lib/brat/visualizer.js',
 
-	     // annotation documentation support
-	     'http://spyysalo.github.io/annodoc/lib/local/annodoc.js',
-	     root + 'lib/local/config.js',
+	    // annotation documentation support
+	    'http://spyysalo.github.io/annodoc/lib/local/annodoc.js',
+	    root + 'lib/local/config.js',
 
-	     // the conllu.js library itself
-	     root + 'conllu.js'
-         );
+	    // the conllu.js library itself
+	    root + 'conllu.js'
+        );
 
-         var webFontURLs = [
-	     '/fonts/PT_Sans-Caption-Web-Regular.ttf',
-	     '/fonts/Liberation_Sans-Regular.ttf'
-         ];
+        var webFontURLs = [
+	    '/fonts/PT_Sans-Caption-Web-Regular.ttf',
+	    '/fonts/Liberation_Sans-Regular.ttf'
+        ];
 
-         /* not used here */
-         var documentCollections = {};
+        /* not used here */
+        var documentCollections = {};
 
-         head.ready(function() {
-	     // performes all embedding and support functions
-	     Annodoc.activate(Config.bratCollData, documentCollections);
-         });
-        </script>
+        head.ready(function() {
+	    // performes all embedding and support functions
+	    Annodoc.activate(Config.bratCollData, documentCollections);
+        });
+    </script>
 
-    </body>
+</body>
+
 </html>
 
