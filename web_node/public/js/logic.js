@@ -1,4 +1,9 @@
 
+// Logic.js contains all front-end Javascript functionality.
+// It mainly deals with formatting and inserting the HTML for
+// the search results returned from the server.
+
+
 // Dictionary of error codes mapped to their full name
 var error_names = {
     "AGN":"Noun agreement",
