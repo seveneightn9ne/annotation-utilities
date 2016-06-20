@@ -19,7 +19,7 @@ var fs = require('fs');
 var searcher = require('./data_searcher');
 
 // Paths to corpus file locations
-var eng_corpus = {main:"data/en-ud-train-1.2.conllu", corr:""};
+var eng_corpus = {main:"data/en-ud-1.3.conllu", corr:""};
 var esl_corpus = {main:"data/en_esl-ud.conllu", corr:"data/en_cesl-ud.conllu"};
 
 // Set directory that the server will serve
@@ -76,7 +76,7 @@ fs.readFile(esl_corpus.main,
                     data_sources["eng_sentences"] = eng_sentences;
                     // When the following line prings, the server is ready
                     console.log("Starting server");
-                    app.listen(8888);
+                    app.listen(80);
                 });
         });
 });
