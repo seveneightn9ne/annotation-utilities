@@ -4737,3 +4737,418 @@ Wed Nov 16 2016 21:31:56 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","l
 Wed Nov 16 2016 21:33:23 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"chinese"}
 Wed Nov 16 2016 21:33:55 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"japanese"}
 Wed Nov 16 2016 21:39:38 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Thu Nov 17 2016 06:24:57 GMT-0500 (EST) {"query":"know","corpus":"esl","error":"","language":"spanish"}
+Thu Nov 17 2016 06:25:04 GMT-0500 (EST) {"query":"know","corpus":"esl","error":"","language":"spanish"}
+Thu Nov 17 2016 06:28:06 GMT-0500 (EST) {"query":"know","corpus":"esl","error":"","language":"spanish"}
+Thu Nov 17 2016 06:32:37 GMT-0500 (EST) {"query":"but","corpus":"esl","error":"","language":"spanish"}
+Thu Nov 17 2016 06:36:06 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGN","language":"spanish"}
+Thu Nov 17 2016 06:38:31 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGN","language":"german"}
+Thu Nov 17 2016 06:39:45 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AS","language":"german"}
+Thu Nov 17 2016 06:40:27 GMT-0500 (EST) {"query":"","corpus":"esl","error":"SX","language":"german"}
+Thu Nov 17 2016 06:40:59 GMT-0500 (EST) {"query":"","corpus":"esl","error":"RJ","language":"german"}
+Thu Nov 17 2016 06:55:21 GMT-0500 (EST) {"query":"","corpus":"esl","error":"L","language":"spanish"}
+Thu Nov 17 2016 06:56:21 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGD","language":"spanish"}
+Thu Nov 17 2016 06:56:32 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGN","language":"spanish"}
+Thu Nov 17 2016 06:56:47 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGA","language":"spanish"}
+Thu Nov 17 2016 06:59:05 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AS","language":"spanish"}
+Thu Nov 17 2016 06:59:14 GMT-0500 (EST) {"query":"","corpus":"esl","error":"CL","language":"spanish"}
+Thu Nov 17 2016 06:59:19 GMT-0500 (EST) {"query":"","corpus":"esl","error":"CE","language":"spanish"}
+Thu Nov 17 2016 06:59:24 GMT-0500 (EST) {"query":"","corpus":"esl","error":"CE","language":"german"}
+Thu Nov 17 2016 06:59:40 GMT-0500 (EST) {"query":"","corpus":"esl","error":"CL","language":"german"}
+Thu Nov 17 2016 06:59:45 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AS","language":"german"}
+Thu Nov 17 2016 06:59:55 GMT-0500 (EST) {"query":"","corpus":"esl","error":"CL","language":"german"}
+Thu Nov 17 2016 07:00:00 GMT-0500 (EST) {"query":"","corpus":"esl","error":"CE","language":"german"}
+Thu Nov 17 2016 14:35:54 GMT-0500 (EST) {"query":"teacher","corpus":"esl","error":"","language":"korean"}
+Thu Nov 17 2016 14:37:04 GMT-0500 (EST) {"query":"teacher","corpus":"eng","error":"","language":"korean"}
+Thu Nov 17 2016 22:51:51 GMT-0500 (EST) {"query":"table","corpus":"eng","error":"","language":""}
+Fri Nov 18 2016 06:39:05 GMT-0500 (EST) {"query":"","corpus":"esl","error":"W","language":"german"}
+Fri Nov 18 2016 07:29:28 GMT-0500 (EST) {"query":"","corpus":"esl","error":"W","language":"spanish"}
+Fri Nov 18 2016 07:32:00 GMT-0500 (EST) {"query":"","corpus":"esl","error":"W","language":"french"}
+Sat Nov 19 2016 16:34:25 GMT-0500 (EST) {"query":"","corpus":"eng","error":"","language":""}
+Mon Nov 21 2016 11:44:29 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Mon Nov 21 2016 13:17:38 GMT-0500 (EST) {"query":"how do write an essay","corpus":"esl","error":"","language":""}
+Mon Nov 21 2016 13:17:42 GMT-0500 (EST) {"query":"how ","corpus":"esl","error":"","language":""}
+Mon Nov 21 2016 13:17:56 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Tue Nov 22 2016 10:11:11 GMT-0500 (EST) {"query":"in the house","corpus":"eng","error":"","language":""}
+Tue Nov 22 2016 10:11:17 GMT-0500 (EST) {"query":"house","corpus":"eng","error":"","language":""}
+Tue Nov 22 2016 10:11:28 GMT-0500 (EST) {"query":"in","corpus":"eng","error":"","language":""}
+Tue Nov 22 2016 10:26:04 GMT-0500 (EST) {"query":"on","corpus":"eng","error":"","language":""}
+Tue Nov 22 2016 18:23:11 GMT-0500 (EST) {"query":"cake","corpus":"esl","error":"","language":""}
+Wed Nov 23 2016 07:34:29 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Wed Nov 23 2016 16:15:19 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Wed Nov 23 2016 16:15:25 GMT-0500 (EST) {"query":"bus","corpus":"esl","error":"","language":""}
+Thu Nov 24 2016 14:38:18 GMT-0500 (EST) {"query":"bus","corpus":"esl","error":"","language":""}
+Sat Nov 26 2016 11:10:45 GMT-0500 (EST) {"query":"*","corpus":"esl","error":"","language":"turkish"}
+Sat Nov 26 2016 11:11:13 GMT-0500 (EST) {"query":"of","corpus":"esl","error":"","language":"turkish"}
+Sat Nov 26 2016 11:11:49 GMT-0500 (EST) {"query":"of","corpus":"eng","error":"","language":"turkish"}
+Sat Nov 26 2016 11:12:01 GMT-0500 (EST) {"query":"of","corpus":"eng","error":"","language":"turkish"}
+Sat Nov 26 2016 11:12:08 GMT-0500 (EST) {"query":"learn","corpus":"eng","error":"","language":"turkish"}
+Sat Nov 26 2016 13:27:11 GMT-0500 (EST) {"query":"in 1993","corpus":"esl","error":"","language":"spanish"}
+Sat Nov 26 2016 13:27:18 GMT-0500 (EST) {"query":"in 2015","corpus":"esl","error":"","language":"spanish"}
+Sat Nov 26 2016 13:27:59 GMT-0500 (EST) {"query":"in December","corpus":"esl","error":"","language":"spanish"}
+Sat Nov 26 2016 13:28:17 GMT-0500 (EST) {"query":"en 2015","corpus":"esl","error":"","language":"spanish"}
+Sat Nov 26 2016 13:28:22 GMT-0500 (EST) {"query":"en diciembre","corpus":"esl","error":"","language":"spanish"}
+Sat Nov 26 2016 13:28:45 GMT-0500 (EST) {"query":"in 5015","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 13:28:49 GMT-0500 (EST) {"query":"in 2015","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 13:28:54 GMT-0500 (EST) {"query":"in december","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 13:31:26 GMT-0500 (EST) {"query":"at 3","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 13:33:22 GMT-0500 (EST) {"query":"in the evening","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 13:33:26 GMT-0500 (EST) {"query":"in the evening","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 13:35:30 GMT-0500 (EST) {"query":"on morning","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 13:42:48 GMT-0500 (EST) {"query":"en diciembre","corpus":"esl","error":"","language":"spanish"}
+Sat Nov 26 2016 13:43:01 GMT-0500 (EST) {"query":"en enero","corpus":"esl","error":"","language":"spanish"}
+Sat Nov 26 2016 13:43:06 GMT-0500 (EST) {"query":"en febrero","corpus":"esl","error":"","language":"spanish"}
+Sat Nov 26 2016 13:43:11 GMT-0500 (EST) {"query":"en marzo","corpus":"esl","error":"","language":"spanish"}
+Sat Nov 26 2016 13:43:19 GMT-0500 (EST) {"query":"en 2010","corpus":"esl","error":"","language":"spanish"}
+Sat Nov 26 2016 14:02:12 GMT-0500 (EST) {"query":"on the roof","corpus":"esl","error":"","language":"spanish"}
+Sat Nov 26 2016 14:02:16 GMT-0500 (EST) {"query":"on the roof","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 14:03:38 GMT-0500 (EST) {"query":"on the table","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 14:03:47 GMT-0500 (EST) {"query":"on the chair","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 14:03:53 GMT-0500 (EST) {"query":"on the ouse","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 14:03:56 GMT-0500 (EST) {"query":"on the ouse","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 14:03:59 GMT-0500 (EST) {"query":"on the house","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 14:04:16 GMT-0500 (EST) {"query":"on the bok","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 14:04:17 GMT-0500 (EST) {"query":"on the box","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 14:04:33 GMT-0500 (EST) {"query":"on the counter","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 14:05:30 GMT-0500 (EST) {"query":"on the bed","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 14:05:34 GMT-0500 (EST) {"query":"on bed","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 14:05:38 GMT-0500 (EST) {"query":"on roof","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 14:05:48 GMT-0500 (EST) {"query":"on","corpus":"eng","error":"","language":"spanish"}
+Sat Nov 26 2016 14:32:21 GMT-0500 (EST) {"query":"december of","corpus":"esl","error":"","language":""}
+Sat Nov 26 2016 14:32:28 GMT-0500 (EST) {"query":"january of","corpus":"esl","error":"","language":""}
+Sat Nov 26 2016 14:32:41 GMT-0500 (EST) {"query":"of 2015","corpus":"eng","error":"","language":""}
+Sat Nov 26 2016 14:32:54 GMT-0500 (EST) {"query":"of 2012","corpus":"eng","error":"","language":""}
+Sat Nov 26 2016 14:33:02 GMT-0500 (EST) {"query":"of 2016","corpus":"eng","error":"","language":""}
+Sat Nov 26 2016 14:33:07 GMT-0500 (EST) {"query":"of 2014","corpus":"eng","error":"","language":""}
+Sat Nov 26 2016 14:33:11 GMT-0500 (EST) {"query":"of 2013","corpus":"eng","error":"","language":""}
+Sat Nov 26 2016 19:50:01 GMT-0500 (EST) {"query":"lihb objhgc uyfivkv","corpus":"esl","error":"","language":""}
+Sun Nov 27 2016 06:24:40 GMT-0500 (EST) {"query":"trump","corpus":"esl","error":"","language":""}
+Sun Nov 27 2016 19:23:54 GMT-0500 (EST) {"query":"someone","corpus":"esl","error":"","language":""}
+Sun Nov 27 2016 19:24:15 GMT-0500 (EST) {"query":"someone","corpus":"esl","error":"","language":""}
+Sun Nov 27 2016 19:26:24 GMT-0500 (EST) {"query":"someone","corpus":"esl","error":"","language":""}
+Sun Nov 27 2016 19:26:58 GMT-0500 (EST) {"query":"someone","corpus":"esl","error":"","language":""}
+Sun Nov 27 2016 19:31:16 GMT-0500 (EST) {"query":"trump","corpus":"esl","error":"","language":""}
+Sun Nov 27 2016 19:31:22 GMT-0500 (EST) {"query":"trump","corpus":"esl","error":"","language":""}
+Sun Nov 27 2016 21:16:12 GMT-0500 (EST) {"query":"try this","corpus":"esl","error":"","language":""}
+Sun Nov 27 2016 21:18:23 GMT-0500 (EST) {"query":"have to","corpus":"esl","error":"","language":""}
+Mon Nov 28 2016 10:41:13 GMT-0500 (EST) {"query":"see DET NOUN","corpus":"esl","error":"","language":""}
+Mon Nov 28 2016 10:44:18 GMT-0500 (EST) {"query":"see DET NOUN","corpus":"esl","error":"","language":""}
+Mon Nov 28 2016 10:44:25 GMT-0500 (EST) {"query":"see DET NOUN","corpus":"esl","error":"","language":""}
+Mon Nov 28 2016 15:12:35 GMT-0500 (EST) {"query":"impressive","corpus":"esl","error":"","language":"french"}
+Mon Nov 28 2016 15:12:45 GMT-0500 (EST) {"query":"strong","corpus":"esl","error":"","language":"french"}
+Mon Nov 28 2016 15:13:06 GMT-0500 (EST) {"query":"strong","corpus":"eng","error":"","language":"french"}
+Mon Nov 28 2016 17:16:52 GMT-0500 (EST) {"query":"big","corpus":"esl","error":"","language":""}
+Mon Nov 28 2016 17:17:26 GMT-0500 (EST) {"query":"big","corpus":"esl","error":"","language":"french"}
+Mon Nov 28 2016 17:17:33 GMT-0500 (EST) {"query":"big","corpus":"esl","error":"","language":"german"}
+Mon Nov 28 2016 17:17:48 GMT-0500 (EST) {"query":"big","corpus":"eng","error":"","language":"german"}
+Mon Nov 28 2016 17:17:57 GMT-0500 (EST) {"query":"big","corpus":"esl","error":"","language":"french"}
+Mon Nov 28 2016 18:46:25 GMT-0500 (EST) {"query":"this is a test","corpus":"esl","error":"","language":""}
+Mon Nov 28 2016 18:46:32 GMT-0500 (EST) {"query":"my name is","corpus":"esl","error":"","language":""}
+Mon Nov 28 2016 18:47:40 GMT-0500 (EST) {"query":"my name is","corpus":"esl","error":"","language":""}
+Wed Nov 30 2016 02:38:18 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Thu Dec 01 2016 09:11:53 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Thu Dec 01 2016 09:13:19 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"japanese"}
+Fri Dec 02 2016 11:09:10 GMT-0500 (EST) {"query":"have .*ed","corpus":"esl","error":"","language":""}
+Fri Dec 02 2016 11:09:24 GMT-0500 (EST) {"query":"am .*ing","corpus":"esl","error":"","language":""}
+Fri Dec 02 2016 11:09:43 GMT-0500 (EST) {"query":"is ADJ","corpus":"esl","error":"","language":""}
+Fri Dec 02 2016 11:11:23 GMT-0500 (EST) {"query":"can VERB","corpus":"esl","error":"","language":""}
+Fri Dec 02 2016 11:18:26 GMT-0500 (EST) {"query":"remnant","corpus":"esl","error":"","language":""}
+Fri Dec 02 2016 11:20:51 GMT-0500 (EST) {"query":"AUX","corpus":"esl","error":"","language":""}
+Fri Dec 02 2016 12:08:21 GMT-0500 (EST) {"query":"","corpus":"esl","error":"MN","language":"japanese"}
+Mon Dec 05 2016 08:06:57 GMT-0500 (EST) {"query":"depend","corpus":"esl","error":"","language":""}
+Mon Dec 05 2016 08:07:00 GMT-0500 (EST) {"query":"depend","corpus":"esl","error":"","language":""}
+Mon Dec 05 2016 08:07:15 GMT-0500 (EST) {"query":"the","corpus":"esl","error":"","language":""}
+Tue Dec 06 2016 04:41:58 GMT-0500 (EST) {"query":"","corpus":"esl","error":"UD","language":"french"}
+Tue Dec 06 2016 04:42:07 GMT-0500 (EST) {"query":"","corpus":"esl","error":"UD","language":"french"}
+Tue Dec 06 2016 04:42:31 GMT-0500 (EST) {"query":"","corpus":"esl","error":"UD","language":"french"}
+Tue Dec 06 2016 04:42:47 GMT-0500 (EST) {"query":"","corpus":"esl","error":"UD","language":"french"}
+Tue Dec 06 2016 04:44:30 GMT-0500 (EST) {"query":"","corpus":"esl","error":"W","language":"french"}
+Tue Dec 06 2016 07:15:11 GMT-0500 (EST) {"query":"あｃ","corpus":"esl","error":"","language":""}
+Tue Dec 06 2016 07:15:18 GMT-0500 (EST) {"query":"account","corpus":"esl","error":"","language":""}
+Tue Dec 06 2016 07:15:40 GMT-0500 (EST) {"query":"account","corpus":"esl","error":"","language":""}
+Tue Dec 06 2016 07:16:09 GMT-0500 (EST) {"query":"account","corpus":"esl","error":"","language":""}
+Wed Dec 07 2016 10:51:50 GMT-0500 (EST) {"query":"Ball","corpus":"esl","error":"","language":""}
+Wed Dec 07 2016 10:51:59 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Wed Dec 07 2016 10:52:15 GMT-0500 (EST) {"query":"literally","corpus":"esl","error":"","language":""}
+Wed Dec 07 2016 23:38:16 GMT-0500 (EST) {"query":"book","corpus":"eng","error":"","language":""}
+Wed Dec 07 2016 23:38:17 GMT-0500 (EST) {"query":"book","corpus":"eng","error":"","language":""}
+Thu Dec 08 2016 10:32:28 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Thu Dec 08 2016 12:18:41 GMT-0500 (EST) {"query":"","corpus":"esl","error":"DD","language":"japanese"}
+Thu Dec 08 2016 12:19:34 GMT-0500 (EST) {"query":"","corpus":"esl","error":"DD","language":"japanese"}
+Thu Dec 08 2016 12:20:06 GMT-0500 (EST) {"query":"","corpus":"esl","error":"TV","language":"japanese"}
+Mon Dec 12 2016 05:17:15 GMT-0500 (EST) {"query":"verb","corpus":"eng","error":"","language":""}
+Mon Dec 12 2016 05:17:59 GMT-0500 (EST) {"query":"NOUN","corpus":"esl","error":"","language":""}
+Mon Dec 12 2016 10:02:00 GMT-0500 (EST) {"query":"let PRON know","corpus":"esl","error":"","language":""}
+Tue Dec 13 2016 11:44:58 GMT-0500 (EST) {"query":"","corpus":"esl","error":"W","language":"french"}
+Tue Dec 13 2016 11:46:11 GMT-0500 (EST) {"query":"","corpus":"esl","error":"W","language":"french"}
+Wed Dec 14 2016 09:29:50 GMT-0500 (EST) {"query":"slavish","corpus":"esl","error":"","language":""}
+Wed Dec 14 2016 09:29:55 GMT-0500 (EST) {"query":"slave","corpus":"esl","error":"","language":""}
+Wed Dec 14 2016 09:29:59 GMT-0500 (EST) {"query":"test","corpus":"esl","error":"","language":""}
+Wed Dec 14 2016 09:31:16 GMT-0500 (EST) {"query":"test","corpus":"esl","error":"","language":""}
+Wed Dec 14 2016 09:31:24 GMT-0500 (EST) {"query":"test","corpus":"esl","error":"","language":""}
+Wed Dec 14 2016 09:33:12 GMT-0500 (EST) {"query":"test","corpus":"esl","error":"","language":"turkish"}
+Wed Dec 14 2016 09:33:47 GMT-0500 (EST) {"query":"test","corpus":"eng","error":"","language":"turkish"}
+Wed Dec 14 2016 11:54:20 GMT-0500 (EST) {"query":"reach a conclusion","corpus":"esl","error":"CL","language":"french"}
+Thu Dec 15 2016 12:27:55 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"japanese"}
+Thu Dec 15 2016 12:28:07 GMT-0500 (EST) {"query":"see","corpus":"esl","error":"","language":"japanese"}
+Thu Dec 15 2016 12:28:44 GMT-0500 (EST) {"query":"see","corpus":"esl","error":"","language":"japanese"}
+Thu Dec 15 2016 12:28:52 GMT-0500 (EST) {"query":"see","corpus":"esl","error":"","language":"japanese"}
+Thu Dec 15 2016 14:43:26 GMT-0500 (EST) {"query":"minä","corpus":"esl","error":"","language":""}
+Thu Dec 15 2016 14:44:10 GMT-0500 (EST) {"query":"see that show","corpus":"eng","error":"","language":""}
+Fri Dec 16 2016 01:44:38 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"japanese"}
+Fri Dec 16 2016 01:45:07 GMT-0500 (EST) {"query":"play","corpus":"esl","error":"","language":"japanese"}
+Fri Dec 16 2016 01:45:08 GMT-0500 (EST) {"query":"play","corpus":"esl","error":"","language":"japanese"}
+Fri Dec 16 2016 01:45:09 GMT-0500 (EST) {"query":"play","corpus":"esl","error":"","language":"japanese"}
+Fri Dec 16 2016 01:45:09 GMT-0500 (EST) {"query":"play","corpus":"esl","error":"","language":"japanese"}
+Fri Dec 16 2016 01:45:10 GMT-0500 (EST) {"query":"play","corpus":"esl","error":"","language":"japanese"}
+Fri Dec 16 2016 01:45:10 GMT-0500 (EST) {"query":"play","corpus":"esl","error":"","language":"japanese"}
+Fri Dec 16 2016 01:45:14 GMT-0500 (EST) {"query":"play","corpus":"esl","error":"MT","language":"japanese"}
+Fri Dec 16 2016 01:45:15 GMT-0500 (EST) {"query":"play","corpus":"esl","error":"MT","language":"japanese"}
+Fri Dec 16 2016 01:45:24 GMT-0500 (EST) {"query":"play","corpus":"esl","error":"MT","language":"japanese"}
+Fri Dec 16 2016 01:45:38 GMT-0500 (EST) {"query":"play children","corpus":"esl","error":"MT","language":"japanese"}
+Fri Dec 16 2016 01:45:39 GMT-0500 (EST) {"query":"play children","corpus":"esl","error":"MT","language":"japanese"}
+Fri Dec 16 2016 01:45:40 GMT-0500 (EST) {"query":"play children","corpus":"esl","error":"MT","language":"japanese"}
+Fri Dec 16 2016 01:45:59 GMT-0500 (EST) {"query":"play","corpus":"esl","error":"MT","language":"japanese"}
+Fri Dec 16 2016 01:46:16 GMT-0500 (EST) {"query":"play","corpus":"esl","error":"MT","language":"japanese"}
+Fri Dec 16 2016 01:46:29 GMT-0500 (EST) {"query":"play","corpus":"esl","error":"MT","language":"japanese"}
+Fri Dec 16 2016 06:10:06 GMT-0500 (EST) {"query":"play chiledren","corpus":"esl","error":"MT","language":"japanese"}
+Fri Dec 16 2016 06:10:14 GMT-0500 (EST) {"query":"play chiledren","corpus":"esl","error":"MT","language":""}
+Fri Dec 16 2016 06:10:20 GMT-0500 (EST) {"query":"play chiledren","corpus":"esl","error":"","language":""}
+Fri Dec 16 2016 06:10:28 GMT-0500 (EST) {"query":"play with","corpus":"esl","error":"","language":""}
+Fri Dec 16 2016 07:27:25 GMT-0500 (EST) {"query":"He is a good teache","corpus":"esl","error":"","language":""}
+Fri Dec 16 2016 07:27:52 GMT-0500 (EST) {"query":"He is a good teacher","corpus":"esl","error":"","language":""}
+Fri Dec 16 2016 07:28:00 GMT-0500 (EST) {"query":"good teacher","corpus":"esl","error":"","language":""}
+Fri Dec 16 2016 07:28:05 GMT-0500 (EST) {"query":"teacher","corpus":"esl","error":"","language":""}
+Fri Dec 16 2016 07:28:43 GMT-0500 (EST) {"query":"teacher","corpus":"esl","error":"","language":""}
+Mon Dec 19 2016 11:54:18 GMT-0500 (EST) {"query":"enjoy a","corpus":"esl","error":"","language":""}
+Mon Dec 19 2016 11:54:18 GMT-0500 (EST) {"query":"enjoy a","corpus":"esl","error":"","language":""}
+Mon Dec 19 2016 11:54:28 GMT-0500 (EST) {"query":"enjoy","corpus":"esl","error":"","language":""}
+Mon Dec 19 2016 12:04:38 GMT-0500 (EST) {"query":"enjoy","corpus":"esl","error":"","language":""}
+Mon Dec 19 2016 12:06:12 GMT-0500 (EST) {"query":"enjoy","corpus":"esl","error":"","language":""}
+Tue Dec 20 2016 06:20:34 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Tue Dec 20 2016 06:20:36 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Tue Dec 20 2016 06:20:40 GMT-0500 (EST) {"query":"e","corpus":"esl","error":"","language":""}
+Tue Dec 20 2016 06:20:45 GMT-0500 (EST) {"query":"ee","corpus":"esl","error":"","language":""}
+Tue Dec 20 2016 06:21:01 GMT-0500 (EST) {"query":"eem","corpus":"esl","error":"","language":""}
+Wed Dec 21 2016 11:54:26 GMT-0500 (EST) {"query":"","corpus":"esl","error":"FN","language":"chinese"}
+Thu Dec 22 2016 08:16:52 GMT-0500 (EST) {"query":"That","corpus":"esl","error":"","language":""}
+Thu Dec 22 2016 08:20:06 GMT-0500 (EST) {"query":"That","corpus":"esl","error":"","language":""}
+Thu Dec 22 2016 08:22:24 GMT-0500 (EST) {"query":"That","corpus":"esl","error":"AGA","language":""}
+Thu Dec 22 2016 08:23:13 GMT-0500 (EST) {"query":"That","corpus":"esl","error":"AGA","language":""}
+Thu Dec 22 2016 08:23:38 GMT-0500 (EST) {"query":"That","corpus":"esl","error":"AGA","language":""}
+Tue Dec 27 2016 17:12:29 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Thu Dec 29 2016 06:07:56 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Thu Dec 29 2016 06:11:14 GMT-0500 (EST) {"query":"","corpus":"esl","error":"CL","language":"spanish"}
+Thu Dec 29 2016 06:12:49 GMT-0500 (EST) {"query":"","corpus":"esl","error":"DJ","language":"spanish"}
+Thu Dec 29 2016 15:31:09 GMT-0500 (EST) {"query":"Jump over the log","corpus":"esl","error":"","language":""}
+Fri Dec 30 2016 16:24:53 GMT-0500 (EST) {"query":"cut your tail","corpus":"esl","error":"","language":""}
+Fri Dec 30 2016 16:25:02 GMT-0500 (EST) {"query":"get lost","corpus":"esl","error":"","language":""}
+Mon Jan 02 2017 16:10:04 GMT-0500 (EST) {"query":"","corpus":"esl","error":"X","language":"italian"}
+Mon Jan 02 2017 16:12:16 GMT-0500 (EST) {"query":"","corpus":"esl","error":"X","language":"chinese"}
+Mon Jan 02 2017 16:12:28 GMT-0500 (EST) {"query":"","corpus":"esl","error":"X","language":"chinese"}
+Mon Jan 02 2017 16:12:28 GMT-0500 (EST) {"query":"","corpus":"esl","error":"X","language":"chinese"}
+Mon Jan 02 2017 16:12:35 GMT-0500 (EST) {"query":"","corpus":"esl","error":"X","language":"french"}
+Mon Jan 02 2017 16:12:58 GMT-0500 (EST) {"query":"","corpus":"esl","error":"X","language":"french"}
+Mon Jan 02 2017 16:13:26 GMT-0500 (EST) {"query":"","corpus":"esl","error":"UT","language":"french"}
+Mon Jan 02 2017 16:14:15 GMT-0500 (EST) {"query":"","corpus":"esl","error":"UT","language":"italian"}
+Mon Jan 02 2017 16:14:24 GMT-0500 (EST) {"query":"","corpus":"esl","error":"UT","language":"portuguese"}
+Fri Jan 06 2017 06:49:51 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"french"}
+Fri Jan 06 2017 08:49:29 GMT-0500 (EST) {"query":"","corpus":"esl","error":"FD","language":"chinese"}
+Fri Jan 06 2017 08:49:30 GMT-0500 (EST) {"query":"","corpus":"esl","error":"FD","language":"chinese"}
+Fri Jan 06 2017 08:49:31 GMT-0500 (EST) {"query":"","corpus":"esl","error":"FD","language":"chinese"}
+Fri Jan 06 2017 08:49:32 GMT-0500 (EST) {"query":"","corpus":"esl","error":"FD","language":"chinese"}
+Fri Jan 06 2017 08:49:34 GMT-0500 (EST) {"query":"","corpus":"esl","error":"FD","language":"chinese"}
+Sat Jan 07 2017 11:12:40 GMT-0500 (EST) {"query":"photo","corpus":"esl","error":"","language":""}
+Sat Jan 07 2017 11:57:20 GMT-0500 (EST) {"query":"more or lesd","corpus":"esl","error":"","language":""}
+Sat Jan 07 2017 11:57:41 GMT-0500 (EST) {"query":"more or less","corpus":"esl","error":"","language":"spanish"}
+Sat Jan 07 2017 11:58:16 GMT-0500 (EST) {"query":"more or less","corpus":"esl","error":"","language":"spanish"}
+Sat Jan 07 2017 11:59:02 GMT-0500 (EST) {"query":"more or less","corpus":"esl","error":"","language":"spanish"}
+Sat Jan 07 2017 11:59:19 GMT-0500 (EST) {"query":"more or less","corpus":"esl","error":"","language":"spanish"}
+Sat Jan 07 2017 11:59:40 GMT-0500 (EST) {"query":"more or less","corpus":"esl","error":"","language":"spanish"}
+Mon Jan 09 2017 20:29:51 GMT-0500 (EST) {"query":"The girl ball kcicked","corpus":"esl","error":"","language":""}
+Mon Jan 09 2017 20:29:57 GMT-0500 (EST) {"query":"The girl ball kicked","corpus":"esl","error":"","language":""}
+Mon Jan 09 2017 20:29:58 GMT-0500 (EST) {"query":"The girl ball kicked","corpus":"esl","error":"","language":""}
+Tue Jan 10 2017 13:54:27 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Tue Jan 10 2017 17:10:01 GMT-0500 (EST) {"query":"help me","corpus":"esl","error":"","language":""}
+Tue Jan 10 2017 20:11:21 GMT-0500 (EST) {"query":"the","corpus":"eng","error":"","language":""}
+Tue Jan 10 2017 20:12:11 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"turkish"}
+Tue Jan 10 2017 20:12:34 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"turkish"}
+Thu Jan 12 2017 07:48:29 GMT-0500 (EST) {"query":"","corpus":"esl","error":"W","language":"french"}
+Thu Jan 12 2017 08:43:07 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Thu Jan 12 2017 08:43:25 GMT-0500 (EST) {"query":"eat","corpus":"esl","error":"","language":""}
+Thu Jan 12 2017 08:43:43 GMT-0500 (EST) {"query":"eat","corpus":"esl","error":"","language":""}
+Thu Jan 12 2017 08:44:16 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Thu Jan 12 2017 08:51:41 GMT-0500 (EST) {"query":"eat","corpus":"esl","error":"","language":""}
+Thu Jan 12 2017 14:31:45 GMT-0500 (EST) {"query":"dog","corpus":"esl","error":"","language":""}
+Thu Jan 12 2017 14:31:54 GMT-0500 (EST) {"query":"dog","corpus":"esl","error":"","language":""}
+Thu Jan 12 2017 14:34:12 GMT-0500 (EST) {"query":"old","corpus":"esl","error":"","language":""}
+Sun Jan 15 2017 22:46:45 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Mon Jan 16 2017 04:27:19 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Mon Jan 16 2017 04:27:25 GMT-0500 (EST) {"query":"a","corpus":"esl","error":"","language":""}
+Wed Jan 18 2017 21:06:37 GMT-0500 (EST) {"query":"happily","corpus":"esl","error":"","language":""}
+Wed Jan 18 2017 21:07:04 GMT-0500 (EST) {"query":"best cakes","corpus":"esl","error":"","language":""}
+Wed Jan 18 2017 21:07:27 GMT-0500 (EST) {"query":"digging it","corpus":"esl","error":"","language":""}
+Fri Jan 20 2017 03:40:48 GMT-0500 (EST) {"query":"negotiation","corpus":"esl","error":"","language":"japanese"}
+Fri Jan 20 2017 03:40:51 GMT-0500 (EST) {"query":"negotiation","corpus":"esl","error":"","language":"japanese"}
+Fri Jan 20 2017 03:42:24 GMT-0500 (EST) {"query":"negotiation","corpus":"esl","error":"","language":"japanese"}
+Fri Jan 20 2017 03:42:30 GMT-0500 (EST) {"query":"negotiation","corpus":"eng","error":"","language":"japanese"}
+Fri Jan 20 2017 03:42:33 GMT-0500 (EST) {"query":"negotiation","corpus":"eng","error":"","language":"japanese"}
+Fri Jan 20 2017 03:43:01 GMT-0500 (EST) {"query":"hello","corpus":"eng","error":"","language":"japanese"}
+Fri Jan 20 2017 03:43:54 GMT-0500 (EST) {"query":"what's up?","corpus":"eng","error":"","language":"japanese"}
+Fri Jan 20 2017 03:43:55 GMT-0500 (EST) {"query":"what's up?","corpus":"eng","error":"","language":"japanese"}
+Fri Jan 20 2017 03:44:42 GMT-0500 (EST) {"query":"what's up?","corpus":"eng","error":"","language":"japanese"}
+Fri Jan 20 2017 03:44:49 GMT-0500 (EST) {"query":"use","corpus":"esl","error":"","language":""}
+Fri Jan 20 2017 03:45:07 GMT-0500 (EST) {"query":"negotiate","corpus":"eng","error":"","language":"japanese"}
+Sat Jan 21 2017 23:23:38 GMT-0500 (EST) {"query":"jack threw the ball","corpus":"esl","error":"","language":""}
+Sat Jan 21 2017 23:23:50 GMT-0500 (EST) {"query":"jack threw the ball","corpus":"eng","error":"","language":""}
+Sat Jan 21 2017 23:24:02 GMT-0500 (EST) {"query":"he threw the ball","corpus":"eng","error":"","language":""}
+Sat Jan 21 2017 23:24:07 GMT-0500 (EST) {"query":"he throws the ball","corpus":"eng","error":"","language":""}
+Sun Jan 22 2017 19:27:50 GMT-0500 (EST) {"query":"don't","corpus":"esl","error":"","language":""}
+Sun Jan 22 2017 19:27:56 GMT-0500 (EST) {"query":"don't","corpus":"esl","error":"","language":""}
+Tue Jan 24 2017 14:23:30 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Thu Feb 16 2017 14:14:55 GMT-0500 (EST) {"query":"war","corpus":"esl","error":"","language":"chinese"}
+Thu Feb 16 2017 14:35:51 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Thu Feb 16 2017 14:36:06 GMT-0500 (EST) {"query":"see","corpus":"esl","error":"","language":"chinese"}
+Thu Feb 16 2017 22:28:28 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGV","language":"chinese"}
+Thu Feb 16 2017 22:28:32 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGV","language":"chinese"}
+Thu Feb 16 2017 22:28:36 GMT-0500 (EST) {"query":"ESL","corpus":"esl","error":"AGV","language":"chinese"}
+Fri Feb 17 2017 03:22:07 GMT-0500 (EST) {"query":"DET NOUN","corpus":"esl","error":"","language":"chinese"}
+Fri Feb 17 2017 10:46:14 GMT-0500 (EST) {"query":"I have to","corpus":"esl","error":"","language":""}
+Fri Feb 17 2017 10:47:05 GMT-0500 (EST) {"query":"will","corpus":"esl","error":"","language":""}
+Fri Feb 17 2017 10:47:22 GMT-0500 (EST) {"query":"do","corpus":"esl","error":"","language":""}
+Fri Feb 17 2017 10:47:35 GMT-0500 (EST) {"query":"have to","corpus":"esl","error":"","language":""}
+Fri Feb 17 2017 10:47:46 GMT-0500 (EST) {"query":"do","corpus":"esl","error":"","language":""}
+Fri Feb 17 2017 10:49:07 GMT-0500 (EST) {"query":"can","corpus":"esl","error":"","language":""}
+Fri Feb 17 2017 10:49:15 GMT-0500 (EST) {"query":"can","corpus":"esl","error":"","language":""}
+Fri Feb 17 2017 10:56:43 GMT-0500 (EST) {"query":"the","corpus":"esl","error":"","language":"italian"}
+Fri Feb 17 2017 10:56:55 GMT-0500 (EST) {"query":"the ","corpus":"esl","error":"","language":"italian"}
+Fri Feb 17 2017 10:57:34 GMT-0500 (EST) {"query":"because","corpus":"esl","error":"","language":"italian"}
+Fri Feb 17 2017 10:57:40 GMT-0500 (EST) {"query":"because","corpus":"esl","error":"","language":""}
+Fri Feb 17 2017 10:58:50 GMT-0500 (EST) {"query":"because","corpus":"esl","error":"","language":""}
+Fri Feb 17 2017 10:58:56 GMT-0500 (EST) {"query":"because","corpus":"esl","error":"","language":""}
+Sun Feb 19 2017 15:58:53 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Mon Feb 20 2017 06:47:17 GMT-0500 (EST) {"query":"QUESTION","corpus":"esl","error":"","language":""}
+Mon Feb 20 2017 06:55:58 GMT-0500 (EST) {"query":"would","corpus":"esl","error":"","language":""}
+Mon Feb 20 2017 06:56:06 GMT-0500 (EST) {"query":"would","corpus":"esl","error":"","language":""}
+Mon Feb 20 2017 06:56:07 GMT-0500 (EST) {"query":"would","corpus":"esl","error":"","language":""}
+Mon Feb 20 2017 06:57:38 GMT-0500 (EST) {"query":"if","corpus":"esl","error":"","language":""}
+Mon Feb 20 2017 07:06:29 GMT-0500 (EST) {"query":"if","corpus":"esl","error":"","language":""}
+Mon Feb 20 2017 07:06:29 GMT-0500 (EST) {"query":"if","corpus":"esl","error":"","language":""}
+Mon Feb 20 2017 07:06:30 GMT-0500 (EST) {"query":"if","corpus":"esl","error":"","language":""}
+Mon Feb 20 2017 07:06:31 GMT-0500 (EST) {"query":"if","corpus":"esl","error":"","language":""}
+Mon Feb 20 2017 07:12:55 GMT-0500 (EST) {"query":"neg","corpus":"esl","error":"","language":""}
+Mon Feb 20 2017 07:13:25 GMT-0500 (EST) {"query":"neg","corpus":"esl","error":"","language":""}
+Mon Feb 20 2017 08:31:20 GMT-0500 (EST) {"query":"aux","corpus":"esl","error":"","language":""}
+Mon Feb 20 2017 08:45:26 GMT-0500 (EST) {"query":"JJR","corpus":"esl","error":"","language":""}
+Mon Feb 20 2017 08:45:38 GMT-0500 (EST) {"query":"JJR","corpus":"esl","error":"","language":""}
+Fri Feb 24 2017 08:50:11 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"italian"}
+Fri Feb 24 2017 15:58:03 GMT-0500 (EST) {"query":"greeting","corpus":"esl","error":"","language":"french"}
+Fri Feb 24 2017 15:59:20 GMT-0500 (EST) {"query":"greeting","corpus":"esl","error":"","language":"french"}
+Fri Feb 24 2017 15:59:32 GMT-0500 (EST) {"query":"can you help me please","corpus":"esl","error":"","language":"french"}
+Fri Feb 24 2017 15:59:34 GMT-0500 (EST) {"query":"can you help me please","corpus":"esl","error":"","language":"french"}
+Fri Feb 24 2017 15:59:43 GMT-0500 (EST) {"query":"can you help me please","corpus":"eng","error":"","language":"french"}
+Fri Feb 24 2017 16:00:01 GMT-0500 (EST) {"query":"can you help me please","corpus":"esl","error":"","language":"french"}
+Fri Feb 24 2017 16:00:30 GMT-0500 (EST) {"query":"seeing something","corpus":"esl","error":"","language":"french"}
+Sun Feb 26 2017 13:12:57 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Sun Feb 26 2017 14:24:36 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Mon Feb 27 2017 00:05:54 GMT-0500 (EST) {"query":"","corpus":"esl","error":"CQ","language":"japanese"}
+Mon Feb 27 2017 00:07:16 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"japanese"}
+Tue Feb 28 2017 16:37:16 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Tue Feb 28 2017 16:37:59 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"turkish"}
+Tue Feb 28 2017 16:38:38 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Wed Mar 01 2017 10:21:47 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"korean"}
+Wed Mar 01 2017 23:15:40 GMT-0500 (EST) {"query":"he are good","corpus":"esl","error":"","language":""}
+Wed Mar 01 2017 23:15:50 GMT-0500 (EST) {"query":"he is good","corpus":"esl","error":"","language":""}
+Wed Mar 01 2017 23:16:20 GMT-0500 (EST) {"query":"there is a great","corpus":"esl","error":"","language":""}
+Thu Mar 02 2017 09:52:08 GMT-0500 (EST) {"query":"VERB","corpus":"esl","error":"","language":""}
+Thu Mar 02 2017 15:48:52 GMT-0500 (EST) {"query":"[the]","corpus":"esl","error":"","language":""}
+Thu Mar 02 2017 15:48:56 GMT-0500 (EST) {"query":"[the]","corpus":"esl","error":"","language":""}
+Thu Mar 02 2017 15:48:57 GMT-0500 (EST) {"query":"[the]","corpus":"esl","error":"","language":""}
+Fri Mar 03 2017 03:02:26 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Fri Mar 03 2017 19:31:22 GMT-0500 (EST) {"query":"astronomical","corpus":"esl","error":"","language":""}
+Fri Mar 03 2017 19:31:28 GMT-0500 (EST) {"query":"astronomy","corpus":"esl","error":"","language":""}
+Fri Mar 03 2017 19:31:41 GMT-0500 (EST) {"query":"economic","corpus":"esl","error":"","language":""}
+Fri Mar 03 2017 19:31:46 GMT-0500 (EST) {"query":"the","corpus":"esl","error":"","language":""}
+Sun Mar 05 2017 14:32:02 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Sun Mar 05 2017 14:34:09 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Sun Mar 05 2017 14:36:32 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Sun Mar 05 2017 14:38:03 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Sun Mar 05 2017 14:41:41 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Sun Mar 05 2017 14:42:03 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Sun Mar 05 2017 14:44:04 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Sun Mar 05 2017 15:59:54 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Mon Mar 06 2017 04:46:38 GMT-0500 (EST) {"query":"go home","corpus":"esl","error":"","language":""}
+Mon Mar 06 2017 04:47:10 GMT-0500 (EST) {"query":"go home","corpus":"esl","error":"","language":""}
+Mon Mar 06 2017 04:47:33 GMT-0500 (EST) {"query":"go home","corpus":"esl","error":"","language":""}
+Mon Mar 06 2017 04:47:53 GMT-0500 (EST) {"query":"we goes","corpus":"esl","error":"","language":""}
+Mon Mar 06 2017 04:48:04 GMT-0500 (EST) {"query":"you goes","corpus":"esl","error":"","language":""}
+Mon Mar 06 2017 04:48:10 GMT-0500 (EST) {"query":"you go","corpus":"esl","error":"","language":""}
+Tue Mar 07 2017 22:53:50 GMT-0500 (EST) {"query":"is","corpus":"esl","error":"","language":""}
+Tue Mar 07 2017 22:54:12 GMT-0500 (EST) {"query":"is","corpus":"esl","error":"","language":""}
+Tue Mar 07 2017 22:55:12 GMT-0500 (EST) {"query":"good","corpus":"esl","error":"","language":""}
+Wed Mar 08 2017 02:52:58 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AS","language":""}
+Wed Mar 08 2017 03:36:12 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGN","language":"chinese"}
+Wed Mar 08 2017 03:36:18 GMT-0500 (EST) {"query":"see","corpus":"esl","error":"AGN","language":"chinese"}
+Wed Mar 08 2017 03:36:26 GMT-0500 (EST) {"query":"see","corpus":"esl","error":"","language":"chinese"}
+Thu Mar 09 2017 10:58:56 GMT-0500 (EST) {"query":"assign","corpus":"esl","error":"","language":""}
+Thu Mar 09 2017 10:59:05 GMT-0500 (EST) {"query":"assign","corpus":"eng","error":"","language":""}
+Thu Mar 09 2017 10:59:13 GMT-0500 (EST) {"query":"internet","corpus":"eng","error":"","language":""}
+Thu Mar 09 2017 11:13:30 GMT-0500 (EST) {"query":"scream","corpus":"esl","error":"","language":""}
+Thu Mar 09 2017 11:13:37 GMT-0500 (EST) {"query":"shout","corpus":"esl","error":"","language":""}
+Thu Mar 09 2017 11:14:07 GMT-0500 (EST) {"query":"shout_V","corpus":"esl","error":"","language":""}
+Thu Mar 09 2017 11:14:22 GMT-0500 (EST) {"query":"{shout_V}","corpus":"esl","error":"","language":""}
+Thu Mar 09 2017 12:27:54 GMT-0500 (EST) {"query":"informations","corpus":"esl","error":"","language":"italian"}
+Thu Mar 09 2017 12:28:45 GMT-0500 (EST) {"query":"informations","corpus":"esl","error":"","language":"italian"}
+Thu Mar 09 2017 12:31:10 GMT-0500 (EST) {"query":"informations","corpus":"esl","error":"","language":"french"}
+Thu Mar 09 2017 12:31:35 GMT-0500 (EST) {"query":"informations","corpus":"esl","error":"","language":"chinese"}
+Thu Mar 09 2017 12:31:47 GMT-0500 (EST) {"query":"informations","corpus":"eng","error":"","language":"chinese"}
+Thu Mar 09 2017 12:32:01 GMT-0500 (EST) {"query":"fornitures","corpus":"eng","error":"","language":"chinese"}
+Thu Mar 09 2017 12:32:22 GMT-0500 (EST) {"query":"furniture","corpus":"eng","error":"","language":"chinese"}
+Thu Mar 09 2017 12:32:37 GMT-0500 (EST) {"query":"forniture","corpus":"eng","error":"","language":"chinese"}
+Thu Mar 09 2017 12:32:43 GMT-0500 (EST) {"query":"forniture","corpus":"esl","error":"","language":"chinese"}
+Thu Mar 09 2017 12:32:53 GMT-0500 (EST) {"query":"furnitures","corpus":"esl","error":"","language":"chinese"}
+Thu Mar 09 2017 12:33:11 GMT-0500 (EST) {"query":"furnitures","corpus":"esl","error":"","language":""}
+Thu Mar 09 2017 12:34:02 GMT-0500 (EST) {"query":"lingua frnaca","corpus":"esl","error":"","language":""}
+Thu Mar 09 2017 12:34:05 GMT-0500 (EST) {"query":"lingua franca","corpus":"esl","error":"","language":""}
+Thu Mar 09 2017 12:34:09 GMT-0500 (EST) {"query":"lingua fr","corpus":"esl","error":"","language":""}
+Thu Mar 09 2017 12:34:10 GMT-0500 (EST) {"query":"lingua","corpus":"esl","error":"","language":""}
+Thu Mar 09 2017 12:34:15 GMT-0500 (EST) {"query":"englishes","corpus":"esl","error":"","language":""}
+Thu Mar 09 2017 12:34:20 GMT-0500 (EST) {"query":"englishes","corpus":"eng","error":"","language":""}
+Sun Mar 12 2017 13:52:46 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Sun Mar 12 2017 14:31:40 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Wed Mar 15 2017 06:44:22 GMT-0400 (EDT) {"query":"There is many reasons to disagree about politics.","corpus":"esl","error":"","language":""}
+Wed Mar 15 2017 06:44:28 GMT-0400 (EDT) {"query":"There","corpus":"esl","error":"","language":""}
+Wed Mar 15 2017 07:03:45 GMT-0400 (EDT) {"query":"One of my friends","corpus":"esl","error":"","language":""}
+Wed Mar 15 2017 07:05:04 GMT-0400 (EDT) {"query":"my friends like to cook","corpus":"esl","error":"","language":""}
+Wed Mar 15 2017 07:05:04 GMT-0400 (EDT) {"query":"my friends like to cook","corpus":"esl","error":"","language":""}
+Wed Mar 15 2017 07:05:09 GMT-0400 (EDT) {"query":"my friends like to ","corpus":"esl","error":"","language":""}
+Wed Mar 15 2017 07:05:14 GMT-0400 (EDT) {"query":"friends like to ","corpus":"esl","error":"","language":""}
+Sat Mar 18 2017 09:04:23 GMT-0400 (EDT) {"query":"Any specific","corpus":"esl","error":"","language":""}
+Sat Mar 18 2017 09:04:45 GMT-0400 (EDT) {"query":"see it","corpus":"esl","error":"","language":""}
+Sat Mar 18 2017 10:19:28 GMT-0400 (EDT) {"query":"problem","corpus":"esl","error":"","language":""}
+Sat Mar 18 2017 10:21:06 GMT-0400 (EDT) {"query":"will","corpus":"esl","error":"","language":""}
+Sun Mar 19 2017 19:59:13 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Sun Mar 19 2017 21:05:24 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Sun Mar 19 2017 23:54:24 GMT-0400 (EDT) {"query":"where","corpus":"esl","error":"","language":""}
+Tue Mar 21 2017 09:46:03 GMT-0400 (EDT) {"query":"he used to arrive early","corpus":"eng","error":"","language":""}
+Tue Mar 21 2017 09:46:08 GMT-0400 (EDT) {"query":"he used to arrive early","corpus":"eng","error":"","language":""}
+Tue Mar 21 2017 09:46:25 GMT-0400 (EDT) {"query":"he used to arrive ","corpus":"eng","error":"","language":""}
+Tue Mar 21 2017 09:46:33 GMT-0400 (EDT) {"query":"he used to  ","corpus":"eng","error":"","language":""}
+Tue Mar 21 2017 09:46:40 GMT-0400 (EDT) {"query":"used to  ","corpus":"eng","error":"","language":""}
+Tue Mar 21 2017 09:46:46 GMT-0400 (EDT) {"query":"used  ","corpus":"eng","error":"","language":""}
+Tue Mar 21 2017 09:46:52 GMT-0400 (EDT) {"query":"apple  ","corpus":"eng","error":"","language":""}
+Wed Mar 22 2017 18:37:43 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":""}
+Wed Mar 22 2017 18:37:56 GMT-0400 (EDT) {"query":"she is tall","corpus":"esl","error":"","language":""}
+Wed Mar 22 2017 18:38:03 GMT-0400 (EDT) {"query":"she is tall","corpus":"eng","error":"","language":""}
+Wed Mar 22 2017 18:38:15 GMT-0400 (EDT) {"query":"wonder","corpus":"eng","error":"","language":""}
+Wed Mar 22 2017 18:38:33 GMT-0400 (EDT) {"query":"wonder","corpus":"esl","error":"","language":""}
+Thu Mar 23 2017 07:58:16 GMT-0400 (EDT) {"query":"common","corpus":"esl","error":"","language":""}
+Thu Mar 23 2017 15:04:49 GMT-0400 (EDT) {"query":"see","corpus":"esl","error":"","language":""}
+Thu Mar 23 2017 15:04:53 GMT-0400 (EDT) {"query":"see","corpus":"esl","error":"","language":""}
+Thu Mar 23 2017 15:04:56 GMT-0400 (EDT) {"query":"see","corpus":"esl","error":"","language":""}
+Thu Mar 23 2017 15:05:30 GMT-0400 (EDT) {"query":"rolling","corpus":"esl","error":"","language":""}
+Thu Mar 23 2017 15:05:33 GMT-0400 (EDT) {"query":"rolling","corpus":"esl","error":"","language":""}
+Thu Mar 23 2017 15:05:41 GMT-0400 (EDT) {"query":"rolling","corpus":"esl","error":"","language":"japanese"}
+Thu Mar 23 2017 15:05:49 GMT-0400 (EDT) {"query":"rolling","corpus":"esl","error":"","language":"japanese"}
+Thu Mar 23 2017 15:05:50 GMT-0400 (EDT) {"query":"rolling","corpus":"esl","error":"","language":"japanese"}
+Thu Mar 23 2017 15:06:06 GMT-0400 (EDT) {"query":"see","corpus":"esl","error":"","language":"japanese"}
