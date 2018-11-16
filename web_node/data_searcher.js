@@ -104,10 +104,10 @@ var Sentence = function(lines) {
         if(lines[i].charAt(0) == '#') {
 
             // #SENT is the sentence XML line with errors annotated
-            if(lines[i].slice(0,22) == '# error_annotations = ') {
+            if(lines[i].slice(0,5) == '#SENT') {
                 // Do a bunch of regex replaces to turn this into a valid HTML string
                 // that we can plunk right into the webpage
-                sent_xml_initial = lines[i].slice(23);
+                sent_xml_initial = lines[i].slice(6);
                 sent_xml_initial = sent_xml_initial.replace(/<ns type="/g, '<span class="error" title="');
                 sent_xml_initial = sent_xml_initial.replace(/<\/ns>/g, '<\/span>');
                 sent_xml_initial = sent_xml_initial.replace(/<i>/g, '<span class="err-orig">');
@@ -118,13 +118,13 @@ var Sentence = function(lines) {
 
             // #ID is the sentence id code. We use this to match up the original sentences
             // to the corrected sentences.
-            } else if(lines[i].slice(0,12) == '# sent_id = ') {
-                this.id = lines[i].slice(13);
+            } else if(lines[i].slice(0,3) == '#ID') {
+                this.id = lines[i].slice(4);
 
             // #L1 is the first language of the sentence writer. This is one of the
             // variables that can be searched for.
-            } else if(lines[i].slice(0,7) == '# L1 = ') {
-                this.lang = lines[i].slice(8);
+            } else if(lines[i].slice(0,3) == '#L1') {
+                this.lang = lines[i].slice(4);
             }
 
         // If it's not a line that begins with #, it's part of the sentence text itself.
@@ -261,7 +261,7 @@ var Word = function(line) {
                               "MY","RC","RQ","UC","UJ","UN","UQ","UY","AG","FQ","DQ","IY","FA","DI","IA","DT","UP","MP",
                               "RP","S","SA","SX","M","R","U"]);
 
-    var all_rel = new Set(["nsubj","nsubjpass","dobj","iobj","csubj","csubjpass","ccomp","xcomp","nummod",
+    var all_rel = new Set(["nsubj","nsubjpass","obj","obl","dobj","iobj","csubj","csubjpass","ccomp","xcomp","nummod",
                            "appos","nmod","nmod:npmod","nmod:tmod","nmod:poss","acl","acl:relcl","amod","det",
                            "det:predet","neg","case","advcl","advmod","compound","compound:prt","name",
                            "mwe","foreign","goeswith","list","dislocated","parataxis","remnant","reparandum",

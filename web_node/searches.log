@@ -12449,3 +12449,40 @@ Thu Nov 08 2018 17:49:14 GMT-0500 (EST) {"query":"PROPN newspaper","corpus":"eng
 Wed Nov 14 2018 03:23:32 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
 Thu Nov 15 2018 20:32:33 GMT-0500 (EST) {"query":"obj","corpus":"esl","error":"","language":""}
 Thu Nov 15 2018 20:33:03 GMT-0500 (EST) {"query":"obl","corpus":"esl","error":"","language":""}
+Thu Nov 15 2018 20:46:36 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Thu Nov 15 2018 22:15:01 GMT-0500 (EST) {"query":"research","corpus":"esl","error":"","language":""}
+Thu Nov 15 2018 22:22:14 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Thu Nov 15 2018 22:22:27 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Thu Nov 15 2018 22:22:31 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Thu Nov 15 2018 22:22:40 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Thu Nov 15 2018 22:22:48 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Thu Nov 15 2018 22:23:14 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGD","language":""}
+Thu Nov 15 2018 22:23:39 GMT-0500 (EST) {"query":"","corpus":"esl","error":"CN","language":""}
+Thu Nov 15 2018 22:28:40 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Thu Nov 15 2018 22:28:44 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":"german"}
+Thu Nov 15 2018 22:28:47 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":"spanish"}
+Thu Nov 15 2018 22:28:54 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":"chinese"}
+Thu Nov 15 2018 22:28:59 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":"italian"}
+Thu Nov 15 2018 22:29:14 GMT-0500 (EST) {"query":"DET ADJ NOUN","corpus":"esl","error":"","language":""}
+Thu Nov 15 2018 22:29:27 GMT-0500 (EST) {"query":"DET ADJ NOUN","corpus":"esl","error":"","language":"chinese"}
+Thu Nov 15 2018 22:29:32 GMT-0500 (EST) {"query":"DET ADJ NOUN","corpus":"esl","error":"","language":"french"}
+Thu Nov 15 2018 22:29:35 GMT-0500 (EST) {"query":"DET ADJ NOUN","corpus":"esl","error":"","language":"german"}
+Thu Nov 15 2018 22:29:38 GMT-0500 (EST) {"query":"DET ADJ NOUN","corpus":"esl","error":"","language":"japanese"}
+Thu Nov 15 2018 22:43:21 GMT-0500 (EST) {"query":"DET NOUN","corpus":"esl","error":"","language":""}
+Thu Nov 15 2018 22:43:40 GMT-0500 (EST) {"query":"DET NOUN","corpus":"esl","error":"","language":"chinese"}
+Thu Nov 15 2018 22:43:44 GMT-0500 (EST) {"query":"DET NOUN","corpus":"esl","error":"","language":"japanese"}
+Thu Nov 15 2018 22:43:47 GMT-0500 (EST) {"query":"DET NOUN","corpus":"esl","error":"","language":"japanese"}
+Thu Nov 15 2018 22:43:50 GMT-0500 (EST) {"query":"DET NOUN","corpus":"esl","error":"","language":""}
+Thu Nov 15 2018 22:43:59 GMT-0500 (EST) {"query":"DET NOUN","corpus":"esl","error":"","language":""}
+Thu Nov 15 2018 22:52:03 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Thu Nov 15 2018 22:52:06 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":"chinese"}
+Thu Nov 15 2018 22:52:09 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":"french"}
+Thu Nov 15 2018 22:52:13 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":"italian"}
+Thu Nov 15 2018 22:52:17 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":"spanish"}
+Thu Nov 15 2018 22:52:22 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":"italian"}
+Thu Nov 15 2018 22:52:26 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":"italian"}
+Thu Nov 15 2018 22:52:29 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":"italian"}
+Thu Nov 15 2018 22:52:50 GMT-0500 (EST) {"query":"see it","corpus":"eng","error":"","language":"italian"}
+Thu Nov 15 2018 22:53:00 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":"italian"}
+Thu Nov 15 2018 22:53:13 GMT-0500 (EST) {"query":"DET NOUN","corpus":"esl","error":"","language":"italian"}
+Thu Nov 15 2018 22:53:21 GMT-0500 (EST) {"query":"DET ADJ NOUN","corpus":"esl","error":"","language":"italian"}
