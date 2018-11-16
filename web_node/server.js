@@ -19,8 +19,8 @@ var fs = require('fs');
 var searcher = require('./data_searcher');
 
 // Paths to corpus file locations
-var eng_corpus = {main:"data/en-ud-1.4.conllu", corr:""};
-var esl_corpus = {main:"data/en_esl-ud-1.4.conllu", corr:"data/en_cesl-ud-1.4.conllu"};
+var eng_corpus = {main:"data/en_ewt-ud-2.3.conllu", corr:""};
+var esl_corpus = {main:"data/en_esl-ud-2.3.conllu", corr:"data/en_cesl-ud-2.3.conllu"};
 
 // Set directory that the server will serve
 app.use(express.static(__dirname + '/public'));
