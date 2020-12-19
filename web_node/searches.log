@@ -18598,3 +18598,613 @@ Wed Feb 19 2020 08:58:05 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGN"
 Wed Feb 19 2020 08:58:08 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGN","language":"french"}
 Fri Feb 28 2020 00:30:18 GMT-0500 (EST) {"query":"cause","corpus":"esl","error":"","language":""}
 Sat Feb 29 2020 21:46:27 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:09:42 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MV","language":""}
+Sat May 09 2020 03:15:20 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MV","language":""}
+Sat May 09 2020 03:19:10 GMT-0400 (EDT) {"query":"unkonw","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:19:35 GMT-0400 (EDT) {"query":"a disappoint","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:19:59 GMT-0400 (EDT) {"query":"unkonwn","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:20:13 GMT-0400 (EDT) {"query":"actor","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:20:25 GMT-0400 (EDT) {"query":"a disappint ","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:20:36 GMT-0400 (EDT) {"query":"disappint ","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:20:41 GMT-0400 (EDT) {"query":"disappint","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:20:56 GMT-0400 (EDT) {"query":"disappoint","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:21:27 GMT-0400 (EDT) {"query":"disappoint","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:21:44 GMT-0400 (EDT) {"query":"disappoint ","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:21:55 GMT-0400 (EDT) {"query":"disappoint","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:22:50 GMT-0400 (EDT) {"query":"disappoint","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:24:03 GMT-0400 (EDT) {"query":"disappoint","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:24:27 GMT-0400 (EDT) {"query":"disappoint","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:25:38 GMT-0400 (EDT) {"query":"appoint","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:25:42 GMT-0400 (EDT) {"query":"appoint","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:26:00 GMT-0400 (EDT) {"query":"diner","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:26:01 GMT-0400 (EDT) {"query":"disappoint","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:27:17 GMT-0400 (EDT) {"query":"disappoint","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:27:21 GMT-0400 (EDT) {"query":"disappoint","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:28:22 GMT-0400 (EDT) {"query":"disappoint","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:28:44 GMT-0400 (EDT) {"query":"disappoint","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:31:24 GMT-0400 (EDT) {"query":"swimmed","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:31:47 GMT-0400 (EDT) {"query":"swimmed","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:31:58 GMT-0400 (EDT) {"query":"swimmed","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:32:05 GMT-0400 (EDT) {"query":"why","corpus":"esl","error":"MV","language":""}
+Sat May 09 2020 03:40:17 GMT-0400 (EDT) {"query":"ticket","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:40:26 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:41:15 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:42:28 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"MT","language":""}
+Sat May 09 2020 03:43:11 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:43:20 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:43:34 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:46:14 GMT-0400 (EDT) {"query":"barwoman","corpus":"esl","error":"MT","language":""}
+Sat May 09 2020 03:46:28 GMT-0400 (EDT) {"query":"barwoman","corpus":"esl","error":"MT","language":""}
+Sat May 09 2020 03:47:11 GMT-0400 (EDT) {"query":"barwoman","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:51:28 GMT-0400 (EDT) {"query":"more faster","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:51:37 GMT-0400 (EDT) {"query":"more faster","corpus":"esl","error":"","language":""}
+Sat May 09 2020 03:51:52 GMT-0400 (EDT) {"query":"faster","corpus":"esl","error":"","language":""}
+Sat May 09 2020 04:00:07 GMT-0400 (EDT) {"query":"marid","corpus":"esl","error":"","language":""}
+Sat May 09 2020 04:00:11 GMT-0400 (EDT) {"query":"marid","corpus":"esl","error":"","language":""}
+Sat May 09 2020 04:00:18 GMT-0400 (EDT) {"query":"madrid","corpus":"esl","error":"","language":""}
+Sat May 09 2020 04:00:24 GMT-0400 (EDT) {"query":"madrid","corpus":"esl","error":"","language":""}
+Sat May 09 2020 04:02:46 GMT-0400 (EDT) {"query":" ","corpus":"esl","error":"","language":""}
+Sat May 09 2020 04:12:37 GMT-0400 (EDT) {"query":"invited","corpus":"esl","error":"","language":""}
+Sat May 09 2020 04:12:38 GMT-0400 (EDT) {"query":"invited","corpus":"esl","error":"","language":""}
+Sat May 09 2020 04:13:05 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":""}
+Sat May 09 2020 04:13:29 GMT-0400 (EDT) {"query":"invited","corpus":"esl","error":"","language":""}
+Sat May 09 2020 04:14:07 GMT-0400 (EDT) {"query":"invietd","corpus":"esl","error":"","language":""}
+Sat May 09 2020 04:14:14 GMT-0400 (EDT) {"query":"invited","corpus":"esl","error":"","language":""}
+Sat May 09 2020 04:14:24 GMT-0400 (EDT) {"query":"invited","corpus":"esl","error":"","language":""}
+Sat May 09 2020 04:32:10 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":""}
+Sat May 09 2020 04:34:46 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Sat May 09 2020 04:35:12 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Sat May 09 2020 04:40:24 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Sat May 09 2020 04:40:31 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"french"}
+Sat May 09 2020 04:41:41 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"french"}
+Sat May 09 2020 04:42:42 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"turkish"}
+Sat May 09 2020 04:57:41 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Sat May 09 2020 04:58:35 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Sat May 09 2020 05:06:17 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"portuguese"}
+Sat May 09 2020 05:20:43 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Sat May 09 2020 05:36:29 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"french"}
+Sat May 09 2020 05:36:38 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"french"}
+Sat May 09 2020 05:39:13 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"german"}
+Sat May 09 2020 05:39:15 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"german"}
+Sat May 09 2020 05:39:20 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"german"}
+Sat May 09 2020 05:40:41 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"italian"}
+Sat May 09 2020 05:42:12 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"italian"}
+Sat May 09 2020 05:44:18 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"japanese"}
+Sat May 09 2020 05:46:59 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"korean"}
+Sat May 09 2020 05:48:29 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"portuguese"}
+Sat May 09 2020 05:50:29 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Sat May 09 2020 05:53:27 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"spanish"}
+Sat May 09 2020 05:53:37 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"russian"}
+Sat May 09 2020 05:56:38 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"turkish"}
+Sat May 09 2020 22:47:51 GMT-0400 (EDT) {"query":"因此","corpus":"esl","error":"","language":""}
+Sun May 10 2020 00:41:58 GMT-0400 (EDT) {"query":"Might","corpus":"esl","error":"","language":""}
+Sun May 10 2020 00:42:12 GMT-0400 (EDT) {"query":"Might","corpus":"esl","error":"","language":""}
+Mon May 11 2020 23:45:16 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"french"}
+Mon May 11 2020 23:46:37 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"RA","language":"french"}
+Tue May 12 2020 17:50:57 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"DV","language":"chinese"}
+Tue May 12 2020 17:51:03 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Thu May 14 2020 13:48:06 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":""}
+Thu May 14 2020 13:51:00 GMT-0400 (EDT) {"query":"see it","corpus":"eng","error":"","language":""}
+Thu May 14 2020 13:51:01 GMT-0400 (EDT) {"query":"see it","corpus":"eng","error":"","language":""}
+Thu May 14 2020 13:51:10 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":""}
+Fri May 15 2020 07:32:09 GMT-0400 (EDT) {"query":"see it","corpus":"eng","error":"","language":""}
+Fri May 15 2020 08:23:42 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"AGN","language":"chinese"}
+Fri May 15 2020 08:23:56 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"AGN","language":"chinese"}
+Fri May 15 2020 17:28:15 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"german"}
+Fri May 15 2020 17:38:19 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"RT","language":"german"}
+Sat May 16 2020 05:13:52 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":""}
+Sat May 16 2020 05:14:03 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"french"}
+Sat May 16 2020 05:14:24 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"french"}
+Sun May 17 2020 08:50:45 GMT-0400 (EDT) {"query":"Missing pronouns","corpus":"esl","error":"","language":"french"}
+Sun May 17 2020 08:50:50 GMT-0400 (EDT) {"query":"Missing pronouns","corpus":"esl","error":"","language":"french"}
+Sun May 17 2020 08:52:12 GMT-0400 (EDT) {"query":"Missing","corpus":"esl","error":"","language":"french"}
+Sun May 17 2020 08:52:14 GMT-0400 (EDT) {"query":"Missing","corpus":"esl","error":"","language":"french"}
+Sun May 17 2020 09:32:53 GMT-0400 (EDT) {"query":"missing pronouns","corpus":"esl","error":"","language":""}
+Sun May 17 2020 09:32:55 GMT-0400 (EDT) {"query":"missing pronouns","corpus":"esl","error":"","language":""}
+Sun May 17 2020 09:32:56 GMT-0400 (EDT) {"query":"missing pronouns","corpus":"esl","error":"","language":""}
+Sun May 17 2020 09:32:56 GMT-0400 (EDT) {"query":"missing pronouns","corpus":"esl","error":"","language":""}
+Sun May 17 2020 09:32:57 GMT-0400 (EDT) {"query":"missing pronouns","corpus":"esl","error":"","language":""}
+Sun May 17 2020 09:33:23 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 09:33:25 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 09:33:39 GMT-0400 (EDT) {"query":"pronoun","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 09:33:40 GMT-0400 (EDT) {"query":"pronoun","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 09:33:41 GMT-0400 (EDT) {"query":"pronoun","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 09:33:41 GMT-0400 (EDT) {"query":"pronoun","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 09:33:42 GMT-0400 (EDT) {"query":"pronoun","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 09:33:42 GMT-0400 (EDT) {"query":"pronoun","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 09:33:43 GMT-0400 (EDT) {"query":"pronoun","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 09:34:03 GMT-0400 (EDT) {"query":"pronoun","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 09:34:14 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 15:41:14 GMT-0400 (EDT) {"query":"missing pronouns","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 15:41:40 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 15:44:01 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"RA","language":"chinese"}
+Sun May 17 2020 15:44:17 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 15:44:53 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"RA","language":"chinese"}
+Sun May 17 2020 15:45:05 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"UA","language":"chinese"}
+Sun May 17 2020 16:40:13 GMT-0400 (EDT) {"query":"achieve","corpus":"esl","error":"","language":""}
+Sun May 17 2020 16:40:19 GMT-0400 (EDT) {"query":"achieve","corpus":"esl","error":"","language":""}
+Sun May 17 2020 16:43:39 GMT-0400 (EDT) {"query":"achieve","corpus":"eng","error":"","language":""}
+Sun May 17 2020 18:01:50 GMT-0400 (EDT) {"query":"of","corpus":"esl","error":"","language":""}
+Sun May 17 2020 22:40:43 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"french"}
+Sun May 17 2020 22:41:19 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 22:51:59 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 22:52:22 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 22:52:26 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"chinese"}
+Sun May 17 2020 22:52:53 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"chinese"}
+Mon May 18 2020 11:50:28 GMT-0400 (EDT) {"query":"cat","corpus":"esl","error":"MA","language":"chinese"}
+Mon May 18 2020 11:50:53 GMT-0400 (EDT) {"query":"I have it","corpus":"esl","error":"MA","language":"chinese"}
+Mon May 18 2020 11:50:57 GMT-0400 (EDT) {"query":"it","corpus":"esl","error":"MA","language":"chinese"}
+Mon May 18 2020 11:52:07 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"chinese"}
+Mon May 18 2020 11:52:40 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"RA","language":"chinese"}
+Mon May 18 2020 11:52:49 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"UA","language":"chinese"}
+Mon May 18 2020 11:53:02 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"UA","language":"french"}
+Mon May 18 2020 11:53:19 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"RA","language":"french"}
+Mon May 18 2020 11:53:32 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MA","language":"french"}
+Mon May 18 2020 16:29:11 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"SA","language":"spanish"}
+Tue May 19 2020 08:42:07 GMT-0400 (EDT) {"query":"breakfast","corpus":"esl","error":"","language":""}
+Tue May 19 2020 08:42:25 GMT-0400 (EDT) {"query":"breakfast","corpus":"esl","error":"","language":""}
+Tue May 19 2020 15:52:16 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":""}
+Wed May 20 2020 04:09:39 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Wed May 20 2020 06:51:03 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":""}
+Fri May 22 2020 09:36:57 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":""}
+Fri May 22 2020 09:37:16 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"W","language":"russian"}
+Fri May 22 2020 09:38:12 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"W","language":"russian"}
+Fri May 22 2020 09:49:12 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"W","language":"russian"}
+Fri May 22 2020 09:49:27 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"W","language":"russian"}
+Fri May 22 2020 11:54:54 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":""}
+Fri May 22 2020 11:57:52 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":""}
+Fri May 22 2020 11:58:01 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":""}
+Fri May 22 2020 13:34:20 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":""}
+Fri May 22 2020 13:39:28 GMT-0400 (EDT) {"query":"Very gud book with lots of variety im patterns. ","corpus":"esl","error":"","language":""}
+Sat May 23 2020 06:23:52 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Sat May 23 2020 06:29:25 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Sat May 23 2020 08:16:05 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MQ","language":"chinese"}
+Sat May 23 2020 10:14:24 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Sat May 23 2020 10:15:50 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"CL","language":"chinese"}
+Sat May 23 2020 10:15:54 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"AGN","language":"chinese"}
+Sat May 23 2020 15:38:11 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"RT","language":"chinese"}
+Sat May 23 2020 15:38:41 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"DT","language":"chinese"}
+Sat May 23 2020 15:38:48 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MT","language":"chinese"}
+Sat May 23 2020 15:51:50 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"RT","language":"chinese"}
+Sat May 23 2020 15:51:52 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"RT","language":"chinese"}
+Sat May 23 2020 18:48:32 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MT","language":"chinese"}
+Sat May 23 2020 23:23:50 GMT-0400 (EDT) {"query":"school","corpus":"esl","error":"","language":""}
+Sun May 24 2020 04:34:13 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"AGD","language":"chinese"}
+Sun May 24 2020 04:34:14 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"AGD","language":"chinese"}
+Sun May 24 2020 04:34:49 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"DT","language":"chinese"}
+Sun May 24 2020 04:34:51 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"DT","language":"chinese"}
+Sun May 24 2020 04:35:05 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MT","language":"chinese"}
+Sun May 24 2020 04:35:10 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"UT","language":"chinese"}
+Sun May 24 2020 04:35:19 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"RT","language":"chinese"}
+Sun May 24 2020 04:37:06 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Sun May 24 2020 06:23:44 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Tue May 26 2020 04:58:46 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"CL","language":"italian"}
+Tue May 26 2020 04:58:54 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"AGV","language":"italian"}
+Wed May 27 2020 10:56:03 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MN","language":"chinese"}
+Wed May 27 2020 10:56:45 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MV","language":"chinese"}
+Thu May 28 2020 04:30:54 GMT-0400 (EDT) {"query":"吃","corpus":"esl","error":"","language":""}
+Thu May 28 2020 04:31:04 GMT-0400 (EDT) {"query":"eat","corpus":"eng","error":"","language":""}
+Thu May 28 2020 09:07:26 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"german"}
+Thu May 28 2020 10:17:45 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"french"}
+Thu May 28 2020 10:18:17 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"french"}
+Thu May 28 2020 10:20:20 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"french"}
+Thu May 28 2020 10:22:59 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"RT","language":"french"}
+Thu May 28 2020 15:35:01 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"chinese"}
+Thu May 28 2020 15:36:58 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"RT","language":"chinese"}
+Mon Jun 01 2020 21:34:29 GMT-0400 (EDT) {"query":"dog","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 04:22:47 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"german"}
+Thu Jun 04 2020 08:15:31 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:15:45 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:16:20 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"MT","language":""}
+Thu Jun 04 2020 08:17:28 GMT-0400 (EDT) {"query":"we","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:18:05 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"MT","language":""}
+Thu Jun 04 2020 08:19:09 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"MT","language":""}
+Thu Jun 04 2020 08:19:11 GMT-0400 (EDT) {"query":"see","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:19:45 GMT-0400 (EDT) {"query":"你好","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:19:54 GMT-0400 (EDT) {"query":"国家","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:20:05 GMT-0400 (EDT) {"query":"our","corpus":"eng","error":"","language":""}
+Thu Jun 04 2020 08:20:35 GMT-0400 (EDT) {"query":"our","corpus":"eng","error":"","language":""}
+Thu Jun 04 2020 08:20:38 GMT-0400 (EDT) {"query":"our","corpus":"eng","error":"","language":""}
+Thu Jun 04 2020 08:20:41 GMT-0400 (EDT) {"query":"our","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:20:42 GMT-0400 (EDT) {"query":"our","corpus":"eng","error":"","language":""}
+Thu Jun 04 2020 08:20:44 GMT-0400 (EDT) {"query":"our","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:20:45 GMT-0400 (EDT) {"query":"our","corpus":"eng","error":"","language":""}
+Thu Jun 04 2020 08:20:47 GMT-0400 (EDT) {"query":"our","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:20:48 GMT-0400 (EDT) {"query":"our","corpus":"eng","error":"","language":""}
+Thu Jun 04 2020 08:20:50 GMT-0400 (EDT) {"query":"our","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:20:51 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:20:51 GMT-0400 (EDT) {"query":"our","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:21:17 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"MT","language":""}
+Thu Jun 04 2020 08:21:18 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"MT","language":""}
+Thu Jun 04 2020 08:21:23 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"MT","language":""}
+Thu Jun 04 2020 08:21:23 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"MT","language":""}
+Thu Jun 04 2020 08:21:30 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:21:34 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:21:35 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:21:37 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:21:38 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:21:39 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:22:43 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:23:46 GMT-0400 (EDT) {"query":"tickets back","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:25:10 GMT-0400 (EDT) {"query":"ask you","corpus":"esl","error":"MT","language":""}
+Thu Jun 04 2020 08:25:36 GMT-0400 (EDT) {"query":"water","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:25:46 GMT-0400 (EDT) {"query":"ask you","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:33:54 GMT-0400 (EDT) {"query":"disppoint","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:34:18 GMT-0400 (EDT) {"query":"disappoint","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:38:11 GMT-0400 (EDT) {"query":"swimmed","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:40:46 GMT-0400 (EDT) {"query":"Madrid","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:41:37 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:41:49 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:42:04 GMT-0400 (EDT) {"query":"tickets back","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:42:25 GMT-0400 (EDT) {"query":"the money of","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:42:35 GMT-0400 (EDT) {"query":"money","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:43:30 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"S","language":""}
+Thu Jun 04 2020 08:44:53 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 08:46:35 GMT-0400 (EDT) {"query":"tickets","corpus":"esl","error":"MT","language":""}
+Thu Jun 04 2020 08:49:38 GMT-0400 (EDT) {"query":"writting","corpus":"esl","error":"MT","language":""}
+Thu Jun 04 2020 09:16:42 GMT-0400 (EDT) {"query":"camp","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 09:18:00 GMT-0400 (EDT) {"query":"camp","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 09:18:10 GMT-0400 (EDT) {"query":"Camp","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 09:18:29 GMT-0400 (EDT) {"query":"invited","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 10:34:03 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"MY","language":"chinese"}
+Thu Jun 04 2020 10:35:54 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"W","language":"chinese"}
+Thu Jun 04 2020 10:36:44 GMT-0400 (EDT) {"query":"writing","corpus":"esl","error":"W","language":""}
+Thu Jun 04 2020 10:37:14 GMT-0400 (EDT) {"query":"writing","corpus":"esl","error":"MT","language":""}
+Thu Jun 04 2020 10:37:56 GMT-0400 (EDT) {"query":"writing","corpus":"esl","error":"AGN","language":""}
+Thu Jun 04 2020 10:38:22 GMT-0400 (EDT) {"query":"writing","corpus":"esl","error":"FY","language":""}
+Thu Jun 04 2020 10:38:55 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"UY","language":"chinese"}
+Thu Jun 04 2020 10:39:23 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"W","language":"chinese"}
+Thu Jun 04 2020 11:56:31 GMT-0400 (EDT) {"query":"writting","corpus":"esl","error":"MT","language":""}
+Thu Jun 04 2020 11:56:52 GMT-0400 (EDT) {"query":"writting","corpus":"esl","error":"MT","language":""}
+Thu Jun 04 2020 11:59:49 GMT-0400 (EDT) {"query":"give to","corpus":"esl","error":"UT","language":""}
+Thu Jun 04 2020 12:06:29 GMT-0400 (EDT) {"query":"couldn't have swimmed","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 12:06:39 GMT-0400 (EDT) {"query":"  have swimmed","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 12:06:56 GMT-0400 (EDT) {"query":"  can't swim","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 12:07:02 GMT-0400 (EDT) {"query":" swim","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 12:07:23 GMT-0400 (EDT) {"query":" swimmed","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 12:07:52 GMT-0400 (EDT) {"query":" swimmed","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 12:08:17 GMT-0400 (EDT) {"query":"That is why","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 12:08:40 GMT-0400 (EDT) {"query":"That is","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 12:08:42 GMT-0400 (EDT) {"query":"That is","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 12:14:06 GMT-0400 (EDT) {"query":"disappoint","corpus":"esl","error":"","language":""}
+Thu Jun 04 2020 12:25:12 GMT-0400 (EDT) {"query":"camp in","corpus":"esl","error":"","language":""}
+Fri Jun 05 2020 02:17:10 GMT-0400 (EDT) {"query":"see","corpus":"esl","error":"","language":""}
+Fri Jun 05 2020 02:17:48 GMT-0400 (EDT) {"query":"see","corpus":"esl","error":"AGN","language":""}
+Fri Jun 05 2020 02:18:17 GMT-0400 (EDT) {"query":"see","corpus":"esl","error":"AGN","language":""}
+Sat Jun 06 2020 07:53:05 GMT-0400 (EDT) {"query":"always","corpus":"esl","error":"AGN","language":""}
+Sun Jun 07 2020 18:51:21 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":""}
+Sun Jun 07 2020 18:51:27 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":""}
+Sun Jun 07 2020 18:52:59 GMT-0400 (EDT) {"query":"have been","corpus":"esl","error":"TV","language":""}
+Sun Jun 07 2020 18:54:12 GMT-0400 (EDT) {"query":"have been","corpus":"esl","error":"TV","language":"russian"}
+Sun Jun 07 2020 19:04:28 GMT-0400 (EDT) {"query":"have been","corpus":"esl","error":"TV","language":"german"}
+Sun Jun 07 2020 19:05:20 GMT-0400 (EDT) {"query":"have been","corpus":"esl","error":"TV","language":"italian"}
+Sun Jun 07 2020 19:05:38 GMT-0400 (EDT) {"query":"have been","corpus":"esl","error":"TV","language":"portuguese"}
+Sun Jun 07 2020 19:06:12 GMT-0400 (EDT) {"query":"have been","corpus":"esl","error":"TV","language":"spanish"}
+Sun Jun 07 2020 19:06:52 GMT-0400 (EDT) {"query":"have been","corpus":"esl","error":"AGV","language":"spanish"}
+Sun Jun 07 2020 19:07:01 GMT-0400 (EDT) {"query":"have been","corpus":"esl","error":"AGV","language":""}
+Mon Jun 08 2020 04:21:43 GMT-0400 (EDT) {"query":"auxpass","corpus":"esl","error":"","language":""}
+Mon Jun 08 2020 07:03:29 GMT-0400 (EDT) {"query":"useful","corpus":"esl","error":"","language":""}
+Mon Jun 08 2020 07:04:14 GMT-0400 (EDT) {"query":"useful","corpus":"eng","error":"","language":""}
+Mon Jun 08 2020 12:33:42 GMT-0400 (EDT) {"query":"language","corpus":"esl","error":"","language":""}
+Tue Jun 09 2020 18:23:46 GMT-0400 (EDT) {"query":"Snow White is a lonely princess living with her stepmother, a vain Queen. ","corpus":"esl","error":"","language":""}
+Wed Jun 10 2020 01:06:50 GMT-0400 (EDT) {"query":"have","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 01:07:09 GMT-0400 (EDT) {"query":"have","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 01:07:50 GMT-0400 (EDT) {"query":"have","corpus":"eng","error":"","language":"chinese"}
+Wed Jun 10 2020 01:10:00 GMT-0400 (EDT) {"query":"have","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 01:10:02 GMT-0400 (EDT) {"query":"have","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 01:10:12 GMT-0400 (EDT) {"query":"has","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 01:12:31 GMT-0400 (EDT) {"query":"have","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 02:13:07 GMT-0400 (EDT) {"query":"have","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 02:14:17 GMT-0400 (EDT) {"query":"have","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 03:06:15 GMT-0400 (EDT) {"query":"has","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 03:07:49 GMT-0400 (EDT) {"query":"in the past","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 03:07:54 GMT-0400 (EDT) {"query":"the past","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 03:07:58 GMT-0400 (EDT) {"query":"past","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 03:08:16 GMT-0400 (EDT) {"query":"done","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 03:18:31 GMT-0400 (EDT) {"query":"lost","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 06:30:45 GMT-0400 (EDT) {"query":"since","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 07:29:41 GMT-0400 (EDT) {"query":"ago","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 10 2020 07:34:41 GMT-0400 (EDT) {"query":"left","corpus":"esl","error":"","language":"chinese"}
+Thu Jun 11 2020 03:46:42 GMT-0400 (EDT) {"query":"take","corpus":"esl","error":"","language":""}
+Thu Jun 11 2020 07:49:12 GMT-0400 (EDT) {"query":"swim","corpus":"esl","error":"FV","language":""}
+Thu Jun 11 2020 07:49:17 GMT-0400 (EDT) {"query":"sw","corpus":"esl","error":"FV","language":""}
+Thu Jun 11 2020 07:50:10 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"FV","language":""}
+Sat Jun 13 2020 22:34:17 GMT-0400 (EDT) {"query":"give a topic and then discussion it.","corpus":"esl","error":"","language":""}
+Sat Jun 13 2020 22:34:27 GMT-0400 (EDT) {"query":"give a topic and then discussion it .","corpus":"esl","error":"","language":""}
+Sat Jun 13 2020 22:34:51 GMT-0400 (EDT) {"query":"give a topic ","corpus":"esl","error":"","language":""}
+Sat Jun 13 2020 22:35:05 GMT-0400 (EDT) {"query":" a topic ","corpus":"esl","error":"","language":""}
+Sat Jun 13 2020 22:36:09 GMT-0400 (EDT) {"query":"a topic ","corpus":"esl","error":"","language":""}
+Sat Jun 13 2020 22:36:20 GMT-0400 (EDT) {"query":"topic ","corpus":"esl","error":"","language":""}
+Sat Jun 13 2020 22:38:08 GMT-0400 (EDT) {"query":"DET NOUN","corpus":"esl","error":"","language":""}
+Sat Jun 13 2020 22:38:13 GMT-0400 (EDT) {"query":"DET NOUN","corpus":"esl","error":"","language":""}
+Sun Jun 14 2020 01:13:44 GMT-0400 (EDT) {"query":"DET NOUN","corpus":"esl","error":"","language":""}
+Sun Jun 14 2020 01:14:02 GMT-0400 (EDT) {"query":"see it","corpus":"esl","error":"","language":""}
+Sun Jun 14 2020 01:14:15 GMT-0400 (EDT) {"query":"a topic","corpus":"esl","error":"","language":""}
+Sun Jun 14 2020 01:19:42 GMT-0400 (EDT) {"query":"DET NOUN","corpus":"esl","error":"","language":""}
+Sun Jun 14 2020 01:19:53 GMT-0400 (EDT) {"query":"see it","corpus":"esl","error":"","language":""}
+Wed Jun 24 2020 14:10:46 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Wed Jun 24 2020 14:10:50 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Wed Jun 24 2020 14:11:57 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Wed Jun 24 2020 14:12:13 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Wed Jun 24 2020 14:13:15 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Wed Jun 24 2020 14:13:16 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Wed Jun 24 2020 14:21:04 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"IV","language":"chinese"}
+Wed Jun 24 2020 14:23:19 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Wed Jun 24 2020 14:25:10 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Wed Jun 24 2020 14:25:11 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Wed Jun 24 2020 14:48:39 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"FV","language":"chinese"}
+Wed Jun 24 2020 14:49:42 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"FV","language":"chinese"}
+Wed Jun 24 2020 17:23:13 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Wed Jun 24 2020 17:23:36 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 24 2020 17:24:34 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"AGV","language":"chinese"}
+Wed Jun 24 2020 17:25:02 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Wed Jun 24 2020 20:16:53 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Wed Jun 24 2020 20:17:05 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Wed Jun 24 2020 20:18:53 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"FV","language":"chinese"}
+Wed Jun 24 2020 20:19:14 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"UJ","language":"chinese"}
+Wed Jun 24 2020 20:19:23 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Sun Jun 28 2020 17:41:13 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"german"}
+Sun Jun 28 2020 17:42:30 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"german"}
+Sun Jun 28 2020 17:42:31 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"german"}
+Sun Jun 28 2020 17:51:33 GMT-0400 (EDT) {"query":"in","corpus":"esl","error":"","language":"german"}
+Sun Jun 28 2020 18:07:26 GMT-0400 (EDT) {"query":"on","corpus":"esl","error":"","language":"german"}
+Sun Jun 28 2020 18:21:19 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"japanese"}
+Mon Jun 29 2020 04:37:00 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"german"}
+Mon Jun 29 2020 21:03:22 GMT-0400 (EDT) {"query":"see it","corpus":"esl","error":"","language":""}
+Mon Jun 29 2020 21:09:00 GMT-0400 (EDT) {"query":"break DET NOUN","corpus":"esl","error":"","language":""}
+Mon Jun 29 2020 21:10:31 GMT-0400 (EDT) {"query":"continue DET NOUN","corpus":"esl","error":"","language":""}
+Thu Jul 02 2020 13:54:02 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"spanish"}
+Thu Jul 02 2020 13:54:11 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"spanish"}
+Thu Jul 02 2020 13:54:48 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"spanish"}
+Mon Jul 13 2020 03:17:54 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Sat Aug 08 2020 04:39:16 GMT-0400 (EDT) {"query":"see it","corpus":"esl","error":"","language":""}
+Thu Aug 13 2020 15:16:08 GMT-0400 (EDT) {"query":"english","corpus":"esl","error":"","language":"german"}
+Fri Aug 14 2020 10:47:54 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Fri Aug 14 2020 10:48:26 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"TV","language":"chinese"}
+Fri Aug 14 2020 16:40:31 GMT-0400 (EDT) {"query":"don't","corpus":"esl","error":"","language":"chinese"}
+Fri Aug 14 2020 16:41:27 GMT-0400 (EDT) {"query":"can't","corpus":"esl","error":"","language":"chinese"}
+Fri Aug 14 2020 16:41:35 GMT-0400 (EDT) {"query":"doesn't","corpus":"esl","error":"","language":"chinese"}
+Fri Aug 14 2020 16:41:42 GMT-0400 (EDT) {"query":"didn't","corpus":"esl","error":"","language":"chinese"}
+Fri Aug 14 2020 16:41:55 GMT-0400 (EDT) {"query":"couldn't","corpus":"esl","error":"","language":"chinese"}
+Fri Aug 14 2020 16:42:02 GMT-0400 (EDT) {"query":"wouldn't","corpus":"esl","error":"","language":"chinese"}
+Fri Aug 14 2020 16:42:22 GMT-0400 (EDT) {"query":"isn't","corpus":"esl","error":"","language":"chinese"}
+Fri Aug 14 2020 16:42:28 GMT-0400 (EDT) {"query":"wouldn't","corpus":"esl","error":"","language":"chinese"}
+Sat Aug 15 2020 12:28:56 GMT-0400 (EDT) {"query":"at","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 12:56:07 GMT-0400 (EDT) {"query":"on","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:01:25 GMT-0400 (EDT) {"query":"in","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:29:39 GMT-0400 (EDT) {"query":"in July","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:29:40 GMT-0400 (EDT) {"query":"in July","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:31:19 GMT-0400 (EDT) {"query":"June","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:31:29 GMT-0400 (EDT) {"query":"August","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:31:52 GMT-0400 (EDT) {"query":"September","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:31:58 GMT-0400 (EDT) {"query":"October","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:32:02 GMT-0400 (EDT) {"query":"November","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:32:06 GMT-0400 (EDT) {"query":"December","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:32:09 GMT-0400 (EDT) {"query":"May","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:32:24 GMT-0400 (EDT) {"query":"April","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:32:27 GMT-0400 (EDT) {"query":"March","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:32:43 GMT-0400 (EDT) {"query":"February","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:32:56 GMT-0400 (EDT) {"query":"January","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:37:36 GMT-0400 (EDT) {"query":"on","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:37:40 GMT-0400 (EDT) {"query":"on July","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:40:24 GMT-0400 (EDT) {"query":"morning","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:40:29 GMT-0400 (EDT) {"query":"evening","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:41:30 GMT-0400 (EDT) {"query":"afternoon","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:42:11 GMT-0400 (EDT) {"query":"night","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:45:10 GMT-0400 (EDT) {"query":"on","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:50:57 GMT-0400 (EDT) {"query":"on Wednesday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:51:56 GMT-0400 (EDT) {"query":"on Monday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:52:00 GMT-0400 (EDT) {"query":"on Tuesday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:52:13 GMT-0400 (EDT) {"query":"on Thursday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:52:17 GMT-0400 (EDT) {"query":"on Friday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:53:00 GMT-0400 (EDT) {"query":"on Saturday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:53:04 GMT-0400 (EDT) {"query":"on Sunday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:53:15 GMT-0400 (EDT) {"query":"on Friday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:54:02 GMT-0400 (EDT) {"query":"on Wednesday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:55:16 GMT-0400 (EDT) {"query":"on Monday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:55:21 GMT-0400 (EDT) {"query":"on Tuesday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:56:08 GMT-0400 (EDT) {"query":"on Wednesday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:56:15 GMT-0400 (EDT) {"query":"on Thursday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:56:18 GMT-0400 (EDT) {"query":"on Friday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:57:14 GMT-0400 (EDT) {"query":"on Saturday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:57:19 GMT-0400 (EDT) {"query":"on Sun","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 13:57:23 GMT-0400 (EDT) {"query":"on Sunday","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 14:01:12 GMT-0400 (EDT) {"query":"afternoon","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 14:01:30 GMT-0400 (EDT) {"query":"morning","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 14:01:35 GMT-0400 (EDT) {"query":"evening","corpus":"esl","error":"","language":"german"}
+Sat Aug 15 2020 14:02:09 GMT-0400 (EDT) {"query":"night","corpus":"esl","error":"","language":"german"}
+Mon Aug 24 2020 12:56:35 GMT-0400 (EDT) {"query":"certainly","corpus":"esl","error":"","language":"russian"}
+Wed Aug 26 2020 11:26:18 GMT-0400 (EDT) {"query":"run","corpus":"esl","error":"","language":"chinese"}
+Wed Aug 26 2020 11:26:19 GMT-0400 (EDT) {"query":"run","corpus":"esl","error":"","language":"chinese"}
+Wed Aug 26 2020 11:26:25 GMT-0400 (EDT) {"query":"verb","corpus":"esl","error":"","language":"chinese"}
+Wed Aug 26 2020 11:26:26 GMT-0400 (EDT) {"query":"verb","corpus":"esl","error":"","language":"chinese"}
+Sat Sep 12 2020 05:41:50 GMT-0400 (EDT) {"query":"supported for searching","corpus":"esl","error":"","language":""}
+Sat Sep 12 2020 05:41:56 GMT-0400 (EDT) {"query":"supported ","corpus":"esl","error":"","language":""}
+Sat Sep 12 2020 05:42:08 GMT-0400 (EDT) {"query":"supported","corpus":"esl","error":"","language":""}
+Sat Sep 12 2020 05:42:18 GMT-0400 (EDT) {"query":"supported","corpus":"esl","error":"","language":"russian"}
+Sat Sep 12 2020 05:42:21 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"russian"}
+Sat Sep 12 2020 05:42:30 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"russian"}
+Sat Sep 12 2020 06:02:56 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"japanese"}
+Sat Sep 12 2020 06:06:15 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"russian"}
+Sat Sep 12 2020 06:07:50 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"korean"}
+Sat Sep 12 2020 06:09:50 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Sat Sep 12 2020 06:35:12 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"W","language":"russian"}
+Sun Sep 13 2020 10:05:36 GMT-0400 (EDT) {"query":"the","corpus":"esl","error":"","language":""}
+Sun Sep 13 2020 10:06:57 GMT-0400 (EDT) {"query":"he","corpus":"esl","error":"AGA","language":""}
+Mon Sep 14 2020 21:33:42 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"AGV","language":""}
+Mon Sep 14 2020 21:34:27 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"FA","language":""}
+Mon Sep 14 2020 21:37:25 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"X","language":""}
+Wed Sep 16 2020 12:23:50 GMT-0400 (EDT) {"query":"has","corpus":"esl","error":"","language":""}
+Wed Sep 16 2020 16:14:40 GMT-0400 (EDT) {"query":"the domain dependence of framenet has been studied sparsely","corpus":"esl","error":"","language":""}
+Wed Sep 16 2020 16:14:50 GMT-0400 (EDT) {"query":"study","corpus":"esl","error":"","language":""}
+Mon Sep 21 2020 16:33:40 GMT-0400 (EDT) {"query":"see it","corpus":"eng","error":"","language":""}
+Mon Sep 21 2020 16:35:15 GMT-0400 (EDT) {"query":"in a court of law ","corpus":"eng","error":"","language":""}
+Mon Sep 21 2020 16:35:25 GMT-0400 (EDT) {"query":"ladies and gentlemen","corpus":"eng","error":"","language":""}
+Sat Sep 26 2020 06:25:14 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"AS","language":"chinese"}
+Sat Sep 26 2020 06:26:14 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"W","language":"spanish"}
+Sat Sep 26 2020 06:29:32 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"W","language":"chinese"}
+Sat Sep 26 2020 06:29:49 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"W","language":"french"}
+Sat Sep 26 2020 06:29:56 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"W","language":"german"}
+Sat Sep 26 2020 06:30:10 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"W","language":"russian"}
+Mon Sep 28 2020 08:08:42 GMT-0400 (EDT) {"query":"see","corpus":"esl","error":"","language":""}
+Mon Sep 28 2020 08:08:44 GMT-0400 (EDT) {"query":"see","corpus":"esl","error":"","language":""}
+Mon Sep 28 2020 17:23:53 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"russian"}
+Mon Sep 28 2020 17:23:56 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"russian"}
+Mon Sep 28 2020 17:24:04 GMT-0400 (EDT) {"query":"do","corpus":"esl","error":"","language":"russian"}
+Mon Sep 28 2020 17:24:05 GMT-0400 (EDT) {"query":"do","corpus":"esl","error":"","language":"russian"}
+Mon Sep 28 2020 17:24:07 GMT-0400 (EDT) {"query":"do","corpus":"esl","error":"","language":"russian"}
+Mon Sep 28 2020 17:24:07 GMT-0400 (EDT) {"query":"do","corpus":"esl","error":"","language":"russian"}
+Mon Sep 28 2020 17:24:08 GMT-0400 (EDT) {"query":"do","corpus":"esl","error":"","language":"russian"}
+Mon Sep 28 2020 17:24:08 GMT-0400 (EDT) {"query":"do","corpus":"esl","error":"","language":"russian"}
+Mon Sep 28 2020 17:24:25 GMT-0400 (EDT) {"query":"see it","corpus":"esl","error":"","language":"russian"}
+Mon Sep 28 2020 17:24:38 GMT-0400 (EDT) {"query":"see ","corpus":"esl","error":"","language":"russian"}
+Mon Sep 28 2020 17:24:56 GMT-0400 (EDT) {"query":"v","corpus":"esl","error":"","language":"russian"}
+Mon Sep 28 2020 17:24:58 GMT-0400 (EDT) {"query":"v","corpus":"esl","error":"","language":"russian"}
+Mon Sep 28 2020 17:25:16 GMT-0400 (EDT) {"query":"verb","corpus":"esl","error":"","language":"russian"}
+Mon Sep 28 2020 17:25:26 GMT-0400 (EDT) {"query":"verb","corpus":"esl","error":"","language":""}
+Mon Sep 28 2020 17:25:38 GMT-0400 (EDT) {"query":"verb","corpus":"esl","error":"MV","language":""}
+Mon Sep 28 2020 17:25:48 GMT-0400 (EDT) {"query":"verb","corpus":"esl","error":"MV","language":"russian"}
+Mon Sep 28 2020 17:26:08 GMT-0400 (EDT) {"query":"something","corpus":"esl","error":"MV","language":"russian"}
+Mon Sep 28 2020 17:26:16 GMT-0400 (EDT) {"query":"when","corpus":"esl","error":"MV","language":"russian"}
+Mon Sep 28 2020 17:27:21 GMT-0400 (EDT) {"query":"not","corpus":"esl","error":"MV","language":"russian"}
+Mon Sep 28 2020 17:27:26 GMT-0400 (EDT) {"query":"not","corpus":"esl","error":"MV","language":"russian"}
+Mon Sep 28 2020 17:27:32 GMT-0400 (EDT) {"query":"no","corpus":"esl","error":"MV","language":"russian"}
+Tue Sep 29 2020 06:50:40 GMT-0400 (EDT) {"query":"adv","corpus":"esl","error":"","language":""}
+Tue Sep 29 2020 06:50:47 GMT-0400 (EDT) {"query":"adverb","corpus":"esl","error":"","language":""}
+Tue Sep 29 2020 06:50:49 GMT-0400 (EDT) {"query":"adverb","corpus":"esl","error":"","language":""}
+Tue Sep 29 2020 06:51:11 GMT-0400 (EDT) {"query":"ADV","corpus":"esl","error":"","language":""}
+Tue Sep 29 2020 06:51:57 GMT-0400 (EDT) {"query":"ADV","corpus":"esl","error":"","language":""}
+Tue Sep 29 2020 06:52:01 GMT-0400 (EDT) {"query":"ADV","corpus":"esl","error":"AGV","language":"french"}
+Tue Sep 29 2020 06:52:03 GMT-0400 (EDT) {"query":"ADV","corpus":"esl","error":"AGV","language":"french"}
+Tue Sep 29 2020 06:53:31 GMT-0400 (EDT) {"query":"ADV","corpus":"esl","error":"","language":"russian"}
+Tue Sep 29 2020 06:53:41 GMT-0400 (EDT) {"query":"ADV","corpus":"esl","error":"","language":"russian"}
+Tue Sep 29 2020 06:54:21 GMT-0400 (EDT) {"query":"ADV","corpus":"esl","error":"","language":""}
+Tue Sep 29 2020 06:55:27 GMT-0400 (EDT) {"query":"ADV","corpus":"esl","error":"","language":"german"}
+Tue Sep 29 2020 06:55:29 GMT-0400 (EDT) {"query":"ADV","corpus":"esl","error":"","language":"german"}
+Tue Sep 29 2020 06:56:03 GMT-0400 (EDT) {"query":"often","corpus":"esl","error":"","language":"german"}
+Wed Sep 30 2020 02:15:35 GMT-0400 (EDT) {"query":"often","corpus":"esl","error":"","language":"german"}
+Wed Sep 30 2020 02:17:15 GMT-0400 (EDT) {"query":"enjoy","corpus":"esl","error":"","language":""}
+Wed Sep 30 2020 02:17:32 GMT-0400 (EDT) {"query":"enjoy","corpus":"esl","error":"","language":""}
+Wed Sep 30 2020 02:17:54 GMT-0400 (EDT) {"query":"enjoy","corpus":"esl","error":"","language":""}
+Fri Oct 02 2020 06:12:50 GMT-0400 (EDT) {"query":"Last year","corpus":"esl","error":"","language":""}
+Fri Oct 02 2020 06:13:01 GMT-0400 (EDT) {"query":"Last year, the revenue increased","corpus":"esl","error":"","language":""}
+Fri Oct 02 2020 06:13:08 GMT-0400 (EDT) {"query":"Last year, we wone","corpus":"esl","error":"","language":""}
+Fri Oct 02 2020 06:13:10 GMT-0400 (EDT) {"query":"Last year, we won","corpus":"esl","error":"","language":""}
+Fri Oct 02 2020 06:13:12 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":""}
+Fri Oct 02 2020 08:02:31 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":"italian"}
+Fri Oct 02 2020 08:02:56 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"W","language":"italian"}
+Sat Oct 10 2020 02:33:44 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"W","language":"german"}
+Sat Oct 10 2020 02:38:11 GMT-0400 (EDT) {"query":"AdverbSVO","corpus":"eng","error":"W","language":"german"}
+Sat Oct 10 2020 02:38:13 GMT-0400 (EDT) {"query":"AdverbSVO","corpus":"eng","error":"W","language":"german"}
+Sat Oct 10 2020 02:38:19 GMT-0400 (EDT) {"query":"XSVO","corpus":"eng","error":"W","language":"german"}
+Sat Oct 10 2020 02:38:26 GMT-0400 (EDT) {"query":"AdvSVO","corpus":"eng","error":"W","language":"german"}
+Sat Oct 10 2020 02:38:33 GMT-0400 (EDT) {"query":"ADVSVO","corpus":"eng","error":"W","language":"german"}
+Sat Oct 10 2020 02:38:50 GMT-0400 (EDT) {"query":"SVO","corpus":"eng","error":"W","language":"german"}
+Sat Oct 10 2020 02:39:47 GMT-0400 (EDT) {"query":"DET NOUN","corpus":"eng","error":"W","language":"german"}
+Sat Oct 10 2020 02:39:53 GMT-0400 (EDT) {"query":"DET NOUN","corpus":"eng","error":"W","language":"german"}
+Sat Oct 10 2020 05:30:31 GMT-0400 (EDT) {"query":"ADVERB","corpus":"esl","error":"DY","language":"turkish"}
+Sat Oct 10 2020 05:30:40 GMT-0400 (EDT) {"query":"frequency","corpus":"esl","error":"DY","language":"turkish"}
+Sat Oct 10 2020 05:30:45 GMT-0400 (EDT) {"query":"frequency","corpus":"esl","error":"DY","language":"italian"}
+Sat Oct 10 2020 05:30:51 GMT-0400 (EDT) {"query":"frequency","corpus":"esl","error":"DY","language":""}
+Sat Oct 10 2020 05:30:58 GMT-0400 (EDT) {"query":"frequency","corpus":"eng","error":"DY","language":""}
+Tue Oct 13 2020 07:28:32 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"FQ","language":""}
+Wed Oct 14 2020 18:11:08 GMT-0400 (EDT) {"query":"hello","corpus":"esl","error":"","language":""}
+Wed Oct 14 2020 18:11:25 GMT-0400 (EDT) {"query":"brilliant","corpus":"esl","error":"","language":""}
+Mon Oct 19 2020 10:33:31 GMT-0400 (EDT) {"query":"attorney case","corpus":"eng","error":"","language":""}
+Mon Oct 19 2020 10:33:48 GMT-0400 (EDT) {"query":"attorney case","corpus":"esl","error":"","language":""}
+Thu Oct 22 2020 22:05:20 GMT-0400 (EDT) {"query":"Used","corpus":"eng","error":"","language":""}
+Thu Oct 22 2020 22:07:13 GMT-0400 (EDT) {"query":"Written","corpus":"eng","error":"","language":""}
+Thu Oct 22 2020 22:07:14 GMT-0400 (EDT) {"query":"Written","corpus":"eng","error":"","language":""}
+Thu Oct 22 2020 22:07:14 GMT-0400 (EDT) {"query":"Written","corpus":"eng","error":"","language":""}
+Thu Oct 22 2020 22:08:43 GMT-0400 (EDT) {"query":"Lenguage","corpus":"eng","error":"","language":""}
+Thu Oct 22 2020 22:08:45 GMT-0400 (EDT) {"query":"Lenguage","corpus":"eng","error":"","language":""}
+Thu Oct 22 2020 22:08:59 GMT-0400 (EDT) {"query":"Language","corpus":"eng","error":"","language":""}
+Thu Oct 22 2020 22:10:36 GMT-0400 (EDT) {"query":"Language","corpus":"esl","error":"","language":"spanish"}
+Thu Oct 22 2020 22:10:50 GMT-0400 (EDT) {"query":"Wellcome","corpus":"esl","error":"","language":"spanish"}
+Thu Oct 22 2020 22:11:21 GMT-0400 (EDT) {"query":"Writen","corpus":"esl","error":"","language":"spanish"}
+Thu Oct 22 2020 22:12:09 GMT-0400 (EDT) {"query":"On","corpus":"esl","error":"","language":"spanish"}
+Thu Oct 22 2020 22:14:33 GMT-0400 (EDT) {"query":"On","corpus":"esl","error":"","language":"spanish"}
+Thu Oct 22 2020 22:14:34 GMT-0400 (EDT) {"query":"On","corpus":"esl","error":"","language":"spanish"}
+Thu Oct 22 2020 22:15:11 GMT-0400 (EDT) {"query":"Rather","corpus":"esl","error":"","language":"spanish"}
+Thu Oct 22 2020 22:15:12 GMT-0400 (EDT) {"query":"Rather","corpus":"esl","error":"","language":"spanish"}
+Sat Oct 24 2020 06:17:52 GMT-0400 (EDT) {"query":"I once heard a story about a young student who landed a doctorate to study giant pandas in the wild. After two years in the field, he still hadn’t seen one. Even if it’s only apocryphal, this tale captures an undeniable truth: giant pandas are incredibly elusive, which makes them incredibly hard to count.","corpus":"eng","error":"","language":""}
+Mon Oct 26 2020 05:27:19 GMT-0400 (EDT) {"query":"see the sign","corpus":"esl","error":"","language":""}
+Mon Oct 26 2020 05:27:22 GMT-0400 (EDT) {"query":"see the sign","corpus":"esl","error":"","language":""}
+Mon Oct 26 2020 05:27:24 GMT-0400 (EDT) {"query":"see the sign","corpus":"esl","error":"","language":""}
+Mon Oct 26 2020 05:27:42 GMT-0400 (EDT) {"query":"look out","corpus":"esl","error":"","language":""}
+Mon Oct 26 2020 05:27:49 GMT-0400 (EDT) {"query":"see it","corpus":"esl","error":"","language":""}
+Mon Oct 26 2020 07:29:57 GMT-0400 (EDT) {"query":"hearing from you","corpus":"esl","error":"","language":""}
+Mon Oct 26 2020 07:30:39 GMT-0400 (EDT) {"query":"hear from you","corpus":"esl","error":"","language":""}
+Mon Oct 26 2020 07:31:08 GMT-0400 (EDT) {"query":"hear from you","corpus":"esl","error":"","language":""}
+Mon Oct 26 2020 07:37:45 GMT-0400 (EDT) {"query":"hear","corpus":"esl","error":"UJ","language":""}
+Mon Oct 26 2020 07:37:47 GMT-0400 (EDT) {"query":"hear","corpus":"esl","error":"UJ","language":""}
+Mon Oct 26 2020 07:37:53 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"UJ","language":""}
+Wed Oct 28 2020 05:41:31 GMT-0400 (EDT) {"query":"","corpus":"esl","error":"","language":""}
+Wed Oct 28 2020 05:41:39 GMT-0400 (EDT) {"query":"test","corpus":"esl","error":"","language":""}
+Wed Oct 28 2020 05:41:56 GMT-0400 (EDT) {"query":"test","corpus":"esl","error":"","language":""}
+Wed Oct 28 2020 05:41:56 GMT-0400 (EDT) {"query":"test","corpus":"esl","error":"","language":""}
+Wed Oct 28 2020 05:42:01 GMT-0400 (EDT) {"query":"test","corpus":"esl","error":"","language":""}
+Wed Nov 04 2020 09:28:54 GMT-0500 (EST) {"query":"preside the leeting","corpus":"esl","error":"","language":""}
+Wed Nov 04 2020 09:30:35 GMT-0500 (EST) {"query":"preside the meeting","corpus":"esl","error":"","language":""}
+Wed Nov 04 2020 09:30:44 GMT-0500 (EST) {"query":" the ","corpus":"esl","error":"","language":""}
+Thu Nov 05 2020 07:36:49 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGV","language":""}
+Thu Nov 05 2020 07:37:46 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGV","language":""}
+Sat Nov 07 2020 08:15:18 GMT-0500 (EST) {"query":"see","corpus":"esl","error":"","language":""}
+Sun Nov 08 2020 20:22:05 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGV","language":"chinese"}
+Sun Nov 08 2020 20:24:29 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGV","language":"chinese"}
+Sun Nov 08 2020 20:25:04 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AGV","language":"chinese"}
+Sun Nov 08 2020 20:29:04 GMT-0500 (EST) {"query":"try it","corpus":"esl","error":"","language":""}
+Mon Nov 09 2020 07:24:46 GMT-0500 (EST) {"query":"see the","corpus":"esl","error":"","language":""}
+Mon Nov 09 2020 07:24:51 GMT-0500 (EST) {"query":"see the","corpus":"esl","error":"","language":""}
+Mon Nov 09 2020 07:24:57 GMT-0500 (EST) {"query":"see the","corpus":"esl","error":"","language":""}
+Wed Nov 11 2020 03:59:27 GMT-0500 (EST) {"query":"","corpus":"eng","error":"","language":""}
+Wed Nov 11 2020 04:12:50 GMT-0500 (EST) {"query":"give to him","corpus":"esl","error":"","language":""}
+Wed Nov 11 2020 04:12:54 GMT-0500 (EST) {"query":"give to him","corpus":"esl","error":"","language":""}
+Wed Nov 11 2020 04:12:58 GMT-0500 (EST) {"query":"give to him","corpus":"esl","error":"","language":""}
+Thu Nov 12 2020 07:11:55 GMT-0500 (EST) {"query":"i will going","corpus":"esl","error":"","language":""}
+Thu Nov 12 2020 07:12:05 GMT-0500 (EST) {"query":"should i stay","corpus":"esl","error":"","language":""}
+Thu Nov 12 2020 07:12:09 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Thu Nov 12 2020 07:12:29 GMT-0500 (EST) {"query":"going down","corpus":"esl","error":"","language":""}
+Thu Nov 12 2020 07:12:37 GMT-0500 (EST) {"query":"go down","corpus":"esl","error":"","language":""}
+Thu Nov 12 2020 07:12:41 GMT-0500 (EST) {"query":"go deep","corpus":"esl","error":"","language":""}
+Thu Nov 12 2020 07:12:48 GMT-0500 (EST) {"query":"suck blood","corpus":"esl","error":"","language":""}
+Mon Nov 16 2020 09:34:40 GMT-0500 (EST) {"query":"we was","corpus":"esl","error":"","language":"russian"}
+Mon Nov 16 2020 09:34:51 GMT-0500 (EST) {"query":"i was","corpus":"esl","error":"","language":"russian"}
+Mon Nov 16 2020 09:35:14 GMT-0500 (EST) {"query":"we was","corpus":"esl","error":"","language":""}
+Mon Nov 16 2020 09:35:47 GMT-0500 (EST) {"query":"I was","corpus":"esl","error":"","language":""}
+Mon Nov 16 2020 09:35:55 GMT-0500 (EST) {"query":"I was","corpus":"esl","error":"","language":"russian"}
+Mon Nov 16 2020 21:22:41 GMT-0500 (EST) {"query":"hello","corpus":"esl","error":"","language":"korean"}
+Mon Nov 16 2020 21:22:51 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":"korean"}
+Mon Nov 16 2020 21:23:25 GMT-0500 (EST) {"query":"see it","corpus":"esl","error":"","language":""}
+Thu Nov 19 2020 03:25:18 GMT-0500 (EST) {"query":"night","corpus":"esl","error":"","language":""}
+Thu Nov 19 2020 03:27:29 GMT-0500 (EST) {"query":"night","corpus":"eng","error":"","language":""}
+Thu Nov 26 2020 14:18:23 GMT-0500 (EST) {"query":"\\w+_V","corpus":"esl","error":"","language":""}
+Thu Nov 26 2020 14:18:46 GMT-0500 (EST) {"query":"\\w+_ing","corpus":"esl","error":"","language":""}
+Thu Nov 26 2020 14:18:52 GMT-0500 (EST) {"query":"\\w+ing","corpus":"esl","error":"","language":""}
+Thu Nov 26 2020 14:20:55 GMT-0500 (EST) {"query":"neither is","corpus":"esl","error":"","language":""}
+Thu Nov 26 2020 14:21:03 GMT-0500 (EST) {"query":"neither is","corpus":"esl","error":"","language":""}
+Thu Nov 26 2020 14:21:11 GMT-0500 (EST) {"query":"Neither","corpus":"esl","error":"","language":""}
+Sun Nov 29 2020 05:11:50 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Sun Nov 29 2020 07:13:53 GMT-0500 (EST) {"query":"Because ","corpus":"esl","error":"","language":""}
+Sun Nov 29 2020 07:13:54 GMT-0500 (EST) {"query":"Because ","corpus":"esl","error":"","language":""}
+Sun Nov 29 2020 07:13:56 GMT-0500 (EST) {"query":"Because ","corpus":"esl","error":"","language":""}
+Sun Nov 29 2020 07:14:04 GMT-0500 (EST) {"query":"Because","corpus":"esl","error":"","language":""}
+Tue Dec 01 2020 10:15:37 GMT-0500 (EST) {"query":"because","corpus":"esl","error":"","language":""}
+Tue Dec 01 2020 10:17:07 GMT-0500 (EST) {"query":"that","corpus":"esl","error":"","language":"italian"}
+Tue Dec 01 2020 11:30:02 GMT-0500 (EST) {"query":"that","corpus":"esl","error":"","language":"italian"}
+Tue Dec 01 2020 17:44:36 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":""}
+Wed Dec 02 2020 13:55:29 GMT-0500 (EST) {"query":"","corpus":"esl","error":"CN","language":"russian"}
+Wed Dec 02 2020 13:56:07 GMT-0500 (EST) {"query":"","corpus":"esl","error":"CN","language":"russian"}
+Wed Dec 02 2020 13:56:35 GMT-0500 (EST) {"query":"","corpus":"eng","error":"CN","language":"russian"}
+Wed Dec 09 2020 11:22:47 GMT-0500 (EST) {"query":"","corpus":"esl","error":"","language":"chinese"}
+Wed Dec 16 2020 05:40:56 GMT-0500 (EST) {"query":"nowadays","corpus":"esl","error":"","language":""}
+Wed Dec 16 2020 05:42:50 GMT-0500 (EST) {"query":"novadays","corpus":"esl","error":"","language":""}
+Wed Dec 16 2020 05:43:55 GMT-0500 (EST) {"query":"novadays","corpus":"esl","error":"","language":""}
+Wed Dec 16 2020 05:47:11 GMT-0500 (EST) {"query":"novadays","corpus":"esl","error":"","language":""}
+Wed Dec 16 2020 05:47:21 GMT-0500 (EST) {"query":"novadays","corpus":"esl","error":"","language":""}
+Wed Dec 16 2020 05:47:37 GMT-0500 (EST) {"query":"","corpus":"esl","error":"CE","language":""}
+Wed Dec 16 2020 05:49:29 GMT-0500 (EST) {"query":"","corpus":"esl","error":"DJ","language":""}
+Wed Dec 16 2020 05:54:16 GMT-0500 (EST) {"query":"","corpus":"esl","error":"AS","language":""}
+Wed Dec 16 2020 14:19:26 GMT-0500 (EST) {"query":"theory","corpus":"eng","error":"","language":""}
+Wed Dec 16 2020 14:20:23 GMT-0500 (EST) {"query":"science","corpus":"eng","error":"","language":""}
+Wed Dec 16 2020 14:21:24 GMT-0500 (EST) {"query":"science","corpus":"esl","error":"","language":"russian"}
